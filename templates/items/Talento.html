@@ -1,0 +1,16 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/ficha/talento-Bg.svg" alt="?"/>
+  <div class="talento-container">
+    <div class="Talento-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+                                       onClick="this.select();"/></div>
+    <div class="Talento-foto">
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+    </div>
+    <div class="Talento-Requisito">
+      <input type="text" name="data.Requisito" value="{{data.data.Requisito}}"/>
+    </div>
+    <div class="Talento-descripcion-container">
+      {{{editor content=data.data.Descripción target="data.Descripción" button=true owner=owner editable=editable}}}
+    </div>
+  </div>
+</form>

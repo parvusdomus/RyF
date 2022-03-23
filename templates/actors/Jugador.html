@@ -1,0 +1,87 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/ficha/PJ-Bg.svg" alt="?"/>
+  <div class="content-container">
+    <div class="character-info">
+      <div class="PJ-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
+                                         onClick="this.select();"/></div>
+      <div class="PJ-foto">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div>
+        <img class="PJ_D10 D10Roll" src="/systems/RyF/assets/ficha/d10.svg" alt="?"/>
+        <img class="PJ_D6 D6Roll" src="/systems/RyF/assets/ficha/d6.svg" alt="?"/>
+      </div>
+
+      <div class="PJ_Experiencia">
+        <input type="text" name="data.Experiencia" value="{{data.Experiencia}}" data-dtype="Number" maxlength="3"/>
+      </div>
+      <div class="label_PJ_Físico tiradaAtributo" data-atributo="Físico" data-valor="{{data.Físico}}" data-vida="{{data.Puntos_de_Vida.value}}" data-fisico="{{data.Físico}}"><label>Físico<label></div>
+      <div class="PJ_Físico">
+        <input type="text" name="data.Físico" value="{{data.Físico}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="label_PJ_Destreza tiradaAtributo" data-atributo="Destreza" data-valor="{{data.Destreza}}" data-vida="{{data.Puntos_de_Vida.value}}" data-fisico="{{data.Físico}}"><label>Destreza<label></div>
+      <div class="PJ_Destreza">
+        <input type="text" name="data.Destreza" value="{{data.Destreza}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="label_PJ_Inteligencia tiradaAtributo" data-atributo="Inteligencia" data-valor="{{data.Inteligencia}}" data-vida="{{data.Puntos_de_Vida.value}}" data-fisico="{{data.Físico}}"><label>Inteligencia<label></div>
+      <div class="PJ_Inteligencia">
+        <input type="text" name="data.Inteligencia" value="{{data.Inteligencia}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="label_PJ_Percepción tiradaAtributo" data-atributo="Percepción" data-valor="{{data.Percepción}}" data-vida="{{data.Puntos_de_Vida.value}}" data-fisico="{{data.Físico}}"><label>Percepción<label></div>
+      <div class="PJ_Percepción">
+        <input type="text" name="data.Percepción" value="{{data.Percepción}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PJ_Iniciativa"><label>{{data.Iniciativa}}</label></div>
+      <div class="PJ_Estorbo"><label>{{data.Estorbo_Total}}</label></div>
+      <div class="PJ_Defensa"><label>{{data.Defensa.Base}}</label></div>
+      <div class="PJ_Escudo_CaC"><label>{{data.Defensa.Escudo_CAC}}</label></div>
+      <div class="PJ_Escudo_Dist"><label>{{data.Defensa.Escudo_Dist}}</label></div>
+      <div class="PJ_Absorción"><label>{{data.Absorción_Total}}</label></div>
+      <div class="label_PJ_Vida restauraVida"><label>Vida</label></div>
+      <div class="PJ_PV_Actuales">
+        <input type="text" name="data.Puntos_de_Vida.value" value="{{data.Puntos_de_Vida.value}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PJ_PV_Totales"><label>{{data.Puntos_de_Vida.max}}</label></div>
+      <div class="label_PJ_Mana restauraMana"><label>Maná</label></div>
+      <div class="PJ_PM_Actuales">
+        <input type="text" name="data.Puntos_de_Mana.value" value="{{data.Puntos_de_Mana.value}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PJ_PM_Totales"><label>{{data.Puntos_de_Mana.max}}</label></div>
+
+
+    </div>
+{{!-- Sheet Body --}}
+<div class="character-tabs-info sheet-body">
+
+  {{!-- Sheet Tab Navigation --}}
+  <div class="character-tabs RyF_charsheet_tab">
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item habilidades-tab" data-tab="habilidades">Habilidades</a>
+      <a class="item inventario-tab" data-tab="inventario">Inventario</a>
+      <a class="item talentos-tab" data-tab="talentos">Talentos/Magia</a>
+      <a class="item biografia-tab" data-tab="biografia">Biografía</a>
+    </nav>
+  </div>
+
+  {{!-- Habilidades Tab --}}
+  <div class="tab Jugador_habilidades" data-group="primary" data-tab="habilidades">
+    {{> "/systems/RyF/templates/actors/Jugador_partes/Jugador_habilidades.html"}}
+  </div>
+
+  {{!-- Inventario Tab --}}
+  <div class="tab Jugador_inventario" data-group="primary" data-tab="inventario">
+    {{> "/systems/RyF/templates/actors/Jugador_partes/Jugador_inventario.html"}}
+  </div>
+
+  {{!-- Talentos Tab --}}
+  <div class="tab Jugador_talentos" data-group="primary" data-tab="talentos">
+    {{> "/systems/RyF/templates/actors/Jugador_partes/Jugador_talentos.html"}}
+  </div>
+
+  {{!-- Bio Tab --}}
+  <div class="tab Jugador_biografia" data-group="primary" data-tab="biografia">
+    {{> "/systems/RyF/templates/actors/Jugador_partes/Jugador_biografia.html"}}
+  </div>
+</div>
+</div>
+</form>

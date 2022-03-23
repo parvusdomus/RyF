@@ -1,0 +1,190 @@
+.dialogo_tirada_arma_CAC{
+  width: 384px;
+  height: 200px;
+}
+
+.dialogo_tirada_arma_CAC_nombre {
+  background-color: transparent;
+  position: absolute;
+  top: 2.8em;
+  left: 2em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_valor {
+  background-color: transparent;
+  position: absolute;
+  top: 2.9em;
+  left: 7.3em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_atributo_nombre {
+  background-color: transparent;
+  position: absolute;
+  top: 5.5em;
+  left: 2em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_atributo_valor {
+  background-color: transparent;
+  position: absolute;
+  top: 5.5em;
+  left: 7.3em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_mod {
+  background-color: transparent;
+  position: absolute;
+  top: 8.4em;
+  text-align: center;
+  z-index: 6;
+  left: 7.3em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.2em;
+}
+.dialogo_tirada_arma_CAC_mod input{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_defensa {
+  background-color: transparent;
+  position: absolute;
+  top: 11.5em;
+  text-align: center;
+  z-index: 6;
+  left: 7.3em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.2em;
+}
+.dialogo_tirada_arma_CAC_defensa input{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+.PJ_tirada_arma_CaC_D10 {
+  top: 6em;
+  left: 11.4em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.PJ_tirada_arma_CaC_D10 img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.dialogo_tirada_arma_CAC_forzar {
+  background-color: transparent;
+  position: absolute;
+  top: 10.6em;
+  text-align: center;
+  border:none;
+  z-index: 6;
+  left: 13.7em;
+  width: 5.6em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.dialogo_tirada_arma_CAC_dif select{
+  text-align: center;
+  background-color: transparent;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+}
+
+.dialogo_tirada_arma_CAC_daño {
+  background-color: transparent;
+  position: absolute;
+  top: 2.9em;
+  left: 13.3em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.2em;
+}
+.dialogo_tirada_arma_CAC_daño input{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1.2em;
+}
+
+.dialogo_tirada_arma_CAC_armadura {
+  background-color: transparent;
+  position: absolute;
+  top: 7.9em;
+  left: 18.5em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_arma_CAC_mod_daño {
+  background-color: transparent;
+  position: absolute;
+  top: 5.8em;
+  text-align: center;
+  z-index: 6;
+  left: 13.3em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.2em;
+}
+.dialogo_tirada_arma_CAC_mod_daño input{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1.3em;
+}

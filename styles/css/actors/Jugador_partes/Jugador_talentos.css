@@ -1,0 +1,56 @@
+.Jugador_talentos{
+  position: absolute;
+  left:20.5em;
+  top: 4em;
+  width: 30em;
+  height: 40em;
+  overflow-y: scroll;
+  border: none;
+  border-width: 0;
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+}
+
+.Jugador_Talentos_Tabla{
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+
+}
+
+.Jugador_Talentos_Tabla table{
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+
+}
+
+.Jugador_Talentos_Tabla_Títulos {
+  font-family: "Bangers";
+  font-size: large;
+  color: Black;
+}
+
+.Jugador_Talentos_Tabla_Texto {
+  font-family: "Airstrip";
+  color: Black;
+}
+
+.Jugador_Talentos_Tabla_Nombre {
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: clip;
+}
+
+.Jugador_Talentos_Tabla_Nombre td{
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  width: 10em;
+  text-align: left;
+}
+
+.Jugador_Talentos_Imagen img{
+  background-color: grey;
+}

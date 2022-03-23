@@ -1,0 +1,38 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/ficha/simplePNJ-Bg.svg" alt="?"/>
+  <div class="PNJ-content-container">
+    <div class="PNJ-character-info">
+      <div class="PNJ-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/></div>
+      <div class="PNJ-foto">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div class="label_PNJ_Ataque tiradaAtaquePNJ" data-arma="{{name}}" data-habilidad="{{data.Ataque}}" data-daño="{{data.Daño}}"><label>Ataque</label></div>
+      <div class="PNJ_Ataque">
+        <input type="text" name="data.Ataque" value="{{data.Ataque}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PNJ_Defensa">
+        <input type="text" name="data.Defensa.Base" value="{{data.Defensa.Base}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PNJ_Iniciativa">
+        <input type="text" name="data.Iniciativa" value="{{data.Iniciativa}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PNJ_Absorción_Total">
+        <input type="text" name="data.Absorción_Total" value="{{data.Absorción_Total}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="label_PNJ_Daño tiradaDañoPNJ"><label>Daño</label></div>
+      <div class="PNJ_Daño">
+        <input type="text" name="data.Daño" value="{{data.Daño}}" data-dtype="Text"/>
+      </div>
+      <div class="label_PNJ_PV restauraVidaPNJ"><label>Puntos de Vida</label></div>
+      <div class="PNJ_PV_Actuales">
+        <input type="text" name="data.Puntos_de_Vida.value" value="{{data.Puntos_de_Vida.value}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PNJ_PV_Totales">
+        <input type="text" name="data.Puntos_de_Vida.max" value="{{data.Puntos_de_Vida.max}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="PNJ_contenedor_biografia">
+          {{editor content=data.Descripción target="data.Descripción" button=true owner=owner editable=true}}
+      </div>
+    </div>
+  </div>
+</form>

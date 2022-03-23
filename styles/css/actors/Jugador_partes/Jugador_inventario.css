@@ -1,0 +1,56 @@
+.Jugador_inventario{
+  position: absolute;
+  left:20.5em;
+  top: 4em;
+  width: 30em;
+  height: 40em;
+  overflow-y: scroll;
+  border: none;
+  border-width: 0;
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+}
+
+.Jugador_Inventario_Tabla{
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+
+}
+
+.Jugador_Inventario_Tabla table{
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: transparent;
+
+}
+
+.Jugador_Inventario_Tabla_Títulos {
+  font-family: "Bangers";
+  color: black;
+  font-size: large;
+}
+
+.Jugador_Inventario_Tabla_Texto {
+  font-family: "Airstrip";
+  color: black;
+}
+
+.Jugador_Inventario_Tabla_Nombre {
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: clip;
+}
+
+.Jugador_Inventario_Tabla_Nombre td{
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  width: 10em;
+  text-align: left;
+}
+
+.Jugador_Inventario_Imagen img{
+  background-color: grey;
+}

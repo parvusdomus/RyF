@@ -1,0 +1,122 @@
+.Hechizo-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Hechizo-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Hechizo-foto {
+  top: 5.5em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Hechizo-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Hechizo-Dificultad {
+  background-color: transparent;
+  position: absolute;
+  top: 4.6em;
+  text-align: center;
+  z-index: 6;
+  left: 12.8em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Hechizo-Dificultad input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Hechizo-Mana {
+  background-color: transparent;
+  position: absolute;
+  top: 9.5em;
+  text-align: center;
+  z-index: 6;
+  left: 5.5em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Hechizo-Mana input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Hechizo-Nivel {
+  background-color: transparent;
+  position: absolute;
+  top: 9.5em;
+  text-align: center;
+  z-index: 6;
+  left: 13.4em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Hechizo-Nivel input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Hechizo-Alcance {
+  background-color: transparent;
+  position: absolute;
+  top: 6.9em;
+  text-align: center;
+  z-index: 6;
+  left: 11.7em;
+  width: 5em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Hechizo-Alcance select{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Hechizo-descripcion-container {
+  position:absolute;
+  left: 2em;
+  top: 15em;
+  height: 14em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}

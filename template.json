@@ -1,0 +1,123 @@
+{
+  "Actor": {
+    "types": ["Jugador", "PNJ", "Vehículo"],
+    "Jugador":{
+    "Físico": 0,
+    "Destreza": 0,
+    "Inteligencia": 0,
+    "Percepción": 0,
+    "Iniciativa": 0,
+    "Defensa": {
+      "Base": 0,
+      "Escudo_CAC": 0,
+      "Escudo_Dist": 0
+    },
+    "Absorción_Total": 0,
+    "Puntos_de_Vida":{
+      "value":0,
+      "min":0,
+      "max": 0
+    },
+    "Puntos_de_Mana": {
+      "value":0,
+      "min":0,
+      "max": 0
+    },
+    "Estorbo_Total": 0,
+    "Dinero": 0,
+    "Experiencia": 0,
+    "Raza": "",
+    "Descripción": ""
+  },
+
+  "PNJ":{
+  "Iniciativa": 0,
+  "Ataque": 0,
+  "Defensa":{
+    "Base": 0
+    },
+  "Absorción_Total": 0,
+  "Puntos_de_Vida":{
+    "value":0,
+    "min":0,
+    "max": 0
+  },
+  "Puntos_de_Mana":{
+    "value":0,
+    "min":0,
+    "max": 0
+  },
+  "Daño": "",
+  "Descripción": ""
+}
+
+
+  },
+
+
+  "Item":{
+    "types": ["Arma", "Armadura", "Escudo", "Objeto", "Habilidad", "Hechizo", "Talento"],
+    "Arma":{
+      "Descripción": "",
+      "Daño":{
+        "Corto": "",
+        "Medio": "",
+        "Largo": ""
+      },
+      "Alcance": {
+        "Corto": 0,
+        "Medio": 0,
+        "Largo": 0
+      },
+      "Habilidad": "Armas CC",
+      "Precio": 0
+    },
+    "Armadura":{
+      "Descripción": "",
+      "Absorción": 0,
+      "Estorbo": 0,
+      "Precio":0,
+      "Equipado": "false"
+    },
+    "Escudo":{
+      "Descripción": "",
+      "Defensa": {
+        "CC": 0,
+        "Distancia": 0
+      },
+      "Estorbo": 0,
+      "Precio": 0,
+      "Equipado": "false"
+    },
+    "Objeto":{
+      "Descripción": "",
+      "Cantidad": 0,
+      "Precio": 0
+    },
+    "Habilidad":{
+      "Descripción": "",
+      "Atributo": "Físico",
+      "Nivel": 0,
+      "Total": 0
+    },
+    "Hechizo":{
+      "Descripción": "",
+      "Dificultad": 0,
+      "Nivel": 0,
+      "Mana": 0,
+      "Alcance": "",
+      "Daño": {
+        "Produce_Daño": "false",
+        "Valor": ""
+      },
+      "Curación":{
+        "Produce_Curación": "false",
+        "Valor": ""
+      }
+    },
+    "Talento":{
+      "Descripción": "",
+      "Requisito": ""
+    }
+  }
+}

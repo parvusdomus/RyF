@@ -1,0 +1,84 @@
+.Habilidad-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Habilidad-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Habilidad-foto {
+  top: 5.5em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Habilidad-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Habilidad-Atributo {
+  background-color: transparent;
+  position: absolute;
+  top: 4.7em;
+  text-align: center;
+  z-index: 6;
+  left: 12em;
+  width: 5em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Habilidad-Atributo select{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Habilidad-Nivel {
+  background-color: transparent;
+  position: absolute;
+  top: 7.1em;
+  text-align: center;
+  z-index: 6;
+  left: 12.9em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Habilidad-Nivel input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Habilidad-descripcion-container {
+  position:absolute;
+  left: 2em;
+  top: 14em;
+  height: 15em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}

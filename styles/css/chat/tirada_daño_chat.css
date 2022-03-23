@@ -1,0 +1,77 @@
+.chat_tirada_daño_label1 {
+  background-color: transparent;
+  position: relative;
+  top: -10.5em;
+  text-align: center;
+  z-index: 6;
+  width: 15em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.chat_tirada_daño_label2 {
+  background-color: transparent;
+  position: relative;
+  top: -10.5em;
+  text-align: center;
+  z-index: 6;
+  width: 15em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.chat_tirada_daño_total {
+  background-color: transparent;
+  position: relative;
+  top: -5.1em;
+  left: 1.7em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 3.5em;
+}
+.chat_tirada_daño_explicacion {
+  background-color: transparent;
+  position: relative;
+  top: -18.9em;
+  left: 2.3em;
+  text-align: center;
+  z-index: 6;
+  width: 10em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.chat_tirada_aplicar_daño {
+  background-color: transparent;
+  position: relative;
+  top: -13.3em;
+  left: 2.3em;
+  text-align: center;
+  z-index: 6;
+  width: 10em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.chat_tirada_daño_imagen_dados {
+  top: -12.3em;
+  left: 6em;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  text-align: center;
+  z-index: 0;
+}
+
+.chat_tirada_daño_imagen_dados img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}

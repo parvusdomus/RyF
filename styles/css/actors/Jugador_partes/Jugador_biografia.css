@@ -1,0 +1,10 @@
+.Jugador_contenedor_biografia{
+  position: absolute;
+  left:20.5em;
+  top: 4em;
+  width: 30em;
+  height: 40em;
+  overflow-y: scroll;
+  border: none;
+  border-width: 0;
+}

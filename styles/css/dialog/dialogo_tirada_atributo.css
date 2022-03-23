@@ -1,0 +1,109 @@
+.dialogo_tirada_atributo{
+  width: 384px;
+  height: 200px;
+}
+
+.dialogo_tirada_atributo_nombre {
+  background-color: transparent;
+  position: absolute;
+  top: 3.5em;
+  left: 2em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Bangers";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_atributo_valor {
+  background-color: transparent;
+  position: absolute;
+  top: 3.5em;
+  left: 12.8em;
+  text-align: center;
+  z-index: 6;
+  width: 2em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_atributo_mod {
+  background-color: transparent;
+  position: absolute;
+  top: 7.8em;
+  text-align: center;
+  z-index: 6;
+  left: 13.5em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.2em;
+}
+.dialogo_tirada_atributo_mod input{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+.dialogo_tirada_atributo_dif {
+  background-color: transparent;
+  position: absolute;
+  top: 10.6em;
+  text-align: center;
+  border:none;
+  z-index: 6;
+  left: 7.5em;
+  width: 8em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.dialogo_tirada_atributo_dif select{
+  text-align: center;
+  background-color: transparent;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+}
+
+.PJ_tirada_atributo_D10 {
+  top: 4em;
+  left: 20em;
+  position: absolute;
+  width: 8em;
+  height: 8em;
+  text-align: center;
+  z-index: 0;
+}
+
+.PJ_tirada_atributo_D10 img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.dialogo_tirada_atributo_forzar {
+  background-color: transparent;
+  position: absolute;
+  top: 10.6em;
+  text-align: center;
+  border:none;
+  z-index: 6;
+  left: 15.7em;
+  width: 5.6em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.dialogo_tirada_atributo_dif select{
+  text-align: center;
+  background-color: transparent;
+  font-family: "Airstrip";
+  color: Black !important;
+  border: none;
+}

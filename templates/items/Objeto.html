@@ -1,0 +1,19 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/ficha/objeto-Bg.svg" alt="?"/>
+  <div class="objeto-container">
+    <div class="Objeto-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+                                       onClick="this.select();"/></div>
+    <div class="Objeto-foto">
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+    </div>
+    <div class="Objeto-Precio">
+      <input type="text" name="data.Precio" value="{{data.data.Precio}}" data-dtype="Number" maxlength="4"/>
+    </div>
+    <div class="Objeto-Cantidad">
+      <input type="text" name="data.Cantidad" value="{{data.data.Cantidad}}" data-dtype="Number" maxlength="3"/>
+    </div>
+    <div class="Objeto-descripcion-container">
+      {{{editor content=data.data.Descripción target="data.Descripción" button=true owner=owner editable=editable}}}
+    </div>
+  </div>
+</form>

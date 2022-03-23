@@ -1,0 +1,20 @@
+<form class="{{cssClass}} dialogo_tirada_atributo" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/chat/dialogo_tirada_atributo.svg" alt="?"/>
+  <div class="chat_tirada_atributo_label2_3d10"><label> 1o3d10 + {{bonos}}</label>
+  </div>
+  <div>
+    {{#if (eq tipo_dado "mayor")}}
+      <img class="chat_tirada_atributo_imagen_dados_3d10" src="/systems/RyF/assets/chat/d10_Mayor.svg" alt="?"/>
+    {{/if}}
+    {{#if (eq tipo_dado "objetivo")}}
+      <img class="chat_tirada_atributo_imagen_dados_3d10" src="/systems/RyF/assets/chat/d10_objetivo.svg" alt="?"/>
+    {{/if}}
+    {{#if (eq tipo_dado "menor")}}
+      <img class="chat_tirada_atributo_imagen_dados_3d10" src="/systems/RyF/assets/chat/d10_menor.svg" alt="?"/>
+    {{/if}}
+  </div>
+  <div class="chat_tirada_atributo_menor_3d10"><label>{{dado_menor}}</label></div>
+  <div class="chat_tirada_atributo_medio_3d10"><label>{{dado_medio}}</label></div>
+  <div class="chat_tirada_atributo_mayor_3d10"><label>{{dado_mayor}}</label></div>
+  <div class="chat_tirada_resultado_3d10"><label>TOTAL: {{total}}</label></div>
+</form>

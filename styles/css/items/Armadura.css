@@ -1,0 +1,100 @@
+.Armadura-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Armadura-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Armadura-foto {
+  top: 6.1em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Armadura-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Armadura-precio {
+  background-color: transparent;
+  position: absolute;
+  top: 4.4em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Armadura-precio input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Armadura-absorción {
+  background-color: transparent;
+  position: absolute;
+  top: 6.7em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Armadura-absorción input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Armadura-estorbo {
+  background-color: transparent;
+  position: absolute;
+  top: 8.8em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Armadura-estorbo input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Armadura-descripcion-container {
+  position:absolute;
+  left: 2em;
+  top: 15em;
+  height: 14em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}

@@ -1,0 +1,210 @@
+.Arma-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Arma-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Arma-foto {
+  top: 5.5em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Arma-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Arma-habilidad {
+  background-color: transparent;
+  position: absolute;
+  top: 7em;
+  text-align: center;
+  z-index: 6;
+  left: 11.5em;
+  width: 5em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Arma-habilidad select{
+  text-align: center;
+  font-family: "Airstrip";
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Arma-precio {
+  background-color: transparent;
+  position: absolute;
+  top: 4.7em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Arma-precio input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Arma-alcance-corto {
+  background-color: transparent;
+  position: absolute;
+  top: 9.6em;
+  text-align: center;
+  z-index: 6;
+  left: 7.2em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Arma-alcance-corto input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Arma-alcance-medio {
+  background-color: transparent;
+  position: absolute;
+  top: 9.6em;
+  text-align: center;
+  z-index: 6;
+  left: 10em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Arma-alcance-medio input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Arma-alcance-largo {
+  background-color: transparent;
+  position: absolute;
+  top: 9.6em;
+  text-align: center;
+  z-index: 6;
+  left: 12.65em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Arma-alcance-largo input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Arma-daño-corto {
+  position: absolute;
+  top: 15.3em;
+  text-align: center;
+  z-index: 6;
+  left: 7em;
+  width: 5em;
+  font-family: "Airstrip";
+}
+
+.Arma-daño-corto input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 4em;
+  font-size: 1em;
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Arma-daño-medio {
+  position: absolute;
+  top: 15.3em;
+  text-align: center;
+  z-index: 6;
+  left: 11.5em;
+  width: 5em;
+  font-family: "Airstrip";
+}
+
+.Arma-daño-medio input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 4em;
+  font-size: 1em;
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Arma-daño-largo {
+  position: absolute;
+  top: 15.3em;
+  text-align: center;
+  z-index: 6;
+  left: 15.7em;
+  width: 5em;
+  font-family: "Airstrip";
+}
+
+.Arma-daño-largo input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 4em;
+  font-size: 1em;
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Arma-descripcion-container {
+  position:absolute;
+  left: 2em;
+  top: 19em;
+  height: 10em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}
+
+.editor-content {
+  margin-left: 0em;
+  margin-top: 0em;
+  padding-left: 0.8em;
+  width: 100%;
+  font-family: "Airstrip";
+  color: Black !important;
+  background-color: transparent;
+  font-size: 1em;
+}

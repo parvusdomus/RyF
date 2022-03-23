@@ -1,0 +1,118 @@
+.Escudo-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Escudo-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Escudo-foto {
+  top: 6em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Escudo-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Escudo-precio {
+  background-color: transparent;
+  position: absolute;
+  top: 4.5em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Escudo-precio input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Escudo-defensa-CC {
+  background-color: transparent;
+  position: absolute;
+  top: 6.7em;
+  text-align: center;
+  z-index: 6;
+  left: 11em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Escudo-defensa-CC input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Escudo-defensa-Dist {
+  background-color: transparent;
+  position: absolute;
+  top: 6.7em;
+  text-align: center;
+  z-index: 6;
+  left: 13.3em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Escudo-defensa-Dist input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+.Escudo-estorbo {
+  background-color: transparent;
+  position: absolute;
+  top: 8.9em;
+  text-align: center;
+  z-index: 6;
+  left: 12.7em;
+  width: 3em;
+  font-family: "Airstrip";
+  color: Black !important;
+  font-size: 1.3em;
+}
+.Escudo-estorbo input{
+  text-align: center;
+  color: Black !important;
+  background-color: transparent;
+  border: none;
+}
+
+.Escudo-descripcion-container {
+  position:absolute;
+  left: 2em;
+  top: 15em;
+  height: 14em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}

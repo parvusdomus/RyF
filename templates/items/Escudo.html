@@ -1,0 +1,25 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <img class="content-background" src="/systems/RyF/assets/ficha/escudo-Bg.svg" alt="?"/>
+  <div class="escudo-container">
+    <div class="Escudo-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+                                       onClick="this.select();"/></div>
+    <div class="Escudo-foto">
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+    </div>
+    <div class="Escudo-precio">
+      <input type="text" name="data.Precio" value="{{data.data.Precio}}" data-dtype="Number" maxlength="4"/>
+    </div>
+    <div class="Escudo-estorbo">
+      <input type="text" name="data.Estorbo" value="{{data.data.Estorbo}}" data-dtype="Number" maxlength="2"/>
+    </div>
+    <div class="Escudo-defensa-CC">
+      <input type="text" name="data.Defensa.CC" value="{{data.data.Defensa.CC}}" data-dtype="Number" maxlength="2"/>
+    </div>
+    <div class="Escudo-defensa-Dist">
+      <input type="text" name="data.Defensa.Distancia" value="{{data.data.Defensa.Distancia}}" data-dtype="Number" maxlength="2"/>
+    </div>
+    <div class="Escudo-descripcion-container">
+      {{{editor content=data.data.Descripción target="data.Descripción" button=true owner=owner editable=editable}}}
+    </div>
+  </div>
+</form>
