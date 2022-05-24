@@ -2,7 +2,7 @@
     "name": "RyF",
     "title": "Rápido y Fácil",
     "description": "Many details here.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "templateVersion": 1,
     "author": "ParvusDomus",
     "scripts": [],
@@ -43,7 +43,7 @@
     "socket": false,
     "gridDistance": 10,
     "gridUnits": "ft",
-    "url": "",
-    "manifest": "",
-    "download": ""
+    "url": "https://github.com/parvusdomus/RyF",
+    "manifest": "https://github.com/parvusdomus/RyF/releases/latest/download/system.json",
+    "download": "https://github.com/parvusdomus/RyF/releases/latest/download/RyF.zip"
 }
