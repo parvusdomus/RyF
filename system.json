@@ -5,6 +5,8 @@
     "version": "1.0.0",
     "templateVersion": 1,
     "author": "ParvusDomus",
+    "minimumCoreVersion": "9",
+     "compatibleCoreVersion": "9",
     "scripts": [],
     "esmodules": [
       "RyF.js"
