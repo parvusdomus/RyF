@@ -3,6 +3,9 @@ import {tiradaDano} from "../tiradas/tirada-dano.js";
 export default class RyFSimpleNPJSheet extends ActorSheet{
 
   static get defaultOptions() {
+    if (game.settings.get ("RyF", "forceFontSize")){
+      game.settings.set("core","fontSize", "5");
+    }
     return mergeObject(super.defaultOptions, {
       classes: ["RyF", "sheet", "actor", "SimplePNJ"],
       template: "systems/RyF/templates/actors/SimplePNJ.html",

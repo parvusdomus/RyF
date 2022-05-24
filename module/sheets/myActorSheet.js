@@ -9,6 +9,9 @@ import {tirada1o3D10} from "../tiradas/tirada_1o3d10.js";
 export default class RyFActorSheet extends ActorSheet{
 
   static get defaultOptions() {
+    if (game.settings.get ("RyF", "forceFontSize")){
+      game.settings.set("core","fontSize", "5");
+    }
     return mergeObject(super.defaultOptions, {
       classes: ["RyF", "sheet", "actor"],
       template: "systems/RyF/templates/actors/Jugador.html",
