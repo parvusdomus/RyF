@@ -3,12 +3,12 @@ import {tiradaDano} from "../tiradas/tirada-dano.js";
 export default class RyFSimpleNPJSheet extends ActorSheet{
 
   static get defaultOptions() {
-    if (game.settings.get ("RyF", "forceFontSize")){
+    if (game.settings.get ("ryf", "forceFontSize")){
       game.settings.set("core","fontSize", "5");
     }
     return mergeObject(super.defaultOptions, {
-      classes: ["RyF", "sheet", "actor", "SimplePNJ"],
-      template: "systems/RyF/templates/actors/SimplePNJ.html",
+      classes: ["ryf", "sheet", "actor", "SimplePNJ"],
+      template: "systems/ryf/templates/actors/SimplePNJ.html",
       width: 490,
       height: 320,
       resizable: false
@@ -67,7 +67,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
           objetivo_id=objetivo.data._id;
         }
         val_habilidad=dataset.habilidad;
-        archivo_template = '/systems/RyF/templates/dialogs/tirada_arma_PNJ.html';
+        archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
         const datos_template = {
                                 nom_arma: dataset.arma,
                                 val_atributo: val_atributo,

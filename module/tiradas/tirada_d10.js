@@ -14,7 +14,7 @@ export async function tiradaD10 (actor,nD10, bono, explota)
   let d10Roll = new Roll(tirada).roll({async: false});
   let total= 0;
   total=eval(d10Roll.result);
-  const archivo_template_chat = '/systems/RyF/templates/dialogs/tirada_D10_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_D10_chat.html';
   const datos_template_chat = {
                           tirada: tirada,
                           total: total

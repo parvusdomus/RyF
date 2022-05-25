@@ -49,7 +49,7 @@ export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad,
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/RyF/templates/dialogs/tirada_ataque_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_ataque_chat.html';
   const datos_template_chat = {
                           val_atributo: val_atributo,
                           nom_habilidad: dataset.arma,

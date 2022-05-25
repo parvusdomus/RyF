@@ -35,7 +35,7 @@ export default class RyFExtras {
 
      console.log ("CAUSA DAÑO")
      console.log (causa_daño)
-     const archivo_template_chat = '/systems/RyF/templates/dialogs/tirada_daño_chat.html';
+     const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_daño_chat.html';
      const datos_template_chat = {
                              tirada: tirada,
                              nom_habilidad: dataset.arma,

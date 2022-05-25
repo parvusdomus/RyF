@@ -9,21 +9,21 @@ Hooks.once("init", function(){
     console.log("test | Initializing BOL CHARSHEETS");
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("RyF", RyFActorSheet, {
+    Actors.registerSheet("ryf", RyFActorSheet, {
       makeDefault: true,
       types: ['Jugador']
     });
-    Actors.registerSheet("RyF", RyFSimpleNPJSheet, {
+    Actors.registerSheet("ryf", RyFSimpleNPJSheet, {
       makeDefault: true,
       types: ['PNJ']
     });
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("RyF", RyFItemSheet);
+    Items.registerSheet("ryf", RyFItemSheet);
     console.log ("test | CHARSEETS DONE");
     console.log ("test | LOADING TEMPLATES");
     preloadHandlebarsTemplates();
     console.log ("test | DONE LOADING TEMPLATES");
-    game.settings.register("RyF", "forceFontSize", {
+    game.settings.register("ryf", "forceFontSize", {
       name: "Forzar Tamaño de Fuente",
       hint: "Activa esta opción si la ficha se ve rara. Activarla forzará el tamaño de la fuente a 5.",
       scope: "world",

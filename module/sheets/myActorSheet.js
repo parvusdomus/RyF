@@ -9,12 +9,12 @@ import {tirada1o3D10} from "../tiradas/tirada_1o3d10.js";
 export default class RyFActorSheet extends ActorSheet{
 
   static get defaultOptions() {
-    if (game.settings.get ("RyF", "forceFontSize")){
+    if (game.settings.get ("ryf", "forceFontSize")){
       game.settings.set("core","fontSize", "5");
     }
     return mergeObject(super.defaultOptions, {
-      classes: ["RyF", "sheet", "actor"],
-      template: "systems/RyF/templates/actors/Jugador.html",
+      classes: ["ryf", "sheet", "actor"],
+      template: "systems/ryf/templates/actors/Jugador.html",
       width: 800,
       height: 700,
       resizable: false,
@@ -219,7 +219,7 @@ activateListeners(html) {
         if (Number(dataset.vida) <= Number(dataset.fisico)){
           tipo_dado = "menor"
         }
-        const archivo_template = '/systems/RyF/templates/dialogs/tirada_atributo.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tirada_atributo.html';
         const datos_template = { nom_atributo: dataset.atributo,
                                 val_atributo: dataset.valor,
                                 tipo_dado: tipo_dado
@@ -255,7 +255,7 @@ activateListeners(html) {
         if (dataset.atributo=="Destreza"){val_atributo=this.actor.data.data.Destreza};
         if (dataset.atributo=="Inteligencia"){val_atributo=this.actor.data.data.Inteligencia};
         if (dataset.atributo=="Percepción"){val_atributo=this.actor.data.data.Percepción};
-        const archivo_template = '/systems/RyF/templates/dialogs/tirada_habilidad.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tirada_habilidad.html';
         const datos_template = { nom_atributo: dataset.atributo,
                                 val_atributo: val_atributo,
                                 nom_habilidad: dataset.habilidad,
@@ -289,7 +289,7 @@ activateListeners(html) {
           tipo_dado = "menor"
         }
         let val_atributo=this.actor.data.data.Inteligencia;
-        const archivo_template = '/systems/RyF/templates/dialogs/tirada_hechizo.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tirada_hechizo.html';
         const datos_template = {
                                 val_atributo: val_atributo,
                                 val_alcance: dataset.alcance,
@@ -350,7 +350,7 @@ activateListeners(html) {
         if (dataset.habilidad=="CaC"){
           val_atributo=this.actor.data.data.Físico;
           nom_atributo="Físico";
-          archivo_template = '/systems/RyF/templates/dialogs/tirada_arma_cac.html';
+          archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
           HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas Cuerpo a Cuerpo");
           if (HabilidadArma){
             val_habilidad=HabilidadArma.data.data.Nivel;
@@ -360,7 +360,7 @@ activateListeners(html) {
         if (dataset.habilidad=="Distancia"){
           val_atributo=this.actor.data.data.Destreza;
           nom_atributo="Destreza";
-          archivo_template = '/systems/RyF/templates/dialogs/tirada_arma_distancia.html';
+          archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
           HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas a Distancia");
           if (HabilidadArma){
             val_habilidad=HabilidadArma.data.data.Nivel;
@@ -431,7 +431,7 @@ activateListeners(html) {
         const element = event.currentTarget;
         const dataset = element.dataset;
         console.log ("D6 Roll")
-        const archivo_template = '/systems/RyF/templates/dialogs/tirada_D6.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tirada_D6.html';
         const datos_template = {
                               };
         const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
@@ -458,7 +458,7 @@ activateListeners(html) {
         const element = event.currentTarget;
         const dataset = element.dataset;
         console.log ("D10 Roll")
-        const archivo_template = '/systems/RyF/templates/dialogs/tirada_D10.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tirada_D10.html';
         const datos_template = {
                               };
         const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);

@@ -1,21 +1,21 @@
 @font-face {
     font-family: "Ethnocentric";
-    src: url("/systems/RyF/fonts/ethnocentric.ttf");
+    src: url("/systems/ryf/fonts/ethnocentric.ttf");
 }
 
 @font-face {
     font-family: "Airstrip";
-    src: url("/systems/RyF/fonts/airstrip.ttf");
+    src: url("/systems/ryf/fonts/airstrip.ttf");
 }
 
 @font-face {
     font-family: "Bangers";
-    src: url("/systems/RyF/fonts/Bangers.ttf");
+    src: url("/systems/ryf/fonts/Bangers.ttf");
 }
 
 .chat-message{
   background-color: white;
-  background: url("/systems/RyF/assets/white.jpg") repeat;
+  background: url("/systems/ryf/assets/white.jpg") repeat;
 }
 
 .sheet {
@@ -28,7 +28,7 @@
 
 .window-app .window-content {
     background-color: white;
-    background: url("/systems/RyF/assets/white.jpg") repeat;
+    background: url("/systems/ryf/assets/white.jpg") repeat;
 }
 
 .sheet {

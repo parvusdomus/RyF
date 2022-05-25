@@ -29,7 +29,7 @@ export async function tirada1o3D10 (actor, bono, forzar)
   console.log (total)
   console.log ("DADO")
   console.log (dado_elegido)
-  const archivo_template_chat = '/systems/RyF/templates/dialogs/tirada_1o3D10_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_1o3D10_chat.html';
   const datos_template_chat = {
                           total: total,
                           dado_menor: d10s[0],

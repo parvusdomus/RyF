@@ -43,7 +43,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/RyF/templates/dialogs/tirada_hechizo_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_hechizo_chat.html';
   const datos_template_chat = {
                           val_atributo: val_atributo,
                           nom_habilidad: dataset.hechizo,
