@@ -3,28 +3,28 @@
     <table class="Jugador_Inventario_Tabla">
       <tr>
         <th style="width:10%"></th>
-        <th style="width:40% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ARMA</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ALCANCE</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">DAÑO</label></th>
+        <th style="width:40%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ARMA</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ALCANCE</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">DAÑO</label></th>
         <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="Arma"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Armas as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto tiradaArma"
-            data-arma="{{item.name}}" data-habilidad="{{item.data.Habilidad}}"
-            data-daño_corto="{{item.data.Daño.Corto}}" data-daño_medio="{{item.data.Daño.Medio}}" data-daño_largo="{{item.data.Daño.Largo}}"
-            data-alcance_corto="{{item.data.Alcance.Corto}}" data-alcance_medio="{{item.data.Alcance.Medio}}" data-alcance_largo="{{item.data.Alcance.Largo}}"
+            data-arma="{{item.name}}" data-habilidad="{{item.system.Habilidad}}"
+            data-daño_corto="{{item.system.Daño.Corto}}" data-daño_medio="{{item.system.Daño.Medio}}" data-daño_largo="{{item.system.Daño.Largo}}"
+            data-alcance_corto="{{item.system.Alcance.Corto}}" data-alcance_medio="{{item.system.Alcance.Medio}}" data-alcance_largo="{{item.system.Alcance.Largo}}"
             >{{item.name}}</label></div></td>
           <td style="text-align:center">
-            {{#if (ne item.data.Alcance.Corto 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Alcance.Corto}}</label>{{/if}}
-            {{#if (ne item.data.Alcance.Medio 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.data.Alcance.Medio}}</label>{{/if}}
-            {{#if (ne item.data.Alcance.Largo 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.data.Alcance.Largo}}</label>{{/if}}
+            {{#if (ne item.system.Alcance.Corto 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Alcance.Corto}}</label>{{/if}}
+            {{#if (ne item.system.Alcance.Medio 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Alcance.Medio}}</label>{{/if}}
+            {{#if (ne item.system.Alcance.Largo 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Alcance.Largo}}</label>{{/if}}
           </td>
           <td style="text-align:center">
-            {{#if (ne item.data.Daño.Corto "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Daño.Corto}}</label>{{/if}}
-            {{#if (ne item.data.Daño.Medio "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.data.Daño.Medio}}</label>{{/if}}
-            {{#if (ne item.data.Daño.Largo "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.data.Daño.Largo}}</label>{{/if}}
+            {{#if (ne item.system.Daño.Corto "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Daño.Corto}}</label>{{/if}}
+            {{#if (ne item.system.Daño.Medio "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Daño.Medio}}</label>{{/if}}
+            {{#if (ne item.system.Daño.Largo "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Daño.Largo}}</label>{{/if}}
           </td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
@@ -36,23 +36,23 @@
     <table class="Jugador_Inventario_Tabla">
       <tr>
         <th style="width:10%"></th>
-        <th style="width:40% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ARMADURA</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ABS</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">EST</label></th>
+        <th style="width:40%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ARMADURA</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ABS</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">EST</label></th>
         <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="Armadura"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Armaduras as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em">
-            {{#if (eq item.data.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
+            {{#if (eq item.system.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
-            {{#if (eq item.data.Equipado "false")}}</span>{{/if}}
+            {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
             <label class="Jugador_Inventario_Tabla_Texto"> {{item.name}}</label></div></td>
 
 
-          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Absorción}}</label></td>
-          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Estorbo}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Absorción}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Estorbo}}</label></td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
             <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
@@ -63,25 +63,25 @@
     <table class="Jugador_Inventario_Tabla">
       <tr>
         <th style="width:10%"></th>
-        <th style="width:40% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ESCUDO</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">DEFENSA</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">ESTORBO</label></th>
+        <th style="width:40%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ESCUDO</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">DEFENSA</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ESTORBO</label></th>
         <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="Escudo"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Escudos as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em">
-            {{#if (eq item.data.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
+            {{#if (eq item.system.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
-            {{#if (eq item.data.Equipado "false")}}</span>{{/if}}
+            {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
 
             <label class="Jugador_Inventario_Tabla_Texto"> {{item.name}}</label></div></td>
           <td style="text-align:center">
-            <label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Defensa.CC}}</label>
-            {{#if (ne item.data.Defensa.Distancia 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.data.Defensa.Distancia}}</label>{{/if}}
+            <label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Defensa.CC}}</label>
+            {{#if (ne item.system.Defensa.Distancia 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Defensa.Distancia}}</label>{{/if}}
           </td>
-          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Estorbo}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Estorbo}}</label></td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
             <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
@@ -92,15 +92,15 @@
     <table class="Jugador_Inventario_Tabla">
       <tr>
         <th style="width:10%"></th>
-        <th style="width:60% align:center"><label class="Jugador_Inventario_Tabla_Títulos">OBJETO</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Inventario_Tabla_Títulos">CANTIDAD</label></th>
+        <th style="width:60%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">OBJETO</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">CANTIDAD</label></th>
         <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="Objeto"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Objetos as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto">{{item.name}}</label></div></td>
-          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.data.Cantidad}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Cantidad}}</label></td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
             <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>

@@ -3,34 +3,34 @@
     <table class="Jugador_Habilidades_Tabla">
       <tr>
         <th style="width:10%"></th>
-        <th style="width:40% align:center"><label class="Jugador_Habilidades_Tabla_Títulos">HABILIDAD</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Habilidades_Tabla_Títulos">NIVEL</label></th>
-        <th style="width:20% align:center"><label class="Jugador_Habilidades_Tabla_Títulos">TOTAL</label></th>
+        <th style="width:40%; align:center"><label class="Jugador_Habilidades_Tabla_Títulos">HABILIDAD</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Habilidades_Tabla_Títulos">NIVEL</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Habilidades_Tabla_Títulos">TOTAL</label></th>
         <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="Habilidad"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Habilidades as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Habilidades_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
 
-          {{#if (eq item.data.Atributo "Físico")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
+          {{#if (eq item.system.Atributo "Físico")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
           data-atributo="Físico"
-          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.data.Nivel}}"
+          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.Nivel}}"
           ><div style="width:8em"><label class="Jugador_Habilidades_Tabla_Texto">{{item.name}}</label><label class="Jugador_Habilidades_Tabla_Texto">(F)</label>{{/if}}
-          {{#if (eq item.data.Atributo "Destreza")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
+          {{#if (eq item.system.Atributo "Destreza")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
           data-atributo="Destreza"
-          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.data.Nivel}}"
+          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.Nivel}}"
           ><div style="width:8em"><label class="Jugador_Habilidades_Tabla_Texto">{{item.name}}</label><label class="Jugador_Habilidades_Tabla_Texto">(D)</label>{{/if}}
-          {{#if (eq item.data.Atributo "Inteligencia")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
+          {{#if (eq item.system.Atributo "Inteligencia")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
           data-atributo="Inteligencia"
-          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.data.Nivel}}"
+          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.Nivel}}"
           ><div style="width:8em"><label class="Jugador_Habilidades_Tabla_Texto">{{item.name}}</label><label class="Jugador_Habilidades_Tabla_Texto">(I)</label>{{/if}}
-          {{#if (eq item.data.Atributo "Percepción")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
+          {{#if (eq item.system.Atributo "Percepción")}}<td class="Jugador_Habilidades_Tabla_Nombre tiradaHabilidad"
           data-atributo="Percepción"
-          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.data.Nivel}}"
+          data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.Nivel}}"
           ><div style="width:8em"><label class="Jugador_Habilidades_Tabla_Texto">{{item.name}}</label><label class="Jugador_Habilidades_Tabla_Texto">(P)</label>{{/if}}
           </div></td>
-          <td style="text-align:center"><label class="Jugador_Habilidades_Tabla_Otros Jugador_Habilidades_Tabla_Texto">{{item.data.Nivel}}</label></td>
-          <td style="text-align:center"><label class="Jugador_Habilidades_Tabla_Otros Jugador_Habilidades_Tabla_Texto">{{item.data.Total}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Habilidades_Tabla_Otros Jugador_Habilidades_Tabla_Texto">{{item.system.Nivel}}</label></td>
+          <td style="text-align:center"><label class="Jugador_Habilidades_Tabla_Otros Jugador_Habilidades_Tabla_Texto">{{item.system.Total}}</label></td>
           <td>
             <a style="align:right" class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
             <a style="align:right" class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>

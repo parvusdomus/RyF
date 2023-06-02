@@ -23,12 +23,14 @@ export default class RyFActorSheet extends ActorSheet{
   }
 
   getData() {
-        const data = super.getData().data;
+    const superData = super.getData();
+        const data = superData.data;
         data.dtypes = ["String", "Number", "Boolean"];
         if (this.actor.type == 'Jugador') {
           this._prepareCharacterItems(data);
           this._calculaValores(data);
         }
+        superData.enrichedBiography = TextEditor.enrichHTML(this.object.system.Descripcion, {async: true});
         return data;
       }
 
@@ -47,7 +49,7 @@ export default class RyFActorSheet extends ActorSheet{
        const Talentos = [];
        // Ordena los objetos por tipo y los mete en el array correspondiente
       for (let i of sheetData.items) {
-        let item = i.data;
+        let itemSystem = i.system;
         i.img = i.img || DEFAULT_TOKEN;
         if (i.type === 'Arma') {
           Armas.push(i);
@@ -60,10 +62,10 @@ export default class RyFActorSheet extends ActorSheet{
          }
          else if (i.type === "Habilidad") {
            Habilidades.push(i);
-           if (i.data.Atributo=="Físico"){i.data.Total=i.data.Nivel+actorData.data.Físico}
-           if (i.data.Atributo=="Destreza"){i.data.Total=i.data.Nivel+actorData.data.Destreza}
-           if (i.data.Atributo=="Inteligencia"){i.data.Total=i.data.Nivel+actorData.data.Inteligencia}
-           if (i.data.Atributo=="Percepción"){i.data.Total=i.data.Nivel+actorData.data.Percepción}
+           if (itemSystem.Atributo=="Físico"){itemSystem.Total=itemSystem.Nivel+actorData.system.Físico}
+           if (itemSystem.Atributo=="Destreza"){itemSystem.Total=itemSystem.Nivel+actorData.system.Destreza}
+           if (itemSystem.Atributo=="Inteligencia"){itemSystem.Total=itemSystem.Nivel+actorData.system.Inteligencia}
+           if (itemSystem.Atributo=="Percepción"){itemSystem.Total=itemSystem.Nivel+actorData.system.Percepción}
          }
          else if (i.type === "Hechizo") {
            Hechizos.push(i);
@@ -99,35 +101,35 @@ var Puntos_de_Mana =0;
 var Absorción_Total =0;
 
 //CALCULO PUNTOS DE VIDA
-Puntos_de_Vida=Number(data.data.Físico)*Number(4);
+Puntos_de_Vida=Number(data.system.Físico)*Number(4);
 //CALCULO INICIATIVA
 let Reflejos = data.Habilidades.find((k) => k.name === "Reflejos");
 if (Reflejos){
   val_reflejos=Reflejos.data.Nivel;
 }
-Iniciativa=Number(val_reflejos)+Number(data.data.Percepción);
+Iniciativa=Number(val_reflejos)+Number(data.system.Percepción);
 //CALCULO Defensa_Base
 let Esquivar = data.Habilidades.find((k) => k.name === "Esquivar");
 if (Esquivar){
 
   val_esquivar=Esquivar.data.Nivel;
 }
-Defensa_Base= Number(data.data.Destreza)+Number(val_esquivar)+Number(5);
+Defensa_Base= Number(data.system.Destreza)+Number(val_esquivar)+Number(5);
 //CALCULO DEFENSA ESCUDO CaC y Dist
-let Escudo = data.Escudos.find((k) => k.type === "Escudo" && k.data.Equipado=="true");
+let Escudo = data.Escudos.find((k) => k.type === "Escudo" && k.system.Equipado=="true");
 if (Escudo){
   Defensa_Escudo_CaC=Escudo.data.Defensa.CC;
   Defensa_Escudo_Dist=Escudo.data.Defensa.Distancia;
   Estorbo_Total+=Escudo.data.Estorbo;
 }
 //CALCULO absorcion_armadura
-let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.data.Equipado=="true");
+let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.system.Equipado=="true");
 if (Armadura){
   Absorción_Total=Armadura.data.Absorción;
   Estorbo_Total+=Armadura.data.Estorbo;
 }
 //CALCULO MANA
-Puntos_de_Mana=Number(data.data.Inteligencia)*Number(3);
+Puntos_de_Mana=Number(data.system.Inteligencia)*Number(3);
 //ACTUALIZO TODOS LOS VALORES
 this.actor.update ({ 'data.Puntos_de_Vida.max': Puntos_de_Vida });
 this.actor.update ({ 'data.Iniciativa': Iniciativa });
@@ -202,10 +204,10 @@ activateListeners(html) {
         const itemData = {
           name: name,
           type: type,
-          data: data
+          system: data
         };
         // Remove the type from the dataset since it's in the itemData.type prop.
-        delete itemData.data["type"];
+        delete itemData.system["type"];
 
         // Finally, create the item!
         //     return this.actor.createOwnedItem(itemData);
