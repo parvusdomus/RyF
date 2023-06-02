@@ -107,7 +107,7 @@
   border: none;
 }
 
-.PNJ_Absorción_Total {
+.PNJ_Absorcion_Total {
   background-color: transparent;
   position: absolute;
   top: 3.7em;
@@ -119,7 +119,7 @@
   color: Black !important;
   font-size: 1.3em;
 }
-.PNJ_Absorción_Total input{
+.PNJ_Absorcion_Total input{
   text-align: center;
   color: Black !important;
   background-color: transparent;

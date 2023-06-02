@@ -100,7 +100,7 @@ var Defensa_Escudo_CaC=0;
 var Defensa_Escudo_Dist=0;
 var Estorbo_Total=0;
 var Puntos_de_Mana =0;
-var Absorción_Total =0;
+var Absorcion_Total =0;
 
 //CALCULO PUNTOS DE VIDA
 Puntos_de_Vida=Number(data.system.Físico)*Number(4);
@@ -127,7 +127,7 @@ if (Escudo){
 //CALCULO absorcion_armadura
 let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.system.Equipado=="true");
 if (Armadura){
-  Absorción_Total=Armadura.data.Absorción;
+  Absorcion_Total=Armadura.data.Absorcion;
   Estorbo_Total+=Armadura.data.Estorbo;
 }
 //CALCULO MANA
@@ -140,7 +140,7 @@ this.actor.update ({ 'data.Defensa.Escudo_CAC': Defensa_Escudo_CaC });
 this.actor.update ({ 'data.Defensa.Escudo_Dist': Defensa_Escudo_Dist });
 this.actor.update ({ 'data.Estorbo_Total': Estorbo_Total });
 this.actor.update ({ 'data.Puntos_de_Mana.max': Puntos_de_Mana });
-this.actor.update ({ 'data.Absorción_Total': Absorción_Total });
+this.actor.update ({ 'data.Absorcion_Total': Absorcion_Total });
 }
 
 activateListeners(html) {
@@ -347,7 +347,7 @@ activateListeners(html) {
           if (objetivo.document._actor.system.Defensa.Escudo_Dist){
             defensa_Dist_escudo=objetivo.document._actor.system.Defensa.Escudo_Dist;
           }
-          absorcion_armadura=objetivo.document._actor.system.Absorción_Total;
+          absorcion_armadura=objetivo.document._actor.system.Absorcion_Total;
           objetivo_id=objetivo.data._id;
         }
 

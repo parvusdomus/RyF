@@ -12,7 +12,7 @@
       "Escudo_CAC": 0,
       "Escudo_Dist": 0
     },
-    "Absorción_Total": 0,
+    "Absorcion_Total": 0,
     "Puntos_de_Vida":{
       "value":0,
       "min":0,
@@ -36,7 +36,7 @@
   "Defensa":{
     "Base": 0
     },
-  "Absorción_Total": 0,
+  "Absorcion_Total": 0,
   "Puntos_de_Vida":{
     "value":0,
     "min":0,
@@ -74,7 +74,7 @@
     },
     "Armadura":{
       "Descripcion": "",
-      "Absorción": 0,
+      "Absorcion": 0,
       "Estorbo": 0,
       "Precio":0,
       "Equipado": "false"

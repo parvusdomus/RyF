@@ -52,7 +52,7 @@
   background-color: transparent;
   border: none;
 }
-.Armadura-absorción {
+.Armadura-absorcion {
   background-color: transparent;
   position: absolute;
   top: 6.7em;
@@ -64,7 +64,7 @@
   color: Black !important;
   font-size: 1.3em;
 }
-.Armadura-absorción input{
+.Armadura-absorcion input{
   text-align: center;
   color: Black !important;
   background-color: transparent;

@@ -62,7 +62,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
           if (objetivoSystem.Defensa.Escudo_Dist){
             defensa_Dist_escudo=objetivoSystem.Defensa.Escudo_Dist;
           }
-          absorcion_armadura=objetivoSystem.Absorción_Total;
+          absorcion_armadura=objetivoSystem.Absorcion_Total;
           objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
