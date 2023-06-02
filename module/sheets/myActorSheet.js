@@ -331,8 +331,7 @@ activateListeners(html) {
         var val_habilidad=0;
         var HabilidadArma;
         var archivo_template="";
-        let listaObjetivos = game.user.targets;
-        let objetivo = Array.from(listaObjetivos)[0];
+        let objetivo = game.user.targets.first();
         let absorcion_armadura=0;
         let defensa_CaC = 0;
         let defensa_CaC_escudo =0;
@@ -340,22 +339,25 @@ activateListeners(html) {
         let objetivo_id;
 
         if (objetivo){
-          defensa_CaC=objetivo.document._actor.system.Defensa.Base;
-          if (objetivo.document._actor.system.Defensa.Escudo_CAC){
-            defensa_CaC_escudo=objetivo.document._actor.system.Defensa.Escudo_CAC;
+          objetivo_id=objetivo.document.actorId;
+          let objetivoActor = Actor.get(objetivo_id);
+          defensa_CaC=objetivoActor.system.Defensa.Base;
+          if (objetivoActor.system.Defensa.Escudo_CAC){
+            defensa_CaC_escudo=objetivoActor.system.Defensa.Escudo_CAC;
           }
-          if (objetivo.document._actor.system.Defensa.Escudo_Dist){
-            defensa_Dist_escudo=objetivo.document._actor.system.Defensa.Escudo_Dist;
+          if (objetivoActor.system.Defensa.Escudo_Dist){
+            defensa_Dist_escudo=objetivoActor.system.Defensa.Escudo_Dist;
           }
-          absorcion_armadura=objetivo.document._actor.system.Absorcion_Total;
-          objetivo_id=objetivo.data._id;
+          if(objetivoActor.system.Absorcion_Total){
+            absorcion_armadura=objetivoActor.system.Absorcion_Total;
+          }
         }
 
         if (dataset.habilidad=="CaC"){
           val_atributo=this.actor.system.Físico;
           nom_atributo="Físico";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
-          HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas Cuerpo a Cuerpo");
+          HabilidadArma = this.actor.items.find((k) => k.type === "Habilidad" && k.name === "Armas Cuerpo a Cuerpo");
           if (HabilidadArma){
             val_habilidad=HabilidadArma.system.Nivel;
           }
@@ -365,7 +367,7 @@ activateListeners(html) {
           val_atributo=this.actor.system.Destreza;
           nom_atributo="Destreza";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
-          HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas a Distancia");
+          HabilidadArma = this.actor.items.find((k) => k.type === "Habilidad" && k.name === "Armas a Distancia");
           if (HabilidadArma){
             val_habilidad=HabilidadArma.system.Nivel;
           }

@@ -15,7 +15,7 @@ export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad,
     dificultad_total+= defensa_Dist_escudo;
   }
   if (objetivo){
-    objetivo_id=objetivo_id=objetivo.data._id;
+    objetivo_id=objetivo.document.actorId;
   }
   if ( forzar != ""){
     dado=forzar;

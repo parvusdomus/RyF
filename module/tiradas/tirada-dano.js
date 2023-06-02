@@ -8,8 +8,8 @@ export async function tiradaDano (actor, dataset, val_atributo, val_habilidad, b
   let resultado="";
   let causa_daño=false;
   resultado=eval(d6Roll.result);
-  total=Number(resultado)-Number(absorcion_armadura);
-  if (objetivo){objetivo_id=objetivo.data._id}
+  total=Number(resultado)-Number(absorcion_armadura ? absorcion_armadura : "0");
+  if (objetivo){objetivo_id=objetivo.document.actorId}
   if (total > 0 && objetivo){
     causa_daño=true;
   }
