@@ -1,42 +1,42 @@
 <form class="{{cssClass}}" autocomplete="off">
   <img class="content-background" src="/systems/ryf/assets/ficha/arma-Bg.svg" alt="?"/>
   <div class="arma-container">
-    <div class="Arma-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+    <div class="Arma-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
                                        onClick="this.select();"/></div>
     <div class="Arma-foto">
-      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
     </div>
     <div class="Arma-precio">
-      <input type="text" name="data.Precio" value="{{data.data.Precio}}" data-dtype="Number" maxlength="4"/>
+      <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
     </div>
     <div class="Arma-habilidad">
-    <select name="data.Habilidad" data-dtype="String">
-      {{#select data.data.Habilidad}}
+    <select name="system.Habilidad" data-dtype="String">
+      {{#select system.Habilidad}}
       <option value="CaC">CaC</option>
       <option value="Distancia">Dist</option>
       {{/select}}
     </select>
     </div>
     <div class="Arma-alcance-corto">
-      <input type="text" name="data.Alcance.Corto" value="{{data.data.Alcance.Corto}}" data-dtype="Number" maxlength="3"/>
+      <input type="text" name="system.Alcance.Corto" value="{{system.Alcance.Corto}}" data-dtype="Number" maxlength="3"/>
     </div>
     <div class="Arma-alcance-medio">
-      <input type="text" name="data.Alcance.Medio" value="{{data.data.Alcance.Medio}}" data-dtype="Number" maxlength="3"/>
+      <input type="text" name="system.Alcance.Medio" value="{{system.Alcance.Medio}}" data-dtype="Number" maxlength="3"/>
     </div>
     <div class="Arma-alcance-largo">
-      <input type="text" name="data.Alcance.Largo" value="{{data.data.Alcance.Largo}}" data-dtype="Number" maxlength="3"/>
+      <input type="text" name="system.Alcance.Largo" value="{{system.Alcance.Largo}}" data-dtype="Number" maxlength="3"/>
     </div>
     <div class="Arma-daño-corto">
-      <input type="text" name="data.Daño.Corto" value="{{data.data.Daño.Corto}}"/>
+      <input type="text" name="system.Daño.Corto" value="{{system.Daño.Corto}}"/>
     </div>
     <div class="Arma-daño-medio">
-      <input type="text" name="data.Daño.Medio" value="{{data.data.Daño.Medio}}"/>
+      <input type="text" name="system.Daño.Medio" value="{{system.Daño.Medio}}"/>
     </div>
     <div class="Arma-daño-largo">
-      <input type="text" name="data.Daño.Largo" value="{{data.data.Daño.Largo}}"/>
+      <input type="text" name="system.Daño.Largo" value="{{system.Daño.Largo}}"/>
     </div>
     <div class="Arma-descripcion-container">
-      {{{editor content=data.data.Descripcion target="data.Descripcion" button=true owner=owner editable=editable}}}
+      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
     </div>
   </div>
 </form>

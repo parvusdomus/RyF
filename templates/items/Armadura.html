@@ -1,22 +1,22 @@
 <form class="{{cssClass}}" autocomplete="off">
   <img class="content-background" src="/systems/ryf/assets/ficha/armadura-Bg.svg" alt="?"/>
   <div class="armadura-container">
-    <div class="Armadura-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+    <div class="Armadura-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
                                        onClick="this.select();"/></div>
     <div class="Armadura-foto">
-      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
     </div>
     <div class="Armadura-precio">
-      <input type="text" name="data.Precio" value="{{data.data.Precio}}" data-dtype="Number" maxlength="4"/>
+      <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
     </div>
     <div class="Armadura-absorción">
-      <input type="text" name="data.Absorción" value="{{data.data.Absorción}}" data-dtype="Number" maxlength="2"/>
+      <input type="text" name="system.Absorción" value="{{system.Absorción}}" data-dtype="Number" maxlength="2"/>
     </div>
     <div class="Armadura-estorbo">
-      <input type="text" name="data.Estorbo" value="{{data.data.Estorbo}}" data-dtype="Number" maxlength="2"/>
+      <input type="text" name="system.Estorbo" value="{{system.Estorbo}}" data-dtype="Number" maxlength="2"/>
     </div>
     <div class="Armadura-descripcion-container">
-      {{{editor content=data.data.Descripcion target="data.Descripcion" button=true owner=owner editable=editable}}}
+      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
     </div>
   </div>
 </form>

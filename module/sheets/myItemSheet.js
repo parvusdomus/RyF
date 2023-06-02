@@ -10,7 +10,16 @@ export default class RyFItemSheet extends ItemSheet{
       resizable: false
     });
   }
+
+  getData() {
+    const superData = super.getData();
+        const data = superData.data;
+        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
+        return data;
+  }
+
   get template(){
-          return `systems/ryf/templates/items/${this.item.data.type}.html`;
+    console.log(this.item)
+          return `systems/ryf/templates/items/${this.item.type}.html`;
       }
 }

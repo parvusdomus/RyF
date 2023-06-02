@@ -1,14 +1,14 @@
 <form class="{{cssClass}}" autocomplete="off">
   <img class="content-background" src="/systems/ryf/assets/ficha/habilidad-Bg.svg" alt="?"/>
   <div class="habilidad-container">
-    <div class="Habilidad-nombre"><input name="name" type="text" value="{{data.name}}" placeholder='Nombre'
+    <div class="Habilidad-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
                                        onClick="this.select();"/></div>
     <div class="Habilidad-foto">
-      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
     </div>
     <div class="Habilidad-Atributo">
-    <select name="data.Atributo" data-dtype="String">
-      {{#select data.data.Atributo}}
+    <select name="system.Atributo" data-dtype="String">
+      {{#select system.Atributo}}
       <option value="Físico">Fis</option>
       <option value="Destreza">Des</option>
       <option value="Inteligencia">Int</option>
@@ -17,10 +17,10 @@
     </select>
     </div>
     <div class="Habilidad-Nivel">
-      <input type="text" name="data.Nivel" value="{{data.data.Nivel}}" data-dtype="Number" maxlength="3"/>
+      <input type="text" name="system.Nivel" value="{{system.Nivel}}" data-dtype="Number" maxlength="3"/>
     </div>
     <div class="Habilidad-descripcion-container">
-      {{{editor content=data.data.Descripcion target="data.Descripcion" button=true owner=owner editable=editable}}}
+      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
     </div>
   </div>
 </form>
