@@ -1,17 +1,21 @@
 export default class RyFExtras {
   static chatListeners (html) {
-    html.on('click', '.dañoDesdeChat', this._onDañoDesdeChat.bind(this));
-    html.on('click', '.aplicaDañoDesdeChat', this._onAplicaDañoDesdeChat.bind(this));
+    html.on('click', '.danoDesdeChat', this._onDanoDesdeChat.bind(this));
+    html.on('click', '.aplicaDanoDesdeChat', this._onaplicaDanoDesdeChat.bind(this));
   }
-   static _onDañoDesdeChat (event){
+   static _onDanoDesdeChat (event){
      const element = event.currentTarget;
      const dataset = element.dataset;
+     console.log("AAAAA");
+     console.log(dataset);
      if (dataset.exito=="true"){
      }else {
        return 1;
      }
-     let tirada="";
-     tirada=dataset.daño+"+"+dataset.efecto+"d6x"+"+"+dataset.bonos;
+     let tirada=dataset.daño +"+"+dataset.bonos;
+     if(dataset.efecto && dataset.efecto > 0){
+      tirada = tirada + "+" + dataset.efecto+"d6x"
+     }
      let objetivo_id=""
      let d6Roll = new Roll(tirada).roll({async: false});
      let total= 0;
@@ -23,16 +27,9 @@ export default class RyFExtras {
      let objetivo;
      if (dataset.objetivo){
        objetivo=canvas.tokens.get(dataset.objetivo);
-       objetivo_id=objetivo.data._id;
+       objetivo_id=objetivo;
      }
-     let causa_daño=false;
-     if (total > 0 && objetivo){
-       causa_daño=true;
-     }
-     else {
-       total=0;
-     }
-
+     let causa_daño=total > 0 && objetivo;
      const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_daño_chat.html';
      const datos_template_chat = {
                              tirada: tirada,
@@ -57,7 +54,7 @@ export default class RyFExtras {
   }
 
 
-  static _onAplicaDañoDesdeChat (event){
+  static _onaplicaDanoDesdeChat (event){
     const element = event.currentTarget;
     const dataset = element.dataset;
     const objetivo=canvas.tokens.get(dataset.objetivo);
