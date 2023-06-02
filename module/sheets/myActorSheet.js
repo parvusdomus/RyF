@@ -460,7 +460,6 @@ activateListeners(html) {
       async _onD10Roll(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        console.log ("D10 Roll")
         const archivo_template = '/systems/ryf/templates/dialogs/tirada_D10.html';
         const datos_template = {
                               };

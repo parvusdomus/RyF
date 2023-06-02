@@ -1,7 +1,5 @@
 export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad, bonos, dificultad, tipo_dado, forzar, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, alcance_corto, alcance_medio, alcance_largo, daño_corto, daño_medio, daño_largo, absorcion_armadura)
 {
-  console.log ("TIRADA ATAQUE DATASET")
-  console.log (dataset)
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
   let d10s = d10Roll.result.split(" + ").sort((a, b) => a - b);
