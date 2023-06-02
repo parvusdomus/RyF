@@ -19,7 +19,6 @@ export default class RyFItemSheet extends ItemSheet{
   }
 
   get template(){
-    console.log(this.item)
           return `systems/ryf/templates/items/${this.item.type}.html`;
       }
 }

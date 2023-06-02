@@ -16,8 +16,6 @@ export async function tiradaDano (actor, dataset, val_atributo, val_habilidad, b
   else {
     total=0;
   }
-  console.log ("CAUSA DAÑO")
-  console.log (causa_daño)
   const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_daño_chat.html';
   const datos_template_chat = {
                           tirada: tirada,

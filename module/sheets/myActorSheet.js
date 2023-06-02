@@ -434,7 +434,6 @@ activateListeners(html) {
       async _onD6Roll(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        console.log ("D6 Roll")
         const archivo_template = '/systems/ryf/templates/dialogs/tirada_D6.html';
         const datos_template = {
                               };

@@ -39,9 +39,6 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
       async _onTiradaAtaquePNJ(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        console.log ("ENTRO EN TIRADA ATAQUE PNJ")
-        console.log ("DATASET")
-        console.log (dataset)
         var tipo_dado = "objetivo";
         var val_atributo = 0;
         var nom_atributo="";
