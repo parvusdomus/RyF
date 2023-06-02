@@ -344,7 +344,7 @@ img {
 }
 
 .habilidades-tab, .inventario-tab, .talentos-tab, .biografia-tab {
-  background-image: url(/systems/ryf/assets/ficha/Tabs.svg);
+  background-image: url(/systems/ryf/assets/ficha/Tabs.webp);
   background-position-x: -2px;
   padding-top: 0.15em;
   padding-left: 1em;
@@ -354,12 +354,12 @@ img {
 }
 
 a.habilidades-tab:hover, .inventario-tab:hover, .talentos-tab:hover, .biografia-tab:hover {
-  background-image: url(/systems/ryf/assets/ficha/Tabs-Hover.svg);
+  background-image: url(/systems/ryf/assets/ficha/Tabs-Hover.webp);
   color: LightGrey;
 }
 
 a.habilidades-tab.active, .inventario-tab.active, .talentos-tab.active, .biografia-tab.active {
-  background-image: url(/systems/ryf/assets/ficha/Tabs-Active.svg);
+  background-image: url(/systems/ryf/assets/ficha/Tabs-Active.webp);
   color: LightGrey;
   text-shadow: none !important;
 }
