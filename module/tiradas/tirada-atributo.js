@@ -13,17 +13,17 @@ export async function tiradaAtributo (actor, dataset, bonos, dificultad, tipo_da
   }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=0;
   }
   if (dado==="objetivo"){
     total=Number(d10s[1])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=1;
   }
   if (dado==="mayor"){
     total=Number(d10s[2])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=2;
   }
   if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
@@ -43,7 +43,7 @@ export async function tiradaAtributo (actor, dataset, bonos, dificultad, tipo_da
   const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_atributo_chat.html';
   const datos_template_chat = { nom_atributo: dataset.atributo,
                           val_atributo: dataset.valor,
-                          estorbo: actor.data.data.Estorbo_Total,
+                          estorbo: actor.system.Estorbo_Total,
                           bonos: bonos,
                           dado_menor: d10s[0],
                           dado_medio: d10s[1],

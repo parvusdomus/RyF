@@ -1,10 +1,10 @@
 export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, forzar, mana)
 {
-  if (actor.data.data.Puntos_de_Mana.Actuales - mana < 0){
+  if (actor.system.Puntos_de_Mana.Actuales - mana < 0){
     ui.notifications.warn("No tienes suficiente MANA para lanzar ese hechizo");
     return 1;
   }
-  let manaActual=actor.data.data.Puntos_de_Mana.Actuales - mana;
+  let manaActual=actor.system.Puntos_de_Mana.Actuales - mana;
   actor.update ({ 'data.Puntos_de_Mana.Actuales': manaActual });
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
@@ -18,15 +18,15 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
     dado=forzar;
   }
   if (dado==="menor"){
-    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
     dado_elegido=0;
   }
   if (dado==="objetivo"){
-    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
     dado_elegido=1;
   }
   if (dado==="mayor"){
-    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
     dado_elegido=2;
   }
   if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
@@ -57,7 +57,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          estorbo: actor.data.data.Estorbo_Total
+                          estorbo: actor.system.Estorbo_Total
                         };
   const contenido_Dialogo_chat = await renderTemplate(archivo_template_chat, datos_template_chat);
   const chatData = {

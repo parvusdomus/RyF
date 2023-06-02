@@ -66,7 +66,7 @@ export default class RyFExtras {
     let VidaActual=0;
     let Mensaje=""
     if (objetivo){
-      VidaActual=Number(objetivo.document._actor.data.data.Puntos_de_Vida.value)-Number(dataset.daño)
+      VidaActual=Number(objetivo.document._actor.system.Puntos_de_Vida.value)-Number(dataset.daño)
       if (VidaActual < 0){VidaActual=0}
       objetivo.document._actor.update ({ 'data.Puntos_de_Vida.value': VidaActual });
       Mensaje = dataset.daño + " puntos de daño aplicado/s a "+objetivo.document._actor.data.name;

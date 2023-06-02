@@ -27,7 +27,7 @@
     "Dinero": 0,
     "Experiencia": 0,
     "Raza": "",
-    "Descripción": ""
+    "Descripcion": ""
   },
 
   "PNJ":{
@@ -48,7 +48,7 @@
     "max": 0
   },
   "Daño": "",
-  "Descripción": ""
+  "Descripcion": ""
 }
 
 
@@ -58,7 +58,7 @@
   "Item":{
     "types": ["Arma", "Armadura", "Escudo", "Objeto", "Habilidad", "Hechizo", "Talento"],
     "Arma":{
-      "Descripción": "",
+      "Descripcion": "",
       "Daño":{
         "Corto": "",
         "Medio": "",
@@ -73,14 +73,14 @@
       "Precio": 0
     },
     "Armadura":{
-      "Descripción": "",
+      "Descripcion": "",
       "Absorción": 0,
       "Estorbo": 0,
       "Precio":0,
       "Equipado": "false"
     },
     "Escudo":{
-      "Descripción": "",
+      "Descripcion": "",
       "Defensa": {
         "CC": 0,
         "Distancia": 0
@@ -90,18 +90,18 @@
       "Equipado": "false"
     },
     "Objeto":{
-      "Descripción": "",
+      "Descripcion": "",
       "Cantidad": 0,
       "Precio": 0
     },
     "Habilidad":{
-      "Descripción": "",
+      "Descripcion": "",
       "Atributo": "Físico",
       "Nivel": 0,
       "Total": 0
     },
     "Hechizo":{
-      "Descripción": "",
+      "Descripcion": "",
       "Dificultad": 0,
       "Nivel": 0,
       "Mana": 0,
@@ -116,7 +116,7 @@
       }
     },
     "Talento":{
-      "Descripción": "",
+      "Descripcion": "",
       "Requisito": ""
     }
   }

@@ -25,7 +25,7 @@ export default class RyFActorSheet extends ActorSheet{
   getData() {
         const data = super.getData().data;
         data.dtypes = ["String", "Number", "Boolean"];
-        if (this.actor.data.type == 'Jugador') {
+        if (this.actor.type == 'Jugador') {
           this._prepareCharacterItems(data);
           this._calculaValores(data);
         }
@@ -167,7 +167,7 @@ activateListeners(html) {
         html.find('.item-equip').click(ev => {
           const li = $(ev.currentTarget).parents(".item");
           const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
-          if (objeto_a_equipar.data.data.Equipado =="false"){
+          if (objeto_a_equipar.system.Equipado =="false"){
             objeto_a_equipar.update ({ 'data.Equipado': "true" });
           } else {
             objeto_a_equipar.update ({ 'data.Equipado': "false" });
@@ -247,14 +247,14 @@ activateListeners(html) {
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.data.data.Puntos_de_Vida.value) <= Number(this.actor.data.data.Físico) || Number(dataset.valor_habilidad)==0){
+        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(dataset.valor_habilidad)==0){
           tipo_dado = "menor"
         }
         let val_atributo=0;
-        if (dataset.atributo=="Físico"){val_atributo=this.actor.data.data.Físico};
-        if (dataset.atributo=="Destreza"){val_atributo=this.actor.data.data.Destreza};
-        if (dataset.atributo=="Inteligencia"){val_atributo=this.actor.data.data.Inteligencia};
-        if (dataset.atributo=="Percepción"){val_atributo=this.actor.data.data.Percepción};
+        if (dataset.atributo=="Físico"){val_atributo=this.actor.system.Físico};
+        if (dataset.atributo=="Destreza"){val_atributo=this.actor.system.Destreza};
+        if (dataset.atributo=="Inteligencia"){val_atributo=this.actor.system.Inteligencia};
+        if (dataset.atributo=="Percepción"){val_atributo=this.actor.system.Percepción};
         const archivo_template = '/systems/ryf/templates/dialogs/tirada_habilidad.html';
         const datos_template = { nom_atributo: dataset.atributo,
                                 val_atributo: val_atributo,
@@ -285,10 +285,10 @@ activateListeners(html) {
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.data.data.Puntos_de_Vida.value) <= Number(this.actor.data.data.Físico) || Number(dataset.nivel)==0){
+        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(dataset.nivel)==0){
           tipo_dado = "menor"
         }
-        let val_atributo=this.actor.data.data.Inteligencia;
+        let val_atributo=this.actor.system.Inteligencia;
         const archivo_template = '/systems/ryf/templates/dialogs/tirada_hechizo.html';
         const datos_template = {
                                 val_atributo: val_atributo,
@@ -336,37 +336,37 @@ activateListeners(html) {
         let objetivo_id;
 
         if (objetivo){
-          defensa_CaC=objetivo.document._actor.data.data.Defensa.Base;
-          if (objetivo.document._actor.data.data.Defensa.Escudo_CAC){
-            defensa_CaC_escudo=objetivo.document._actor.data.data.Defensa.Escudo_CAC;
+          defensa_CaC=objetivo.document._actor.system.Defensa.Base;
+          if (objetivo.document._actor.system.Defensa.Escudo_CAC){
+            defensa_CaC_escudo=objetivo.document._actor.system.Defensa.Escudo_CAC;
           }
-          if (objetivo.document._actor.data.data.Defensa.Escudo_Dist){
-            defensa_Dist_escudo=objetivo.document._actor.data.data.Defensa.Escudo_Dist;
+          if (objetivo.document._actor.system.Defensa.Escudo_Dist){
+            defensa_Dist_escudo=objetivo.document._actor.system.Defensa.Escudo_Dist;
           }
-          absorcion_armadura=objetivo.document._actor.data.data.Absorción_Total;
+          absorcion_armadura=objetivo.document._actor.system.Absorción_Total;
           objetivo_id=objetivo.data._id;
         }
 
         if (dataset.habilidad=="CaC"){
-          val_atributo=this.actor.data.data.Físico;
+          val_atributo=this.actor.system.Físico;
           nom_atributo="Físico";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
           HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas Cuerpo a Cuerpo");
           if (HabilidadArma){
-            val_habilidad=HabilidadArma.data.data.Nivel;
+            val_habilidad=HabilidadArma.system.Nivel;
           }
 
         }
         if (dataset.habilidad=="Distancia"){
-          val_atributo=this.actor.data.data.Destreza;
+          val_atributo=this.actor.system.Destreza;
           nom_atributo="Destreza";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
           HabilidadArma = this.actor.data.items.find((k) => k.data.type === "Habilidad" && k.data.name === "Armas a Distancia");
           if (HabilidadArma){
-            val_habilidad=HabilidadArma.data.data.Nivel;
+            val_habilidad=HabilidadArma.system.Nivel;
           }
         }
-        if (Number(this.actor.data.data.Puntos_de_Vida.value) <= Number(this.actor.data.data.Físico) || Number(val_habilidad)==0){
+        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(val_habilidad)==0){
           tipo_dado = "menor"
         }
 
@@ -418,13 +418,13 @@ activateListeners(html) {
       async _onRestauraVida(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        this.actor.update ({ 'data.Puntos_de_Vida.value': this.actor.data.data.Puntos_de_Vida.max });
+        this.actor.update ({ 'data.Puntos_de_Vida.value': this.actor.system.Puntos_de_Vida.max });
       }
 
       async _onRestauraMana(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        this.actor.update ({ 'data.Puntos_de_Mana.value': this.actor.data.data.Puntos_de_Mana.max });
+        this.actor.update ({ 'data.Puntos_de_Mana.value': this.actor.system.Puntos_de_Mana.max });
       }
 
       async _onD6Roll(event) {

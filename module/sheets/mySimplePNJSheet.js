@@ -16,11 +16,10 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
   }
 
   getData() {
-        const data = super.getData().data;
+    const superData = super.getData();
+        const data = superData.data;
+        superData.enrichedBiography = TextEditor.enrichHTML(this.object.system.Descripcion, {async: true});
         data.dtypes = ["String", "Number", "Boolean"];
-        if (this.actor.data.type == 'Monstruo' ) {
-
-        }
         return data;
       }
 
@@ -48,23 +47,23 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
         var nom_atributo="";
         var val_habilidad=0;
         var archivo_template="";
-        let listaObjetivos = game.user.targets;
-        let objetivo = Array.from(listaObjetivos)[0];
+        let objetivo = game.user.targets.first()
         let absorcion_armadura=0;
         let defensa_CaC = 0;
         let defensa_CaC_escudo =0;
         let defensa_Dist_escudo=0;
         let objetivo_id;
         if (objetivo){
-          defensa_CaC=objetivo.document._actor.data.data.Defensa.Base;
-          if (objetivo.document._actor.data.data.Defensa.Escudo_CAC){
-            defensa_CaC_escudo=objetivo.document._actor.data.data.Defensa.Escudo_CAC;
+          let objetivoSystem = Actor.get(objetivo.document.actorId).system;
+          defensa_CaC=objetivoSystem.Defensa.Base;
+          if (objetivoSystem.Defensa.Escudo_CAC){
+            defensa_CaC_escudo=objetivoSystem.Defensa.Escudo_CAC;
           }
-          if (objetivo.document._actor.data.data.Defensa.Escudo_Dist){
-            defensa_Dist_escudo=objetivo.document._actor.data.data.Defensa.Escudo_Dist;
+          if (objetivoSystem.Defensa.Escudo_Dist){
+            defensa_Dist_escudo=objetivoSystem.Defensa.Escudo_Dist;
           }
-          absorcion_armadura=objetivo.document._actor.data.data.Absorción_Total;
-          objetivo_id=objetivo.data._id;
+          absorcion_armadura=objetivoSystem.Absorción_Total;
+          objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
         archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
@@ -110,21 +109,10 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
          close: html => console.log("This always is logged no matter which option is chosen")
        });
        dialogo.render(true);
-
       }
 
-    //  async _onTiradaDañoPNJ(event) {
-    //    const element = event.currentTarget;
-    //    const dataset = element.dataset;
-    //    console.log ("ENTRO EN TIRADA DAÑO PNJ")
-
-    //  }
-
       async _onRestauraVidaPNJ(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        console.log ("ENTRO EN RESTAURA VIDA PNJ")
-        this.actor.update ({ 'data.Puntos_de_Vida.value': this.actor.data.data.Puntos_de_Vida.max });
+        this.actor.update ({ "system.Puntos_de_Vida.value": this.actor.system.Puntos_de_Vida.max });
       }
 
 }
