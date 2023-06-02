@@ -18,7 +18,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
   getData() {
     const superData = super.getData();
         const data = superData.data;
-        superData.enrichedBiography = TextEditor.enrichHTML(this.object.system.Descripcion, {async: true});
+        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
         data.dtypes = ["String", "Number", "Boolean"];
         return data;
       }

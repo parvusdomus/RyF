@@ -30,9 +30,11 @@ export default class RyFActorSheet extends ActorSheet{
           this._prepareCharacterItems(data);
           this._calculaValores(data);
         }
-        superData.enrichedBiography = TextEditor.enrichHTML(this.object.system.Descripcion, {async: true});
+        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
         return data;
-      }
+  }
+
+  
 
 
       _prepareCharacterItems(sheetData) {
