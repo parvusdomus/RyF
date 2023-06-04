@@ -13,19 +13,17 @@ export async function tiradaAtributo (actor, dataset, bonos, dificultad, tipo_da
   }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=0;
   }
   if (dado==="objetivo"){
     total=Number(d10s[1])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=1;
   }
   if (dado==="mayor"){
     total=Number(d10s[2])+Number(dataset.valor)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
     dado_elegido=2;
   }
+  if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
   if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
     resultado="PIFIA"
   } else if (total < Number(dificultad) || Number(d10s[dado_elegido]) == 1){

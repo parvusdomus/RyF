@@ -6,15 +6,12 @@ export default class RyFExtras {
    static _onDanoDesdeChat (event){
      const element = event.currentTarget;
      const dataset = element.dataset;
-     console.log("AAAAA");
-     console.log(dataset);
-     if (dataset.exito=="true"){
-     }else {
-       return 1;
-     }
+     if (!dataset.exito){
+      return 1;
+    }
      let tirada=dataset.daño +"+"+dataset.bonos;
      if(dataset.efecto && dataset.efecto > 0){
-      tirada = tirada + "+" + dataset.efecto+"d6x"
+      tirada = tirada + "+" + dataset.efecto+"d6"
      }
      let objetivo_id=""
      let d6Roll = new Roll(tirada).roll({async: false});

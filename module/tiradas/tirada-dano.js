@@ -13,9 +13,6 @@ export async function tiradaDano (actor, dataset, val_atributo, val_habilidad, b
   if (total > 0 && objetivo){
     causa_daño=true;
   }
-  else {
-    total=0;
-  }
   const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_daño_chat.html';
   const datos_template_chat = {
                           tirada: tirada,
