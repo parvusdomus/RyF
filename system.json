@@ -13,7 +13,7 @@
       "verified": "11",
       "maximum": "11"
     },
-    "scripts": [],
+    "scripts": ["module/tokens/TokenRyFHUD.js"],
     "esmodules": [
       "ryf.js"
     ],
