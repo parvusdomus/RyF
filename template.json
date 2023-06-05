@@ -70,7 +70,8 @@
         "Largo": 0
       },
       "Habilidad": "Armas CC",
-      "Precio": 0
+      "Precio": 0,
+      "Equipado": "false"
     },
     "Armadura":{
       "Descripcion": "",
