@@ -1,4 +1,4 @@
-export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad, bonos, dificultad, tipo_dado, forzar, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, alcance_corto, alcance_medio, alcance_largo, daño_corto, daño_medio, daño_largo, absorcion_armadura)
+export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad, bonos, dificultad, tipo_dado, forzar, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, alcance_corto, alcance_medio, alcance_largo, dano_corto, dano_medio, dano_largo, absorcion_armadura)
 {
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
@@ -61,7 +61,7 @@ export async function tiradaAtaque (actor, dataset, val_atributo, val_habilidad,
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          daño: daño_corto,
+                          dano: dano_corto,
                           objetivo_id: objetivo_id,
                           exito: exito,
                           absorcion_armadura: absorcion_armadura

@@ -5,7 +5,7 @@
         <th style="width:10%"></th>
         <th style="width:40%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ARMA</label></th>
         <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">ALCANCE</label></th>
-        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">DAÑO</label></th>
+        <th style="width:20%; align:center"><label class="Jugador_Inventario_Tabla_Títulos">DAnO</label></th>
         <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="Arma"><i class="fas fa-plus"></i></a></th>
       </tr>
       {{#each Armas as |item id|}}
@@ -13,7 +13,7 @@
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto tiradaArma"
             data-arma="{{item.name}}" data-habilidad="{{item.system.Habilidad}}"
-            data-daño_corto="{{item.system.Daño.Corto}}" data-daño_medio="{{item.system.Daño.Medio}}" data-daño_largo="{{item.system.Daño.Largo}}"
+            data-dano_corto="{{item.system.Dano.Corto}}" data-dano_medio="{{item.system.Dano.Medio}}" data-dano_largo="{{item.system.Dano.Largo}}"
             data-alcance_corto="{{item.system.Alcance.Corto}}" data-alcance_medio="{{item.system.Alcance.Medio}}" data-alcance_largo="{{item.system.Alcance.Largo}}"
             >{{item.name}}</label></div></td>
           <td style="text-align:center">
@@ -22,9 +22,9 @@
             {{#if (ne item.system.Alcance.Largo 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Alcance.Largo}}</label>{{/if}}
           </td>
           <td style="text-align:center">
-            {{#if (ne item.system.Daño.Corto "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Daño.Corto}}</label>{{/if}}
-            {{#if (ne item.system.Daño.Medio "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Daño.Medio}}</label>{{/if}}
-            {{#if (ne item.system.Daño.Largo "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Daño.Largo}}</label>{{/if}}
+            {{#if (ne item.system.Dano.Corto "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Dano.Corto}}</label>{{/if}}
+            {{#if (ne item.system.Dano.Medio "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Dano.Medio}}</label>{{/if}}
+            {{#if (ne item.system.Dano.Largo "")}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Dano.Largo}}</label>{{/if}}
           </td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>

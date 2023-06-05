@@ -1,4 +1,4 @@
-.chat_tirada_daño_label1 {
+.chat_tirada_dano_label1 {
   background-color: transparent;
   position: relative;
   top: -10.5em;
@@ -10,7 +10,7 @@
   font-size: 1.3em;
 }
 
-.chat_tirada_daño_label2 {
+.chat_tirada_dano_label2 {
   background-color: transparent;
   position: relative;
   top: -10.5em;
@@ -22,7 +22,7 @@
   font-size: 1.3em;
 }
 
-.chat_tirada_daño_total {
+.chat_tirada_dano_total {
   background-color: transparent;
   position: relative;
   top: -5.1em;
@@ -34,7 +34,7 @@
   color: Black !important;
   font-size: 3.5em;
 }
-.chat_tirada_daño_explicacion {
+.chat_tirada_dano_explicacion {
   background-color: transparent;
   position: relative;
   top: -18.9em;
@@ -47,7 +47,7 @@
   font-size: 1.3em;
 }
 
-.chat_tirada_aplicar_daño {
+.chat_tirada_aplicar_dano {
   background-color: transparent;
   position: relative;
   top: -13.3em;
@@ -60,7 +60,7 @@
   font-size: 1.3em;
 }
 
-.chat_tirada_daño_imagen_dados {
+.chat_tirada_dano_imagen_dados {
   top: -12.3em;
   left: 6em;
   position: relative;
@@ -70,7 +70,7 @@
   z-index: 0;
 }
 
-.chat_tirada_daño_imagen_dados img {
+.chat_tirada_dano_imagen_dados img {
   vertical-align: middle;
   max-height: 100%;
   z-index: -1;

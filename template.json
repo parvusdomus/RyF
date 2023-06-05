@@ -47,7 +47,7 @@
     "min":0,
     "max": 0
   },
-  "Daño": "",
+  "Dano": "",
   "Descripcion": ""
 }
 
@@ -59,7 +59,7 @@
     "types": ["Arma", "Armadura", "Escudo", "Objeto", "Habilidad", "Hechizo", "Talento"],
     "Arma":{
       "Descripcion": "",
-      "Daño":{
+      "Dano":{
         "Corto": "",
         "Medio": "",
         "Largo": ""
@@ -106,8 +106,8 @@
       "Nivel": 0,
       "Mana": 0,
       "Alcance": "",
-      "Daño": {
-        "Produce_Daño": "false",
+      "Dano": {
+        "Produce_Dano": "false",
         "Valor": ""
       },
       "Curación":{

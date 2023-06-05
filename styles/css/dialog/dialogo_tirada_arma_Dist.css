@@ -140,7 +140,7 @@
   border: none;
 }
 
-.dialogo_tirada_arma_Dist_daño {
+.dialogo_tirada_arma_Dist_dano {
   background-color: transparent;
   position: absolute;
   top: 2.6em;
@@ -153,7 +153,7 @@
   color: Black !important;
   font-size: 1.3em;
 }
-.dialogo_tirada_arma_Dist_daño select{
+.dialogo_tirada_arma_Dist_dano select{
   text-align: center;
   background-color: transparent;
   font-family: "Airstrip";
@@ -161,7 +161,7 @@
   border: none;
 }
 
-.dialogo_tirada_arma_Dist_mod_daño {
+.dialogo_tirada_arma_Dist_mod_dano {
   background-color: transparent;
   position: absolute;
   top: 5.7em;
@@ -173,7 +173,7 @@
   color: Black !important;
   font-size: 1.2em;
 }
-.dialogo_tirada_arma_Dist_mod_daño input{
+.dialogo_tirada_arma_Dist_mod_dano input{
   text-align: center;
   font-family: "Airstrip";
   color: Black !important;

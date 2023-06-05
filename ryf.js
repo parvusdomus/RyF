@@ -24,8 +24,8 @@ Hooks.once("init", function(){
     preloadHandlebarsTemplates();
     console.log ("test | DONE LOADING TEMPLATES");
     game.settings.register("ryf", "forceFontSize", {
-      name: "Forzar Tamaño de Fuente",
-      hint: "Activa esta opción si la ficha se ve rara. Activarla forzará el tamaño de la fuente a 5.",
+      name: "Forzar Tamano de Fuente",
+      hint: "Activa esta opción si la ficha se ve rara. Activarla forzará el tamano de la fuente a 5.",
       scope: "world",
       type: Boolean,
       default: false,
@@ -46,9 +46,6 @@ Hooks.on('renderTokenHUD', async (hud, html, token) => {
       .append(buttonDisplay)
       .click((event) => {
           let activeButton, clickedButton, tokenButton;
-          console.log(clickedButton);
-          console.log(activeButton);
-          console.log(tokenButton);
           let controlIcons = html.find('div.control-icon');
           for ( const button of controlIcons ) {
               if (button.classList.contains('active')) activeButton = button
@@ -56,34 +53,8 @@ Hooks.on('renderTokenHUD', async (hud, html, token) => {
               if (button.dataset.action === 'thwildcard-selector') tokenButton = button
           }
 
-          if (clickedButton === tokenButton && activeButton !== tokenButton) {
-              tokenButton.classList.add('active')
-
-              html.find('.thwildcard-selector-wrap')[0].classList.add('active')
-              const effectSelector = '.effects'
-              html.find(`.control-icon${effectSelector}`)[0].classList.remove('active')
-              html.find('.status-effects')[0].classList.remove('active')
-          } else {
-              tokenButton.classList.remove('active')
-              html.find('.thwildcard-selector-wrap')[0].classList.remove('active')
+          if (clickedButton === tokenButton) {
+              console.log("Clic en el boton custom")
           }
       })
-
-  const buttons = html.find('.thwildcard-button-select')
-
-  buttons.map((button) => {
-      buttons[button].addEventListener('click', function (event) {
-          event.preventDefault()
-          event.stopPropagation()
-          const controlled = canvas.tokens.controlled
-          const index = controlled.findIndex(x => x.data._id === token._id)
-          const tokenToChange = controlled[index]
-          const updateTarget = is080 ? tokenToChange.document : tokenToChange
-
-          const dimensions = getTokenDimensions(updateTarget, event.target.dataset.name)
-          let updateInfo = { img: event.target.dataset.name, ...dimensions }
-
-          updateTarget.update(updateInfo)
-      })
-  })
 })

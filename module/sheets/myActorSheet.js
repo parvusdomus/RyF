@@ -149,7 +149,7 @@ activateListeners(html) {
         // Si la hoja no es editable me salgo
         if (!this.options.editable) return;
 
-        // Añadir Objeto
+        // Anadir Objeto
         html.find('.item-create').click(this._onItemCreate.bind(this));
 
         // Editar objetos
@@ -192,7 +192,7 @@ activateListeners(html) {
 
 }
 
-      //Funcion de añadir objetos
+      //Funcion de anadir objetos
       _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
@@ -385,9 +385,9 @@ activateListeners(html) {
                                 alcance_corto: dataset.alcance_corto,
                                 alcance_medio: dataset.alcance_medio,
                                 alcance_largo: dataset.alcance_largo,
-                                daño_corto: dataset.daño_corto,
-                                daño_medio: dataset.daño_medio,
-                                daño_largo: dataset.daño_largo,
+                                dano_corto: dataset.dano_corto,
+                                dano_medio: dataset.dano_medio,
+                                dano_largo: dataset.dano_largo,
                                 tipo_dado: tipo_dado,
                                 defensa_CaC: defensa_CaC,
                                 defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
@@ -404,14 +404,14 @@ activateListeners(html) {
             icon: '<i class="fas fa-dice"></i>',
             label: "Ataque",
             callback: () => {
-               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño_corto, dataset.daño_medio, dataset.daño_largo, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano_corto, dataset.dano_medio, dataset.dano_largo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
             }
   		    },
-          Daño: {
+          Dano: {
            icon: '<i class="fas fa-skull-crossbones"></i>',
-           label: "Daño",
+           label: "Dano",
            callback: () => {
-              tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño_corto, dataset.daño_medio, dataset.daño_largo, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+              tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano_corto, dataset.dano_medio, dataset.dano_largo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
            }
          }
          },

@@ -312,7 +312,7 @@
          id="tspan1495-1-8-6"
          x="46.826092"
          y="340.84399"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.07460928px;font-family:Bangers;-inkscape-font-specification:'Bangers, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#131f21;fill-opacity:1;stroke-width:0.35727781">DAÑO</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.07460928px;font-family:Bangers;-inkscape-font-specification:'Bangers, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#131f21;fill-opacity:1;stroke-width:0.35727781">DAnO</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.21664px;line-height:1.25;font-family:Bangers;-inkscape-font-specification:'Bangers, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#131f21;fill-opacity:1;stroke:none;stroke-width:0.20843741"
@@ -324,6 +324,6 @@
          id="tspan1495-1-8-6-1"
          x="79.770973"
          y="209.39746"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.21664px;font-family:Bangers;-inkscape-font-specification:'Bangers, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#131f21;fill-opacity:1;stroke-width:0.20843741">MODificador DAÑO</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.21664px;font-family:Bangers;-inkscape-font-specification:'Bangers, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#131f21;fill-opacity:1;stroke-width:0.20843741">MODificador DAnO</tspan></text>
   </g>
 </svg>

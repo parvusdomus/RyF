@@ -126,7 +126,7 @@
   border: none;
 }
 
-.PNJ_Daño {
+.PNJ_Dano {
   background-color: transparent;
   position: absolute;
   top: 5.7em;
@@ -138,7 +138,7 @@
   color: Black !important;
   font-size: 1.3em;
 }
-.PNJ_Daño input{
+.PNJ_Dano input{
   text-align: center;
   color: Black !important;
   background-color: transparent;
@@ -207,7 +207,7 @@
   font-size: 1.5em;
 }
 
-.label_PNJ_Daño {
+.label_PNJ_Dano {
   background-color: transparent;
   position: absolute;
   top: 5em;

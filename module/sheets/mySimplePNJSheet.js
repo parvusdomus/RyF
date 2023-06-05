@@ -32,7 +32,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
               //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
             //  html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
             html.find('.tiradaAtaquePNJ').click(this._onTiradaAtaquePNJ.bind(this));
-            //html.find('.tiradaDañoPNJ').click(this._onTiradaDañoPNJ.bind(this));
+            //html.find('.tiradaDanoPNJ').click(this._onTiradaDanoPNJ.bind(this));
             html.find('.restauraVidaPNJ').click(this._onRestauraVidaPNJ.bind(this));
       }
 
@@ -74,9 +74,9 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
                                 alcance_corto: 0,
                                 alcance_medio: 0,
                                 alcance_largo: 0,
-                                daño_corto: dataset.daño,
-                                daño_medio: dataset.daño,
-                                daño_largo: dataset.daño,
+                                dano_corto: dataset.dano,
+                                dano_medio: dataset.dano,
+                                dano_largo: dataset.dano,
                                 tipo_dado: tipo_dado,
                                 defensa_CaC: defensa_CaC,
                                 defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
@@ -93,14 +93,14 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
             icon: '<i class="fas fa-dice"></i>',
             label: "Ataque",
             callback: () => {
-               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño, dataset.daño, dataset.daño, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano, dataset.dano, dataset.dano, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
              }
            },
-           Daño: {
+           Dano: {
              icon: '<i class="fas fa-skull-crossbones"></i>',
-             label: "Daño",
+             label: "Dano",
              callback: () => {
-                tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño, dataset.daño, dataset.daño, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+                tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano, dataset.dano, dataset.dano, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
              }
            }
          },

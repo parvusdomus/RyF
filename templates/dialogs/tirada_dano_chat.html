@@ -1,8 +1,13 @@
 <form class="{{cssClass}} dialogo_tirada_atributo" autocomplete="off">
   <img class="content-background" src="/systems/ryf/assets/chat/dialogo_tirada_atributo.svg" alt="?"/>
+  <div class="chat_tirada_dano_label1"><label>Dano {{nom_habilidad}}</label></div>
   <div class="chat_tirada_dano_label2"><label> {{tirada}}</label></div>
   <div>
       <img class="chat_tirada_dano_imagen_dados" src="/systems/ryf/assets/chat/d6.svg" alt="?"/>
   </div>
   <div class="chat_tirada_dano_total"><label>{{total}}</label></div>
+  <div class="chat_tirada_dano_explicacion"><label>{{resultado}} - {{armadura}}</label></div>
+  {{#if (eq causa_dano true)}}
+    <div class="chat_tirada_aplicar_dano aplicaDanoDesdeChat" data-dano="{{total}}" data-objetivo="{{objetivo}}"><label>Aplicar Dano</label></div>
+  {{/if}}
 </form>

@@ -134,7 +134,7 @@
   border: none;
 }
 
-.dialogo_tirada_arma_CAC_daño {
+.dialogo_tirada_arma_CAC_dano {
   background-color: transparent;
   position: absolute;
   top: 2.9em;
@@ -146,7 +146,7 @@
   color: Black !important;
   font-size: 1.2em;
 }
-.dialogo_tirada_arma_CAC_daño input{
+.dialogo_tirada_arma_CAC_dano input{
   text-align: center;
   font-family: "Airstrip";
   color: Black !important;
@@ -168,7 +168,7 @@
   font-size: 1.3em;
 }
 
-.dialogo_tirada_arma_CAC_mod_daño {
+.dialogo_tirada_arma_CAC_mod_dano {
   background-color: transparent;
   position: absolute;
   top: 5.8em;
@@ -180,7 +180,7 @@
   color: Black !important;
   font-size: 1.2em;
 }
-.dialogo_tirada_arma_CAC_mod_daño input{
+.dialogo_tirada_arma_CAC_mod_dano input{
   text-align: center;
   font-family: "Airstrip";
   color: Black !important;
