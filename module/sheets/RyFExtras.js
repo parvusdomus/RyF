@@ -11,7 +11,7 @@ export default class RyFExtras {
     }
      let tirada=dataset.dano +"+"+dataset.bonos;
      if(dataset.efecto && dataset.efecto > 0){
-      tirada = tirada + "+" + dataset.efecto+"d6"
+      tirada = tirada + "+" + dataset.efecto+"d6x"
      }
      let objetivo_id=""
      let d6Roll = new Roll(tirada).roll({async: false});
