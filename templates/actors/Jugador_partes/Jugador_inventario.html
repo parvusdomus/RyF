@@ -11,7 +11,13 @@
       {{#each Armas as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
-          <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto tiradaArma"
+          <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em">
+
+            {{#if (eq item.system.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
+            <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
+            {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
+
+            <label class="Jugador_Inventario_Tabla_Texto tiradaArma"
             data-arma="{{item.name}}" data-habilidad="{{item.system.Habilidad}}"
             data-dano_corto="{{item.system.Dano.Corto}}" data-dano_medio="{{item.system.Dano.Medio}}" data-dano_largo="{{item.system.Dano.Largo}}"
             data-alcance_corto="{{item.system.Alcance.Corto}}" data-alcance_medio="{{item.system.Alcance.Medio}}" data-alcance_largo="{{item.system.Alcance.Largo}}"

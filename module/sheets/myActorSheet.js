@@ -114,7 +114,7 @@ Iniciativa=Number(val_reflejos)+Number(data.system.Percepción);
 let Esquivar = data.Habilidades.find((k) => k.name === "Esquivar");
 if (Esquivar){
 
-  val_esquivar=Esquivar.data.Nivel;
+  val_esquivar=Esquivar.system.Nivel;
 }
 Defensa_Base= Number(data.system.Destreza)+Number(val_esquivar)+Number(5);
 //CALCULO DEFENSA ESCUDO CaC y Dist
@@ -127,8 +127,8 @@ if (Escudo){
 //CALCULO absorcion_armadura
 let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.system.Equipado=="true");
 if (Armadura){
-  Absorcion_Total=Armadura.data.Absorcion;
-  Estorbo_Total+=Armadura.data.Estorbo;
+  Absorcion_Total=Armadura.system.Absorcion;
+  Estorbo_Total+=Armadura.system.Estorbo;
 }
 //CALCULO MANA
 Puntos_de_Mana=Number(data.system.Inteligencia)*Number(3);
