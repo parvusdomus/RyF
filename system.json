@@ -6,7 +6,7 @@
     "templateVersion": 1,
     "authors": [
       {"name": "ParvusDomus"},
-      {"name": "Ventura", "url": "mfventura.dev"}
+      {"name": "Ventura", "url": "https://mfventura.dev"}
     ],
     "compatibility": {
       "minimum": "10",
