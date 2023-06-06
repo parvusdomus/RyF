@@ -15,20 +15,12 @@
 
 .chat-message{
   background-color: white;
-  background: url("/systems/ryf/assets/white.jpg") repeat;
-}
-
-.sheet {
-  background-color: Black;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  /*background: url("/systems/ryf/assets/white.jpg") repeat;*/
 }
 
 .window-app .window-content {
     background-color: white;
-    background: url("/systems/ryf/assets/white.jpg") repeat;
+    /*background: url("/systems/ryf/assets/white.jpg") repeat;*/
 }
 
 .sheet {
