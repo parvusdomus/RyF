@@ -120,9 +120,9 @@ Defensa_Base= Number(data.system.Destreza)+Number(val_esquivar)+Number(5);
 //CALCULO DEFENSA ESCUDO CaC y Dist
 let Escudo = data.Escudos.find((k) => k.type === "Escudo" && k.system.Equipado=="true");
 if (Escudo){
-  Defensa_Escudo_CaC=Escudo.data.Defensa.CC;
-  Defensa_Escudo_Dist=Escudo.data.Defensa.Distancia;
-  Estorbo_Total+=Escudo.data.Estorbo;
+  Defensa_Escudo_CaC=Escudo.system.Defensa.CC;
+  Defensa_Escudo_Dist=Escudo.system.Defensa.Distancia;
+  Estorbo_Total+=Escudo.system.Estorbo;
 }
 //CALCULO absorcion_armadura
 let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.system.Equipado=="true");
@@ -172,9 +172,9 @@ activateListeners(html) {
           const li = $(ev.currentTarget).parents(".item");
           const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
           if (objeto_a_equipar.system.Equipado =="false"){
-            objeto_a_equipar.update ({ 'data.Equipado': "true" });
+            objeto_a_equipar.update ({ 'system.Equipado': "true" });
           } else {
-            objeto_a_equipar.update ({ 'data.Equipado': "false" });
+            objeto_a_equipar.update ({ 'system.Equipado': "false" });
           }
 
           this.render(false);
