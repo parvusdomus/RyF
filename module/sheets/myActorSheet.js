@@ -14,7 +14,7 @@ export default class RyFActorSheet extends ActorSheet{
     }
     return mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "actor"],
-      template: "systems/ryf/templates/actors/Jugador.html",
+      template: "systems/ryf/templates/actors/jugador.html",
       width: 800,
       height: 700,
       resizable: false,
@@ -26,195 +26,183 @@ export default class RyFActorSheet extends ActorSheet{
     const superData = super.getData();
         const data = superData.data;
         data.dtypes = ["String", "Number", "Boolean"];
-        if (this.actor.type == 'Jugador') {
+        if (this.actor.type == 'jugador') {
           this._prepareCharacterItems(data);
           this._calculaValores(data);
         }
-        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
+        data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
+      console.log(data)
         return data;
   }
-
-  
-
-
-      _prepareCharacterItems(sheetData) {
+  _prepareCharacterItems(sheetData) {
       const actorData = sheetData;
-
       // Inicializo arrays para meter los objetos por tipo.
       //"arma", "armadura", "aspecto", "don", "habilidad", "limitacion", "maniobra", "objeto", "talento"
-       const Armas = [];
-       const Armaduras = [];
-       const Escudos = [];
-       const Habilidades = [];
-       const Hechizos = [];
-       const Objetos = [];
-       const Talentos = [];
+       const armas = [];
+       const armaduras = [];
+       const escudos = [];
+       const habilidades = [];
+       const hechizos = [];
+       const objetos = [];
+       const talentos = [];
        // Ordena los objetos por tipo y los mete en el array correspondiente
       for (let i of sheetData.items) {
         let itemSystem = i.system;
         i.img = i.img || DEFAULT_TOKEN;
-        if (i.type === 'Arma') {
-          Armas.push(i);
+        if (i.type === 'arma') {
+          armas.push(i);
         }
-        else if (i.type === 'Armadura') {
-          Armaduras.push(i);
+        else if (i.type === 'armadura') {
+          armaduras.push(i);
         }
-         else if (i.type === "Escudo") {
-           Escudos.push(i);
+        else if (i.type === "escudo") {
+           escudos.push(i);
+        }
+         else if (i.type === "habilidad") {
+             if (itemSystem.atributo=="F"){itemSystem.total=itemSystem.nivel+actorData.system.atributos.fisico}
+             if (itemSystem.atributo=="D"){itemSystem.total=itemSystem.nivel+actorData.system.atributos.destreza}
+             if (itemSystem.atributo=="I"){itemSystem.total=itemSystem.nivel+actorData.system.atributos.inteligencia}
+             if (itemSystem.atributo=="P"){itemSystem.total=itemSystem.nivel+actorData.system.atributos.percepcion}
+             if (itemSystem.atributo=="C"){itemSystem.total=itemSystem.nivel+actorData.system.atributos.carisma}
+            habilidades.push(i);
+        }
+         else if (i.type === "hechizo") {
+           hechizos.push(i);
          }
-         else if (i.type === "Habilidad") {
-           Habilidades.push(i);
-           if (itemSystem.Atributo=="Físico"){itemSystem.Total=itemSystem.Nivel+actorData.system.Físico}
-           if (itemSystem.Atributo=="Destreza"){itemSystem.Total=itemSystem.Nivel+actorData.system.Destreza}
-           if (itemSystem.Atributo=="Inteligencia"){itemSystem.Total=itemSystem.Nivel+actorData.system.Inteligencia}
-           if (itemSystem.Atributo=="Percepción"){itemSystem.Total=itemSystem.Nivel+actorData.system.Percepción}
+         else if (i.type === "objeto") {
+           objetos.push(i);
          }
-         else if (i.type === "Hechizo") {
-           Hechizos.push(i);
-         }
-         else if (i.type === "Objeto") {
-           Objetos.push(i);
-         }
-         else if (i.type === "Talento") {
-           Talentos.push(i);
+         else if (i.type === "talento") {
+           talentos.push(i);
          }
       }
       //Asigno cada array al actordata
-  actorData.Armas = Armas;
-  actorData.Armaduras = Armaduras;
-  actorData.Escudos = Escudos;
-  actorData.Habilidades = Habilidades;
-  actorData.Hechizos = Hechizos;
-  actorData.Objetos = Objetos;
-  actorData.Talentos = Talentos;
-}
+      actorData.armas = armas;
+      actorData.armaduras = armaduras;
+      actorData.escudos = escudos;
+      actorData.habilidades = habilidades;
+      actorData.hechizos = hechizos;
+      actorData.objetos = objetos;
+      actorData.talentos = talentos;
+  }
+  _calculaValores(actorData) {
+      const data = actorData;
+      const atributos = data.system.atributos;
+      var Puntos_de_Vida =0;
+      var Iniciativa =0;
+      var val_reflejos=0;
+      var val_esquivar=0;
+      var Defensa_Base=0;
+      var Defensa_Escudo_CaC=0;
+      var Defensa_Escudo_Dist=0;
+      var estorbo=0;
+      var Puntos_de_Mana =0;
+      var absorcion =0;
 
-_calculaValores(actorData) {
-const data = actorData;
-var Puntos_de_Vida =0;
-var Iniciativa =0;
-var val_reflejos=0;
-var val_esquivar=0;
-var Defensa_Base=0;
-var Defensa_Escudo_CaC=0;
-var Defensa_Escudo_Dist=0;
-var Estorbo_Total=0;
-var Puntos_de_Mana =0;
-var Absorcion_Total =0;
-
-//CALCULO PUNTOS DE VIDA
-Puntos_de_Vida=Number(data.system.Físico)*Number(4);
-//CALCULO INICIATIVA
-let Reflejos = data.Habilidades.find((k) => k.name === "Reflejos");
-if (Reflejos){
-  val_reflejos=Reflejos.data.Nivel;
-}
-Iniciativa=Number(val_reflejos)+Number(data.system.Percepción);
-//CALCULO Defensa_Base
-let Esquivar = data.Habilidades.find((k) => k.name === "Esquivar");
-if (Esquivar){
-
-  val_esquivar=Esquivar.system.Nivel;
-}
-Defensa_Base= Number(data.system.Destreza)+Number(val_esquivar)+Number(5);
-//CALCULO DEFENSA ESCUDO CaC y Dist
-let Escudo = data.Escudos.find((k) => k.type === "Escudo" && k.system.Equipado=="true");
-if (Escudo){
-  Defensa_Escudo_CaC=Escudo.data.Defensa.CC;
-  Defensa_Escudo_Dist=Escudo.data.Defensa.Distancia;
-  Estorbo_Total+=Escudo.data.Estorbo;
-}
-//CALCULO absorcion_armadura
-let Armadura = data.Armaduras.find((k) => k.type === "Armadura" && k.system.Equipado=="true");
-if (Armadura){
-  Absorcion_Total=Armadura.system.Absorcion;
-  Estorbo_Total+=Armadura.system.Estorbo;
-}
-//CALCULO MANA
-Puntos_de_Mana=Number(data.system.Inteligencia)*Number(3);
-//ACTUALIZO TODOS LOS VALORES
-this.actor.update ({ 'data.Puntos_de_Vida.max': Puntos_de_Vida });
-this.actor.update ({ 'data.Iniciativa': Iniciativa });
-this.actor.update ({ 'data.Defensa.Base': Defensa_Base });
-this.actor.update ({ 'data.Defensa.Escudo_CAC': Defensa_Escudo_CaC });
-this.actor.update ({ 'data.Defensa.Escudo_Dist': Defensa_Escudo_Dist });
-this.actor.update ({ 'data.Estorbo_Total': Estorbo_Total });
-this.actor.update ({ 'data.Puntos_de_Mana.max': Puntos_de_Mana });
-this.actor.update ({ 'data.Absorcion_Total': Absorcion_Total });
-}
-
-activateListeners(html) {
-        super.activateListeners(html);
-
-        // Si la hoja no es editable me salgo
-        if (!this.options.editable) return;
-
-        // Anadir Objeto
-        html.find('.item-create').click(this._onItemCreate.bind(this));
-
-        // Editar objetos
-        html.find('.item-edit').click(ev => {
+      //CALCULO PUNTOS DE VIDA
+      Puntos_de_Vida=Number(atributos.fisico)*Number(4);
+      //CALCULO INICIATIVA
+      let reflejos = data.habilidades.find((k) => k.nombre === "Reflejos");
+      if (reflejos){
+          val_reflejos=reflejos.data.nivel;
+      }
+      Iniciativa=Number(val_reflejos)+Number(atributos.percepcion);
+      //CALCULO Defensa_Base
+      let esquivar = data.habilidades.find((k) => k.nombre === "Esquivar");
+      if (esquivar){
+          val_esquivar=esquivar.system.nivel;
+      }
+      Defensa_Base= Number(atributos.destreza)+Number(val_esquivar)+Number(5);
+      //CALCULO DEFENSA ESCUDO CaC y Dist
+      let escudo = data.escudos.find((k) => k.type === "escudo" && k.system.equipado);
+      if (escudo){
+        Defensa_Escudo_CaC=escudo.data.defensa.cc;
+        Defensa_Escudo_Dist=escudo.data.defensa.distancia;
+        estorbo+=escudo.data.estorbo;
+      }
+      //CALCULO absorcion_armadura
+      let armadura = data.armaduras.find((k) => k.type === "armadura" && k.system.equipado);
+      if (armadura){
+          absorcion=armadura.system.absorcion;
+          estorbo+=armadura.system.estorbo;
+      }
+      //CALCULO MANA
+      Puntos_de_Mana=Number(atributos.inteligencia)*Number(3);
+      //ACTUALIZO TODOS LOS VALORES
+      this.actor.update ({ 'data.derivadas.puntos-vida.max': Puntos_de_Vida });
+      this.actor.update ({ 'data.derivadas.iniciativa': Iniciativa });
+      this.actor.update ({ 'data.derivadas.defensa.base': Defensa_Base });
+      this.actor.update ({ 'data.derivadas.defensa.escudo-cac': Defensa_Escudo_CaC });
+      this.actor.update ({ 'data.derivadas.defensa.escudo-dist': Defensa_Escudo_Dist });
+      this.actor.update ({ 'data.derivadas.estorbo': estorbo });
+      this.actor.update ({ 'data.derivadas.puntos-mana.max': Puntos_de_Mana });
+      this.actor.update ({ 'data.derivadas.absorcion': absorcion });
+  }
+  activateListeners(html) {
+      super.activateListeners(html);
+      // Si la hoja no es editable me salgo
+      if (!this.options.editable) return;
+      // Anadir Objeto
+      html.find('.item-create').click(this._onItemCreate.bind(this));
+      // Editar objetos
+      html.find('.item-edit').click(ev => {
           const li = $(ev.currentTarget).parents(".item");
           const item = this.actor.items.get(li.data("itemId"));
           item.sheet.render(true);
-        });
-
-        // Borrar objetos
-        html.find('.item-delete').click(ev => {
+      });
+      // Borrar objetos
+      html.find('.item-delete').click(ev => {
           const li = $(ev.currentTarget).parents(".item");
           const objeto_a_borrar = this.actor.items.get(li.data("itemId"));
           objeto_a_borrar.delete();
           this.render(false);
           li.slideUp(200, () => this.render(false));
-        });
-        //Equipar objeto, solo armadura y escudo
-        html.find('.item-equip').click(ev => {
+      });
+      //Equipar objeto, solo armadura y escudo
+      html.find('.item-equip').click(ev => {
           const li = $(ev.currentTarget).parents(".item");
           const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
-          if (objeto_a_equipar.system.Equipado =="false"){
-            objeto_a_equipar.update ({ 'data.Equipado': "true" });
+          if (!objeto_a_equipar.system.equipado){
+            objeto_a_equipar.update ({ 'data.equipado': true });
           } else {
-            objeto_a_equipar.update ({ 'data.Equipado': "false" });
+            objeto_a_equipar.update ({ 'data.equipado': false });
           }
-
           this.render(false);
         });
 
-        //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
-        html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
-        html.find('.tiradaHabilidad').click(this._onTiradaHabilidad.bind(this));
-        html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
-        html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
-        html.find('.restauraVida').click(this._onRestauraVida.bind(this));
-        html.find('.restauraMana').click(this._onRestauraMana.bind(this));
-        html.find('.D10Roll').click(this._onD10Roll.bind(this));
-        html.find('.D6Roll').click(this._onD6Roll.bind(this));
+      //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
+      html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
+      html.find('.tiradaHabilidad').click(this._onTiradaHabilidad.bind(this));
+      html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
+      html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
+      html.find('.restauraVida').click(this._onRestauraVida.bind(this));
+      html.find('.restauraMana').click(this._onRestauraMana.bind(this));
+      html.find('.D10Roll').click(this._onD10Roll.bind(this));
+      html.find('.D6Roll').click(this._onD6Roll.bind(this));
+  }
 
-}
-
-      //Funcion de anadir objetos
-      _onItemCreate(event) {
-        event.preventDefault();
-        const header = event.currentTarget;
-        // Get the type of item to create.
-        const type = header.dataset.type;
-        // Grab any data associated with this control.
-        const data = duplicate(header.dataset);
-        // Initialize a default name.
-        const name = `${type.capitalize()}`;
-        // Prepare the item object.
-        const itemData = {
+  _onItemCreate(event) {
+      event.preventDefault();
+      const header = event.currentTarget;
+      // Get the type of item to create.
+      const type = header.dataset.type;
+      // Grab any data associated with this control.
+      const data = duplicate(header.dataset);
+      console.log(data)
+      // Initialize a default name.
+      const name = `${type.capitalize()}`;
+      // Prepare the item object.
+      const itemData = {
           name: name,
           type: type,
           system: data
-        };
-        // Remove the type from the dataset since it's in the itemData.type prop.
-        delete itemData.system["type"];
-
-        // Finally, create the item!
-        //     return this.actor.createOwnedItem(itemData);
-        return Item.create(itemData, {parent: this.actor});
-      }
+      };
+      // Remove the type from the dataset since it's in the itemData.type prop.
+      delete itemData.system["type"];
+      // Finally, create the item!
+      //     return this.actor.createOwnedItem(itemData);
+      return Item.create(itemData, {parent: this.actor});
+  }
 
       async _onTiradaAtributo(event) {
         const element = event.currentTarget;
@@ -357,9 +345,9 @@ activateListeners(html) {
           val_atributo=this.actor.system.Físico;
           nom_atributo="Físico";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
-          HabilidadArma = this.actor.items.find((k) => k.type === "Habilidad" && k.name === "Armas Cuerpo a Cuerpo");
+          HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.nombre === "Armas Cuerpo a Cuerpo");
           if (HabilidadArma){
-            val_habilidad=HabilidadArma.system.Nivel;
+            val_habilidad=HabilidadArma.system.nivel;
           }
 
         }
@@ -367,9 +355,9 @@ activateListeners(html) {
           val_atributo=this.actor.system.Destreza;
           nom_atributo="Destreza";
           archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
-          HabilidadArma = this.actor.items.find((k) => k.type === "Habilidad" && k.name === "Armas a Distancia");
+          HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.nombre === "Armas a Distancia");
           if (HabilidadArma){
-            val_habilidad=HabilidadArma.system.Nivel;
+            val_habilidad=HabilidadArma.system.nivel;
           }
         }
         if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(val_habilidad)==0){

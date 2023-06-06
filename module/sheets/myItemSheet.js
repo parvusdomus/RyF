@@ -14,7 +14,7 @@ export default class RyFItemSheet extends ItemSheet{
   getData() {
     const superData = super.getData();
         const data = superData.data;
-        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
+        data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
         return data;
   }
 

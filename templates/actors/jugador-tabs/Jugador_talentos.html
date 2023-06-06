@@ -9,7 +9,7 @@
       {{#each Talentos as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Talentos_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
-          <td class="Jugador_Talentos_Tabla_Nombre"><div style="width:20em"><label class="Jugador_Talentos_Tabla_Texto">{{item.name}}</label></div></td>
+          <td class="Jugador_Talentos_Tabla_Nombre"><div style="width:20em"><label class="Jugador_Talentos_Tabla_Texto">{{item.nombre}}</label></div></td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
             <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
@@ -30,8 +30,8 @@
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Talentos_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
           <td class="Jugador_Talentos_Tabla_Nombre tiradaHechizo"
-          data-hechizo="{{item.name}}" data-nivel="{{item.system.Nivel}}" data-dificultad="{{item.system.Dificultad}}" data-mana="{{item.system.Mana}}" data-alcance="{{item.system.Alcance}}"
-          ><div style="width:7em"><label class="Jugador_Talentos_Tabla_Texto">({{item.system.Nivel}}) {{item.name}}</label></div></td>
+          data-hechizo="{{item.nombre}}" data-nivel="{{item.system.Nivel}}" data-dificultad="{{item.system.Dificultad}}" data-mana="{{item.system.Mana}}" data-alcance="{{item.system.Alcance}}"
+          ><div style="width:7em"><label class="Jugador_Talentos_Tabla_Texto">({{item.system.Nivel}}) {{item.nombre}}</label></div></td>
           <td style="text-align:center" class="Jugador_Talentos_Tabla_Nombre Jugador_Habilidades_Tabla_Otros"><label class="Jugador_Talentos_Tabla_Texto">{{item.system.Alcance}}</label></td>
           <td style="text-align:center" class="Jugador_Talentos_Tabla_Nombre Jugador_Habilidades_Tabla_Otros"><label class="Jugador_Talentos_Tabla_Texto">{{item.system.Dificultad}}</label></td>
           <td style="text-align:center" class="Jugador_Talentos_Tabla_Nombre Jugador_Habilidades_Tabla_Otros"><label class="Jugador_Talentos_Tabla_Texto">{{item.system.Mana}}</label></td>

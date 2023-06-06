@@ -1,26 +1,26 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/habilidad-Bg.webp" alt="?"/>
-  <div class="habilidad-container">
-    <div class="Habilidad-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
-                                       onClick="this.select();"/></div>
-    <div class="Habilidad-foto">
-      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
-    </div>
-    <div class="Habilidad-Atributo">
-    <select name="system.Atributo" data-dtype="String">
-      {{#select system.Atributo}}
-      <option value="Físico">Fis</option>
-      <option value="Destreza">Des</option>
-      <option value="Inteligencia">Int</option>
-      <option value="Percepción">Per</option>
-      {{/select}}
-    </select>
-    </div>
-    <div class="Habilidad-Nivel">
-      <input type="text" name="system.Nivel" value="{{system.Nivel}}" data-dtype="Number" maxlength="3"/>
+  <div class="flexcol">
+    <div><input name="system.nombre" type="text" value="{{system.nombre}}" placeholder='Nombre' data-dtype="String"/></div>
+    <div class="flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{system.nombre}}" alt='Imagen del Personaje'/>
+      </div>
+      <div class="flexcol">
+        <select name="system.atributo" data-dtype="String">
+          {{#select system.atributo}}
+          <option value="F">Fisico</option>
+          <option value="D">Destreza</option>
+          <option value="I">Inteligencia</option>
+          <option value="P">Percepcion</option>
+          <option value="C">Carisma</option>
+          {{/select}}
+        </select>
+        <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="3"/>
+      </div>
     </div>
     <div class="Habilidad-descripcion-container">
-      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
+      <label>Descripción</label>
+      {{{editor system.descripcion target="system.descripcion" button=true editable=true}}}
     </div>
   </div>
 </form>

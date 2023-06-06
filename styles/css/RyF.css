@@ -1,18 +1,3 @@
-@font-face {
-    font-family: "Ethnocentric";
-    src: url("/systems/ryf/fonts/ethnocentric.ttf");
-}
-
-@font-face {
-    font-family: "Airstrip";
-    src: url("/systems/ryf/fonts/airstrip.ttf");
-}
-
-@font-face {
-    font-family: "Bangers";
-    src: url("/systems/ryf/fonts/Bangers.ttf");
-}
-
 .chat-message{
   background-color: white;
   /*background: url("/systems/ryf/assets/white.jpg") repeat;*/

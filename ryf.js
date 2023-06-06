@@ -11,11 +11,11 @@ Hooks.once("init", function(){
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("ryf", RyFActorSheet, {
       makeDefault: true,
-      types: ['Jugador']
+      types: ['jugador']
     });
     Actors.registerSheet("ryf", RyFSimpleNPJSheet, {
       makeDefault: true,
-      types: ['PNJ']
+      types: ['pnj']
     });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("ryf", RyFItemSheet);
@@ -32,7 +32,7 @@ Hooks.once("init", function(){
       config: true
     });
     CONFIG.Combat.initiative = {
-    formula: "{1d10x, 1d10x, 1d10x}dh1kh1 + @Iniciativa - @Estorbo_Total",
+    formula: "{1d10x, 1d10x, 1d10x}dh1kh1 + @iniciativa - @estorbo",
     decimals: 0};
 
 });

@@ -1,124 +1,129 @@
 {
   "Actor": {
-    "types": ["Jugador", "PNJ"],
-    "Jugador":{
-    "Físico": 0,
-    "Destreza": 0,
-    "Inteligencia": 0,
-    "Percepción": 0,
-    "Iniciativa": 0,
-    "Defensa": {
-      "Base": 0,
-      "Escudo_CAC": 0,
-      "Escudo_Dist": 0
-    },
-    "Absorcion_Total": 0,
-    "Puntos_de_Vida":{
-      "value":0,
-      "min":0,
-      "max": 0
-    },
-    "Puntos_de_Mana": {
-      "value":0,
-      "min":0,
-      "max": 0
-    },
-    "Estorbo_Total": 0,
-    "Dinero": 0,
-    "Experiencia": 0,
-    "Raza": "",
-    "Descripcion": ""
+    "types": ["jugador", "pnj"],
+    "jugador":{
+      "atributos": {
+        "fisico": 0,
+        "destreza": 0,
+        "inteligencia": 0,
+        "percepcion": 0
+      },
+      "derivadas": {
+        "iniciativa": 0,
+        "absorcion": 0,
+        "estorbo": 0,
+        "defensa": {
+          "base": 0,
+          "escudo-cac": 0,
+          "escudo-dist": 0
+        },
+        "puntos-vida":{
+          "value":0,
+          "min":-10,
+          "max": 0
+        },
+        "puntos-mana": {
+          "value":0,
+          "min":0,
+          "max": 0
+        }
+      },
+    "dinero": 0,
+    "experiencia": 0,
+    "raza": "",
+    "descripcion": ""
   },
 
-  "PNJ":{
-  "Iniciativa": 0,
-  "Ataque": 0,
-  "Defensa":{
-    "Base": 0
-    },
-  "Absorcion_Total": 0,
-  "Puntos_de_Vida":{
+  "pnj":{
+  "iniciativa": 0,
+  "ataque": 0,
+  "defensa": 0,
+  "absorcion": 0,
+  "puntos-vida":{
     "value":0,
     "min":0,
     "max": 0
   },
-  "Puntos_de_Mana":{
+  "puntos-mana":{
     "value":0,
     "min":0,
     "max": 0
   },
-  "Dano": "",
-  "Descripcion": ""
-}
-
-
+  "dano":{
+    "numero-dados": 0,
+    "bonificador": ""
   },
-
-
-  "Item":{
-    "types": ["Arma", "Armadura", "Escudo", "Objeto", "Habilidad", "Hechizo", "Talento"],
-    "Arma":{
-      "Descripcion": "",
-      "Dano":{
-        "Corto": "",
-        "Medio": "",
-        "Largo": ""
-      },
-      "Alcance": {
-        "Corto": 0,
-        "Medio": 0,
-        "Largo": 0
-      },
-      "Habilidad": "Armas CC",
-      "Precio": 0,
-      "Equipado": "false"
-    },
-    "Armadura":{
-      "Descripcion": "",
-      "Absorcion": 0,
-      "Estorbo": 0,
-      "Precio":0,
-      "Equipado": "false"
-    },
-    "Escudo":{
-      "Descripcion": "",
-      "Defensa": {
-        "CC": 0,
-        "Distancia": 0
-      },
-      "Estorbo": 0,
-      "Precio": 0,
-      "Equipado": "false"
-    },
-    "Objeto":{
-      "Descripcion": "",
-      "Cantidad": 0,
-      "Precio": 0
-    },
-    "Habilidad":{
-      "Descripcion": "",
-      "Atributo": "Físico",
-      "Nivel": 0,
-      "Total": 0
-    },
-    "Hechizo":{
-      "Descripcion": "",
-      "Dificultad": 0,
-      "Nivel": 0,
-      "Mana": 0,
-      "Alcance": "",
-      "Dano": {
-        "Produce_Dano": "false",
-        "Valor": ""
-      },
-      "Curación":{
-        "Produce_Curación": "false",
-        "Valor": ""
-      }
-    },
-    "Talento":{
-      "Descripcion": "",
-      "Requisito": ""
-    }
+  "descripcion": ""
   }
+},
+
+
+"Item":{
+  "types": ["arma", "armadura", "escudo", "objeto", "habilidad", "hechizo", "talento"],
+  "arma":{
+    "descripcion": "",
+    "dano":{
+      "numero-dados": 0,
+      "bonificador": ""
+    },
+    "alcance": {
+      "corto": 0,
+      "medio": 0,
+      "largo": 0
+    },
+    "tipo": ["Cuerpo a cuerpo", "Distancia"],
+    "precio": 0,
+    "equipado": false
+  },
+  "armadura":{
+    "descripcion": "",
+    "absorcion": 0,
+    "estorbo": 0,
+    "precio":0,
+    "equipado": false
+  },
+  "escudo":{
+    "descripcion": "",
+    "defensa": {
+      "cc": 0,
+      "distancia": 0
+    },
+    "estorbo": 0,
+    "precio": 0,
+    "equipado": false
+  },
+  "objeto":{
+    "descripcion": "",
+    "cantidad": 0,
+    "precio": 0
+  },
+  "habilidad":{
+    "nombre": "",
+    "descripcion": "Descripcion de la habilidad",
+    "atributo": "F",
+    "nivel": 0,
+    "total": 0
+  },
+  "hechizo":{
+    "descripcion": "",
+    "dificultad": 0,
+    "nivel": 0,
+    "mana": 0,
+    "alcance": "",
+    "produce-dano": false,
+    "dano":{
+      "numero-dados": 0,
+      "bonificador": ""
+    },
+    "produce-curacion": false,
+    "curacion":{
+      "numero-dados": 0,
+      "bonificador": ""
+    }
+  },
+  "talento":{
+    "descripcion": "",
+    "requisito": ""
+  }
+}
 }

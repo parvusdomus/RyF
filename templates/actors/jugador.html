@@ -1,0 +1,147 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  <header class="sheet-header">
+    <div class="header-fields">
+      <div class="flexrow">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
+        <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Nombre"/></h1>
+      </div>
+      <div class="atributos">
+        <h3>Atributos</h3>
+        <div class="flexrow">
+        <div class="flexcol">
+          <div class="flexrow flex-group-center">
+            <label class="resource-label">Físico</label>
+            <input type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number"/>
+          </div>
+          <div class="flexrow flex-group-center">
+            <label class="resource-label">Destreza</label>
+            <input type="text" name="system.atributos.destreza" value="{{system.atributos.destreza}}"  data-dtype="Number"/>
+          </div>
+          <div class="flexrow flex-group-center">
+            <label class="resource-label">Carisma</label>
+            <input type="text" name="system.atributos.carisma" value="{{system.atributos.carisma}}"  data-dtype="Number"/>
+          </div>
+        </div>
+        <div class="flexcol">
+          <div class="flexrow flex-group-center">
+            <label class="resource-label">Inteligencia</label>
+            <input type="text" name="system.atributos.inteligencia" value="{{system.atributos.inteligencia}}"  data-dtype="Number"/>
+          </div>
+          <div class="flexrow flex-group-center">
+            <label class="resource-label">Percepción</label>
+            <input type="text" name="system.atributos.percepcion" value="{{system.atributos.percepcion}}"  data-dtype="Number"/>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="derivadas">
+        <h3>Derivadas</h3>
+        <div class="flexrow">
+          <div class="flexcol">
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Iniciative</label>
+              <label class="resource-label">{{system.derivadas.iniciativa}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Absorción</label>
+              <label class="resource-label">{{system.derivadas.absorcion}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Estorbo</label>
+              <label class="resource-label">{{system.derivadas.estorbo}}</label>
+            </div>
+          </div>
+          <div class="flexcol">
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Puntos de Vida</label>
+              <label class="resource-label">{{system.derivadas.puntos-vida.max}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Maná</label>
+              <label class="resource-label">{{system.derivadas.puntos-mana.max}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">Defensa</label>
+              <label class="resource-label">{{system.derivadas.defensa.base}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="habilidades">Habilidades</a>
+    <a class="item" data-tab="inventario">Inventario</a>
+    <a class="item" data-tab="talentos">Talentos/Magia</a>
+    <a class="item" data-tab="biografia">Biografía</a>
+  </nav>
+  <section class="sheet-body">
+    {{!-- Habilidades Tab --}}
+    <div class="tab" data-group="primary" data-tab="habilidades">
+      <div>
+        <table>
+          <tr>
+            <th style="width:10%"></th>
+            <th style="width:40%"><label>HABILIDAD</label></th>
+            <th style="width:20%"><label>NIVEL</label></th>
+            <th style="width:20%"><label>TOTAL</label></th>
+            <th style="width:10%"><a class="item-control item-create" data-type="habilidad"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each habilidades as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><img src="{{item.img}}" width="24" height="24"/></td>
+
+            {{#if (eq item.system.atributo "F")}}
+              <td class="tiradaHabilidad" data-atributo="fisico" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(F)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "D")}}
+              <td class="tiradaHabilidad" data-atributo="destreza" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(D)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "I")}}
+              <td class="tiradaHabilidad" data-atributo="inteligencia" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(I)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "P")}}
+                  <td class="tiradaHabilidad" data-atributo="percepcion" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.system.nombre}}</label><label>(P)</label>
+                    </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "C")}}
+                  <td class="tiradaHabilidad" data-atributo="carisma" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.system.nombre}}</label><label>(C)</label>
+                    </div></td>
+            {{/if}}
+                <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
+                <td style="text-align:center"><label>{{item.system.total}}</label></td>
+                <td>
+                  <a style="align:right" class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
+                  <a style="align:right" class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+                </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+
+    {{!-- Inventario Tab --}}
+    <div class="tab" data-group="primary" data-tab="inventario">
+      {{> "/systems/ryf/templates/actors/jugador-tabs/Jugador_inventario.html"}}
+    </div>
+
+    {{!-- Talentos Tab --}}
+    <div class="tab" data-group="primary" data-tab="talentos">
+      {{> "/systems/ryf/templates/actors/jugador-tabs/Jugador_talentos.html"}}
+    </div>
+
+    {{!-- Bio Tab --}}
+    <div class="tab" data-group="primary" data-tab="biografia">
+      {{> "/systems/ryf/templates/actors/jugador-tabs/Jugador_biografia.html"}}
+    </div>
+  </section>
+</form>

@@ -74,11 +74,11 @@
 }
 
 .Habilidad-descripcion-container {
-  position:absolute;
+  flex: auto;
   left: 2em;
   top: 14em;
-  height: 15em;
-  width: 18.5em;
-  margin-bottom: -3em;
+  height: 10em;
+  width: 20em;
+  margin-bottom: 0em;
   overflow-x: hidden;
 }

@@ -16,10 +16,10 @@
             <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
             <label class="Jugador_Inventario_Tabla_Texto tiradaArma"
-            data-arma="{{item.name}}" data-habilidad="{{item.system.Habilidad}}"
+            data-arma="{{item.nombre}}" data-habilidad="{{item.system.habilidad}}"
             data-dano_corto="{{item.system.Dano.Corto}}" data-dano_medio="{{item.system.Dano.Medio}}" data-dano_largo="{{item.system.Dano.Largo}}"
             data-alcance_corto="{{item.system.Alcance.Corto}}" data-alcance_medio="{{item.system.Alcance.Medio}}" data-alcance_largo="{{item.system.Alcance.Largo}}"
-            >{{item.name}}</label></div></td>
+            >{{item.nombre}}</label></div></td>
           <td style="text-align:center">
             {{#if (ne item.system.Alcance.Corto 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Alcance.Corto}}</label>{{/if}}
             {{#if (ne item.system.Alcance.Medio 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Alcance.Medio}}</label>{{/if}}
@@ -52,7 +52,7 @@
             {{#if (eq item.system.Equipado "false")}}<span  style="color:LightGrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
-            <label class="Jugador_Inventario_Tabla_Texto"> {{item.name}}</label></div></td>
+            <label class="Jugador_Inventario_Tabla_Texto"> {{item.nombre}}</label></div></td>
 
 
           <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Absorcion}}</label></td>
@@ -80,7 +80,7 @@
             <a class="item-control item-equip"><i class="fas fa-shield"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.Equipado "false")}}</span>{{/if}}
 
-            <label class="Jugador_Inventario_Tabla_Texto"> {{item.name}}</label></div></td>
+            <label class="Jugador_Inventario_Tabla_Texto"> {{item.nombre}}</label></div></td>
           <td style="text-align:center">
             <label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Defensa.CC}}</label>
             {{#if (ne item.system.Defensa.Distancia 0)}}<label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">/{{item.system.Defensa.Distancia}}</label>{{/if}}
@@ -103,7 +103,7 @@
       {{#each Objetos as |item id|}}
         <tr class="item" data-item-id="{{item._id}}">
           <td class="Jugador_Inventario_Imagen"><img src="{{item.img}}" width="24" height="24"/></td>
-          <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto">{{item.name}}</label></div></td>
+          <td class="Jugador_Inventario_Tabla_Nombre"><div style="width:8em"><label class="Jugador_Inventario_Tabla_Texto">{{item.nombre}}</label></div></td>
           <td style="text-align:center"><label class="Jugador_Inventario_Tabla_Otros Jugador_Inventario_Tabla_Texto">{{item.system.Cantidad}}</label></td>
           <td>
             <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
