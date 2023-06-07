@@ -6,7 +6,7 @@
     "templateVersion": 1,
     "authors": [
       {"name": "ParvusDomus"},
-      {"name": "Ventura", "url": "mfventura.dev"}
+      {"name": "Ventura", "url": "https://mfventura.dev"}
     ],
     "compatibility": {
       "minimum": "10",
@@ -47,7 +47,13 @@
     ],
     "packs": [],
     "relationships": [],
-    "languages": [],
+    "languages": [
+      {
+        "lang": "es",
+        "name": "Español",
+        "path": "lang/es.json"
+      }
+    ],
     "socket": false,
     "gridDistance": 5,
     "gridUnits": "ft",

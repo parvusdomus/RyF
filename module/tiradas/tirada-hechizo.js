@@ -1,11 +1,11 @@
 export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, forzar, mana)
 {
-  if (actor.system.Puntos_de_Mana.Actuales - mana < 0){
+  if (actor.system.Puntos_de_Mana.value - mana < 0){
     ui.notifications.warn("No tienes suficiente MANA para lanzar ese hechizo");
     return 1;
   }
-  let manaActual=actor.system.Puntos_de_Mana.Actuales - mana;
-  actor.update ({ 'data.Puntos_de_Mana.Actuales': manaActual });
+  let manaActual=actor.system.Puntos_de_Mana.value - mana;
+  actor.update ({ 'data.Puntos_de_Mana.value': manaActual });
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
   let d10s = d10Roll.result.split(" + ").sort((a, b) => a - b);
