@@ -88,7 +88,7 @@
             <th style="width:20%"><label>TOTAL</label></th>
             <th style="width:10%"><a class="item-control item-create" data-type="habilidad"><i class="fas fa-plus"></i></a></th>
           </tr>
-          {{#each habilidades as |item id|}}
+          {{#each system.habilidades as |item id|}}
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
 
@@ -131,7 +131,116 @@
 
     {{!-- Inventario Tab --}}
     <div class="tab" data-group="primary" data-tab="inventario">
-      {{> "/systems/ryf/templates/actors/jugador-tabs/Jugador_inventario.html"}}
+      <div>
+        <table>
+          <tr>
+            <th style="width:10%"></th>
+            <th style="width:40%; align:center"><label>ARMA</label></th>
+            <th style="width:20%; align:center"><label>ALCANCE</label></th>
+            <th style="width:20%; align:center"><label>DAnO</label></th>
+            <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="arma"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.armas as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><img src="{{item.img}}" width="24" height="24"/></td>
+            <td><div style="width:32em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+            <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+              <label class="tiradaArma"
+                     data-arma="{{item.system.nombre}}" data-habilidad="{{item.system.habilidad}}"
+                     data-dano="{{item.system.dano}}"
+                     data-alcance_corto="{{item.system.alcance.corto}}" data-alcance_medio="{{item.system.alcance.medio}}" data-alcance_largo="{{item.system.alcance.largo}}"
+              >{{item.system.nombre}}</label></div></td>
+            <td style="text-align:center">
+              {{#if (ne item.system.alcance.corto 0)}}<label>{{item.system.alcance.corto}}</label>{{/if}}
+              {{#if (ne item.system.alcance.medio 0)}}<label>/{{item.system.alcance.medio}}</label>{{/if}}
+              {{#if (ne item.system.alcance.largo 0)}}<label>/{{item.system.alcance.largo}}</label>{{/if}}
+            </td>
+            <td style="text-align:center">
+              <label>{{item.system.dano.numero-dados}}D6{{item.system.dano.bonificador}}</label>
+            </td>
+            <td>
+              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
+              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:10%"></th>
+            <th style="width:40%; align:center"><label>ARMADURA</label></th>
+            <th style="width:20%; align:center"><label>ABS</label></th>
+            <th style="width:20%; align:center"><label>EST</label></th>
+            <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="armadura"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.armaduras as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><img src="{{item.img}}" width="24" height="24"/></td>
+            <td><div style="width:8em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+            <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+              <label> {{item.system.nombre}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.absorcion}}</label></td>
+            <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
+            <td>
+              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
+              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:10%"></th>
+            <th style="width:40%; align:center"><label>ESCUDO</label></th>
+            <th style="width:20%; align:center"><label>DEFENSA</label></th>
+            <th style="width:20%; align:center"><label>ESTORBO</label></th>
+            <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="escudo"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.escudos as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><img src="{{item.img}}" width="24" height="24"/></td>
+            <td><div style="width:8em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+            <a class="item-control item-equip"><i class="fas fa-shield"><span class="tooltiptext"></span></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+
+              <label> {{item.system.nombre}}</label></div></td>
+            <td style="text-align:center">
+              <label>{{item.system.defensa.cc}}</label>
+              {{#if (ne item.system.defensa.distancia 0)}}<label>/{{item.system.defensa.distancia}}</label>{{/if}}
+            </td>
+            <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
+            <td>
+              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
+              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:10%"></th>
+            <th style="width:60%; align:center"><label>OBJETO</label></th>
+            <th style="width:20%; align:center"><label>CANTIDAD</label></th>
+            <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="objeto"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.objetos as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><img src="{{item.img}}" width="24" height="24"/></td>
+            <td><div style="width:8em"><label>{{item.system.nombre}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.cantidad}}</label></td>
+            <td>
+              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
+              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
     </div>
 
     {{!-- Talentos Tab --}}
