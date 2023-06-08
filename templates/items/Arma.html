@@ -1,28 +1,40 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/arma-Bg.webp" alt="?"/>
-  <div class="arma-container">
-    <div class="Arma-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
-                                       onClick="this.select();"/></div>
-    <div class="Arma-foto">
-      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+  <div class="flexcol">
+    <div class="flexrow"><input name="system.nombre" type="text" value="{{system.nombre}}" placeholder='Nombre' onClick="this.select();"/>
     </div>
-    <div class="Arma-precio">
-      <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
+
+    <div class="flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div class="flexcol">
+      <div>
+        <label>Precio</label>
+        <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
+
+      </div>
+      <div>
+        <label>Tipo arma</label>
+        <select name="system.tipo" data-dtype="String">
+          {{#select system.tipo}}
+          <option value="Cuerpo a cuerpo">Cuerpo a cuerpo</option>
+          <option value="Distancia">Distancia</option>
+          {{/select}}
+        </select>
+      </div>
+      <div>
+        <label>Alcance</label>
+        <input type="text" name="system.alcance.corto" value="{{system.alcance.corto}}" data-dtype="Number" maxlength="3"/>
+      </div>
+        <div>
+        <label>Daño</label>
+        <div class="flexrow">
+        <input type="text" name="system.dano.numero-dados" value="{{system.dano.numero-dados}}"/><label>+</label><input type="text" name="system.dano.bonificador" value="{{system.dano.bonificador}}"/>
+      </div>
+        </div>
+      </div>
     </div>
-    <div class="Arma-habilidad">
-    <select name="system.Habilidad" data-dtype="String">
-      {{#select system.Habilidad}}
-      <option value="CaC">CaC</option>
-      <option value="Distancia">Dist</option>
-      {{/select}}
-    </select>
-    </div>
-    <div class="Arma-alcance-corto">
-      <input type="text" name="system.Alcance.Corto" value="{{system.Alcance.Corto}}" data-dtype="Number" maxlength="3"/>
-    </div>
-    <div class="Arma-dano-corto">
-      <input type="text" name="system.Dano.Corto" value="{{system.Dano.Corto}}"/>
-    </div>
+
     <div class="Arma-descripcion-container">
       {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
     </div>
