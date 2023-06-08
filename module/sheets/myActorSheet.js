@@ -31,7 +31,6 @@ export default class RyFActorSheet extends ActorSheet{
             this._calculaValores(data);
         }
         data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
-        console.log(data)
         return data;
     }
     _prepareCharacterItems(sheetData) {
@@ -77,17 +76,19 @@ export default class RyFActorSheet extends ActorSheet{
             }
         }
         //Asigno cada array al actordata
-        actorData.armas = armas;
-        actorData.armaduras = armaduras;
-        actorData.escudos = escudos;
-        actorData.habilidades = habilidades;
-        actorData.hechizos = hechizos;
-        actorData.objetos = objetos;
-        actorData.talentos = talentos;
+        actorData.system.items.armas = armas;
+        actorData.system.items.armaduras = armaduras;
+        actorData.system.items.escudos = escudos;
+        actorData.system.habilidades = habilidades;
+        actorData.system.hechizos = hechizos;
+        actorData.system.items.objetos = objetos;
+        actorData.system.talentos = talentos;
     }
     _calculaValores(actorData) {
         const data = actorData;
         const atributos = data.system.atributos;
+        const habilidades = data.system.habilidades;
+        const items = data.system.items;
         var Puntos_de_Vida =0;
         var Iniciativa =0;
         var val_reflejos=0;
@@ -102,26 +103,26 @@ export default class RyFActorSheet extends ActorSheet{
         //CALCULO PUNTOS DE VIDA
         Puntos_de_Vida=Number(atributos.fisico)*Number(4);
         //CALCULO INICIATIVA
-        let reflejos = data.habilidades.find((k) => k.nombre === "Reflejos");
+        let reflejos = habilidades.find((k) => k.nombre === "Reflejos");
         if (reflejos){
             val_reflejos=reflejos.data.nivel;
         }
         Iniciativa=Number(val_reflejos)+Number(atributos.percepcion);
         //CALCULO Defensa_Base
-        let esquivar = data.habilidades.find((k) => k.nombre === "Esquivar");
+        let esquivar = habilidades.find((k) => k.nombre === "Esquivar");
         if (esquivar){
             val_esquivar=esquivar.system.nivel;
         }
         Defensa_Base= Number(atributos.destreza)+Number(val_esquivar)+Number(5);
         //CALCULO DEFENSA ESCUDO CaC y Dist
-        let escudo = data.escudos.find((k) => k.type === "escudo" && k.system.equipado);
+        let escudo = items.escudos.find((k) => k.type === "escudo" && k.system.equipado);
         if (escudo){
             Defensa_Escudo_CaC=escudo.data.defensa.cc;
             Defensa_Escudo_Dist=escudo.data.defensa.distancia;
             estorbo+=escudo.data.estorbo;
         }
         //CALCULO absorcion_armadura
-        let armadura = data.armaduras.find((k) => k.type === "armadura" && k.system.equipado);
+        let armadura = items.armaduras.find((k) => k.type === "armadura" && k.system.equipado);
         if (armadura){
             absorcion=armadura.system.absorcion;
             estorbo+=armadura.system.estorbo;
@@ -188,7 +189,6 @@ export default class RyFActorSheet extends ActorSheet{
         const type = header.dataset.type;
         // Grab any data associated with this control.
         const data = duplicate(header.dataset);
-        console.log(data)
         // Initialize a default name.
         const name = `${type.capitalize()}`;
         // Prepare the item object.
