@@ -7,7 +7,7 @@ import { preloadHandlebarsTemplates } from "./module/preloadTemplates.js";
 
 Hooks.once("init", function(){
     console.log("test | Initializing BOL CHARSHEETS");
-
+    console.log("Language on init Hook (game.i18n.lang): "+game.i18n.lang)
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("ryf", RyFActorSheet, {
       makeDefault: true,

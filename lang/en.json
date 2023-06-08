@@ -1,0 +1,14 @@
+{
+  "RYF": {
+    "atributes": {
+      "name": "Attributes",
+      "strength": "Physical",
+      "dexterity": "Dexterity",
+      "intelligence": "Intelligence",
+      "perception": "Perception"
+    },
+    "skills" : {
+
+    }
+  }
+}

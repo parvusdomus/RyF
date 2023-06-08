@@ -1,6 +1,12 @@
 {
-  "RYF": "Rápido y Fácil",
-  "RYF.atributes": "Atributos",
-  "RYF.skills": "Habilidades",
-
+  "RYF": {
+    "atributes": {
+      "strength": "Físico",
+      "dexterity": "Destreza",
+      "intelligence": "Inteligencia",
+      "perception": "Percepción"
+    },
+    "skills" : {
+    }
+  }
 }

@@ -50,8 +50,13 @@
     "languages": [
       {
         "lang": "es",
-        "name": "Español",
+        "name": "Spanish",
         "path": "lang/es.json"
+      },
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
       }
     ],
     "socket": false,
