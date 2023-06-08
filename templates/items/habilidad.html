@@ -5,7 +5,9 @@
       <div class="flexcol">
         <img class="profile-img" src="{{img}}" data-edit="img" title="{{system.nombre}}" alt='Imagen del Personaje'/>
       </div>
-      <div class="flexcol">
+      <div>
+        <div class="flexrow">
+        <label>Atributo</label>
         <select name="system.atributo" data-dtype="String">
           {{#select system.atributo}}
           <option value="F">Fisico</option>
@@ -15,8 +17,11 @@
           <option value="C">Carisma</option>
           {{/select}}
         </select>
+        </div>
+        <div class="flexrow">
+        <label>Nivel</label>
         <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="3"/>
-      </div>
+      </div></div>
     </div>
     <div class="Habilidad-descripcion-container">
       <label>Descripción</label>

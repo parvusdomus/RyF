@@ -98,8 +98,8 @@
     "precio": 0
   },
   "habilidad":{
-    "nombre": "",
-    "descripcion": "Descripcion de la habilidad",
+    "nombre": "Habilidad",
+    "descripcion": "",
     "atributo": "F",
     "nivel": 0,
     "total": 0
