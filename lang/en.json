@@ -1,7 +1,7 @@
 {
+  "attributes" : "Attributes",
   "RYF": {
-    "atributes": {
-      "name": "Attributes",
+    "attributes": {
       "strength": "Physical",
       "dexterity": "Dexterity",
       "intelligence": "Intelligence",
