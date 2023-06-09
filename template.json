@@ -74,7 +74,7 @@
     "descripcion": "",
     "dano":{
       "numero-dados": 0,
-      "bonificador": ""
+      "bonificador": 0
     },
     "alcance": {
       "corto": 0,

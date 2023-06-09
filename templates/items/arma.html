@@ -22,10 +22,18 @@
           {{/select}}
         </select>
       </div>
-      <div>
-        <label>Alcance</label>
-        <input type="text" name="system.alcance.corto" value="{{system.alcance.corto}}" data-dtype="Number" maxlength="3"/>
-      </div>
+      {{#if (eq system.tipo "Distancia")}}
+        <div>
+          <label>Alcance</label>
+          <div class="flexrow">
+            <input type="text" name="system.alcance.corto" value="{{system.alcance.corto}}" data-dtype="Number" maxlength="3"/>
+            /
+            <input type="text" name="system.alcance.medio" value="{{system.alcance.medio}}" data-dtype="Number" maxlength="3"/>
+            /
+            <input type="text" name="system.alcance.largo" value="{{system.alcance.largo}}" data-dtype="Number" maxlength="3"/>
+          </div>
+        </div>
+      {{/if}}
         <div>
         <label>Daño</label>
         <div class="flexrow">
@@ -35,8 +43,11 @@
       </div>
     </div>
 
+    <div>
+      <label>Descripcion</label>
     <div class="Arma-descripcion-container">
       {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
+    </div>
     </div>
   </div>
 </form>
