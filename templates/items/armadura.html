@@ -1,22 +1,31 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/armadura-Bg.webp" alt="?"/>
-  <div class="armadura-container">
-    <div class="Armadura-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
-                                       onClick="this.select();"/></div>
-    <div class="Armadura-foto">
-      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+  <div class="flexcol">
+    <div class="flexrow">
+    <input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/>
     </div>
-    <div class="Armadura-precio">
-      <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
+    <div class = "flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div class="flexcol">
+    <div>
+      <label>Precio</label>
+      <input type="text" name="system.precio" value="{{system.precio}}" data-dtype="Number" maxlength="4"/>
     </div>
-    <div class="Armadura-absorcion">
-      <input type="text" name="system.Absorcion" value="{{system.Absorcion}}" data-dtype="Number" maxlength="2"/>
+      <div>
+        <label>Absorcion</label>
+        <input type="text" name="system.absorcion" value="{{system.absorcion}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div>
+        <label>Estorbo</label>
+        <input type="text" name="system.estorbo" value="{{system.estorbo}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      </div>
     </div>
-    <div class="Armadura-estorbo">
-      <input type="text" name="system.Estorbo" value="{{system.Estorbo}}" data-dtype="Number" maxlength="2"/>
-    </div>
+<div>
+  <label>Descripcion</label>
     <div class="Armadura-descripcion-container">
       {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
     </div>
-  </div>
+  </div></div>
 </form>
