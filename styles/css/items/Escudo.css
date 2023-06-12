@@ -108,10 +108,10 @@
 }
 
 .Escudo-descripcion-container {
-  position:absolute;
+  flex: auto;
   left: 2em;
   top: 15em;
-  height: 14em;
+  height: 12em;
   width: 18.5em;
   margin-bottom: -3em;
   overflow-x: hidden;

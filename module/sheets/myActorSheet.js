@@ -117,9 +117,9 @@ export default class RyFActorSheet extends ActorSheet{
         //CALCULO DEFENSA ESCUDO CaC y Dist
         let escudo = items.escudos.find((k) => k.type === "escudo" && k.system.equipado);
         if (escudo){
-            Defensa_Escudo_CaC=escudo.data.defensa.cc;
-            Defensa_Escudo_Dist=escudo.data.defensa.distancia;
-            estorbo+=escudo.data.estorbo;
+            Defensa_Escudo_CaC=escudo.system.defensa.cc;
+            Defensa_Escudo_Dist=escudo.system.defensa.distancia;
+            estorbo+=escudo.system.estorbo;
         }
         //CALCULO absorcion_armadura
         let armadura = items.armaduras.find((k) => k.type === "armadura" && k.system.equipado);
@@ -164,9 +164,9 @@ export default class RyFActorSheet extends ActorSheet{
             const li = $(ev.currentTarget).parents(".item");
             const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
             if (!objeto_a_equipar.system.equipado){
-                objeto_a_equipar.update ({ 'data.equipado': true });
+                objeto_a_equipar.update ({ 'system.equipado': true });
             } else {
-                objeto_a_equipar.update ({ 'data.equipado': false });
+                objeto_a_equipar.update ({ 'system.equipado': false });
             }
             this.render(false);
         });

@@ -189,7 +189,7 @@
 }
 
 .Arma-descripcion-container {
-  position:absolute;
+  flex: auto;
   left: 2em;
   top: 19em;
   height: 10em;
