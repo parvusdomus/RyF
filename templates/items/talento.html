@@ -1,16 +1,24 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/talento-Bg.webp" alt="?"/>
-  <div class="talento-container">
-    <div class="Talento-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
-                                       onClick="this.select();"/></div>
-    <div class="Talento-foto">
-      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+  <div class="flexcol">
+    <div class="flexrow">
+      <input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/>
     </div>
-    <div class="Talento-Requisito">
-      <input type="text" name="system.Requisito" value="{{system.Requisito}}"/>
-    </div>
-    <div class="Talento-descripcion-container">
-      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
+    <div class = "flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Objeto'/>
+      </div>
+      <div class="flexcol">
+        <div>
+          <label>Requisito</label>
+          <input type="text" name="system.requisito" value="{{system.requisito}}"/>
+        </div>
+      </div>
+      <div class="flexcol">
+        <label>Descripcion</label>
+        <div class="Talento-descripcion-container">
+          {{{editor system.descripcion target="system.descripcion" button=true owner=owner editable=true}}}
+        </div>
+      </div>
     </div>
   </div>
 </form>
