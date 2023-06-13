@@ -2,7 +2,7 @@ import RyFActorSheet from "./module/sheets/myActorSheet.js";
 import RyFItemSheet from "./module/sheets/myItemSheet.js";
 import RyFExtras from "./module/sheets/RyFExtras.js";
 import RyFSimpleNPJSheet from "./module/sheets/mySimplePNJSheet.js"
-
+import registerSystemSettings from "./module/settings.js";
 import { preloadHandlebarsTemplates } from "./module/preloadTemplates.js";
 
 Hooks.once("init", function(){
@@ -23,17 +23,12 @@ Hooks.once("init", function(){
     console.log ("test | LOADING TEMPLATES");
     preloadHandlebarsTemplates();
     console.log ("test | DONE LOADING TEMPLATES");
-    game.settings.register("ryf", "forceFontSize", {
-      name: "Forzar Tamano de Fuente",
-      hint: "Activa esta opción si la ficha se ve rara. Activarla forzará el tamano de la fuente a 5.",
-      scope: "world",
-      type: Boolean,
-      default: false,
-      config: true
-    });
+
     CONFIG.Combat.initiative = {
     formula: "{1d10x, 1d10x, 1d10x}dh1kh1 + @iniciativa - @estorbo",
     decimals: 0};
+
+    registerSystemSettings();
 
 });
 
