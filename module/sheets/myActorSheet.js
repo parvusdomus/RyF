@@ -208,7 +208,7 @@ export default class RyFActorSheet extends ActorSheet{
         if (Number(dataset.vida) <= Number(dataset.fisico)){
             tipo_dado = "menor"
         }
-        const archivo_template = '/systems/ryf/templates/dialogs/tirada_atributo.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tiradaAtributo.html';
         const datos_template = { nom_atributo: dataset.atributo,
             val_atributo: dataset.valor,
             tipo_dado: tipo_dado
