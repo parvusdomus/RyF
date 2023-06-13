@@ -108,7 +108,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
       }
 
       async _onRestauraVidaPNJ(event) {
-        this.actor.update ({ "system.Puntos_de_Vida.value": this.actor.system.Puntos_de_Vida.max });
+        this.actor.update ({ "system.derivadas.puntosVida.value": this.actor.system.derivadas.puntosVida.max });
       }
 
 }

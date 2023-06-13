@@ -55,11 +55,11 @@
           <div class="flexcol">
             <div class="flexrow flex-group-center">
               <label class="resource-label">Puntos de Vida</label>
-              <label class="resource-label">{{system.derivadas.puntos-vida.max}}</label>
+              <label class="resource-label">{{system.derivadas.puntosVida.max}}</label>
             </div>
             <div class="flexrow flex-group-center">
               <label class="resource-label">Maná</label>
-              <label class="resource-label">{{system.derivadas.puntos-mana.max}}</label>
+              <label class="resource-label">{{system.derivadas.puntosMana.max}}</label>
             </div>
             <div class="flexrow flex-group-center">
               <label class="resource-label">Defensa</label>
@@ -93,28 +93,28 @@
             <td><img src="{{item.img}}" width="24" height="24"/></td>
 
             {{#if (eq item.system.atributo "F")}}
-              <td class="tiradaHabilidad" data-atributo="fisico" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
-                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(F)</label>
+              <td class="tiradaHabilidad" data-atributo="fisico" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(F)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "D")}}
-              <td class="tiradaHabilidad" data-atributo="destreza" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
-                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(D)</label>
+              <td class="tiradaHabilidad" data-atributo="destreza" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(D)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "I")}}
-              <td class="tiradaHabilidad" data-atributo="inteligencia" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
-                <div style="width:32em"><label>{{item.system.nombre}}</label><label>(I)</label>
+              <td class="tiradaHabilidad" data-atributo="inteligencia" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(I)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "P")}}
-                  <td class="tiradaHabilidad" data-atributo="percepcion" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
-                    <div style="width:32em"><label>{{item.system.nombre}}</label><label>(P)</label>
+                  <td class="tiradaHabilidad" data-atributo="percepcion" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.name}}</label><label>(P)</label>
                     </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "C")}}
-                  <td class="tiradaHabilidad" data-atributo="carisma" data-habilidad="{{item.system.nombre}}" data-valor_habilidad="{{item.system.nivel}}">
-                    <div style="width:32em"><label>{{item.system.nombre}}</label><label>(C)</label>
+                  <td class="tiradaHabilidad" data-atributo="carisma" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.name}}</label><label>(C)</label>
                     </div></td>
             {{/if}}
                 <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
@@ -148,10 +148,10 @@
             <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label class="tiradaArma"
-                     data-arma="{{item.system.nombre}}" data-habilidad="{{item.system.habilidad}}"
+                     data-arma="{{item.name}}" data-habilidad="{{item.system.tipo}}"
                      data-dano="{{item.system.dano}}"
                      data-alcance_corto="{{item.system.alcance.corto}}" data-alcance_medio="{{item.system.alcance.medio}}" data-alcance_largo="{{item.system.alcance.largo}}"
-              >{{item.system.nombre}}</label></div></td>
+              >{{item.name}}</label></div></td>
             <td style="text-align:center">
               {{#if (ne item.system.alcance.corto 0)}}<label>{{item.system.alcance.corto}}</label>{{/if}}
               {{#if (ne item.system.alcance.medio 0)}}<label>/{{item.system.alcance.medio}}</label>{{/if}}
@@ -182,7 +182,7 @@
               {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
-              <label> {{item.system.nombre}}</label></div></td>
+              <label> {{item.name}}</label></div></td>
             <td style="text-align:center"><label>{{item.system.absorcion}}</label></td>
             <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
             <td>
@@ -208,7 +208,7 @@
             <a class="item-control item-equip"><i class="fas fa-shield"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
 
-              <label> {{item.system.nombre}}</label></div></td>
+              <label> {{item.name}}</label></div></td>
             <td style="text-align:center">
               <label>{{item.system.defensa.cc}}</label>
               {{#if (ne item.system.defensa.distancia 0)}}<label>/{{item.system.defensa.distancia}}</label>{{/if}}
@@ -231,7 +231,7 @@
           {{#each system.items.objetos as |item id|}}
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
-            <td><div style="width:8em"><label>{{item.system.nombre}}</label></div></td>
+            <td><div style="width:8em"><label>{{item.name}}</label></div></td>
             <td style="text-align:center"><label>{{item.system.cantidad}}</label></td>
             <td>
               <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>

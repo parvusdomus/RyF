@@ -86,7 +86,7 @@ export default class RyFActorSheet extends ActorSheet{
         const atributos = data.system.atributos;
         const habilidades = data.system.habilidades;
         const items = data.system.items;
-        var Puntos_de_Vida =0;
+        var puntosVida =0;
         var Iniciativa =0;
         var val_reflejos=0;
         var val_esquivar=0;
@@ -94,11 +94,11 @@ export default class RyFActorSheet extends ActorSheet{
         var Defensa_Escudo_CaC=0;
         var Defensa_Escudo_Dist=0;
         var estorbo=0;
-        var Puntos_de_Mana =0;
+        var puntosMana =0;
         var absorcion =0;
 
         //CALCULO PUNTOS DE VIDA
-        Puntos_de_Vida=Number(atributos.fisico)*Number(4);
+        puntosVida=Number(atributos.fisico)*Number(4);
         //CALCULO INICIATIVA
         let reflejos = habilidades.find((k) => k.nombre === "Reflejos");
         if (reflejos){
@@ -125,15 +125,15 @@ export default class RyFActorSheet extends ActorSheet{
             estorbo+=armadura.system.estorbo;
         }
         //CALCULO MANA
-        Puntos_de_Mana=Number(atributos.inteligencia)*Number(3);
+        puntosMana=Number(atributos.inteligencia)*Number(3);
         //ACTUALIZO TODOS LOS VALORES
-        this.actor.update ({ 'data.derivadas.puntos-vida.max': Puntos_de_Vida });
+        this.actor.update ({ 'data.derivadas.puntosVida.max': puntosVida });
         this.actor.update ({ 'data.derivadas.iniciativa': Iniciativa });
         this.actor.update ({ 'data.derivadas.defensa.base': Defensa_Base });
-        this.actor.update ({ 'data.derivadas.defensa.escudo-cac': Defensa_Escudo_CaC });
-        this.actor.update ({ 'data.derivadas.defensa.escudo-dist': Defensa_Escudo_Dist });
+        this.actor.update ({ 'data.derivadas.defensa.escudoCac': Defensa_Escudo_CaC });
+        this.actor.update ({ 'data.derivadas.defensa.escudoDist': Defensa_Escudo_Dist });
         this.actor.update ({ 'data.derivadas.estorbo': estorbo });
-        this.actor.update ({ 'data.derivadas.puntos-mana.max': Puntos_de_Mana });
+        this.actor.update ({ 'data.derivadas.puntosMana.max': puntosMana });
         this.actor.update ({ 'data.derivadas.absorcion': absorcion });
     }
     activateListeners(html) {
@@ -236,7 +236,7 @@ export default class RyFActorSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(dataset.valor_habilidad)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.Físico) || Number(dataset.valor_habilidad)==0){
             tipo_dado = "menor"
         }
         let val_atributo=0;
@@ -274,7 +274,7 @@ export default class RyFActorSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(dataset.nivel)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.Físico) || Number(dataset.nivel)==0){
             tipo_dado = "menor"
         }
         let val_atributo=this.actor.system.Inteligencia;
@@ -326,38 +326,38 @@ export default class RyFActorSheet extends ActorSheet{
         if (objetivo){
             objetivo_id=objetivo.document.actorId;
             let objetivoActor = Actor.get(objetivo_id);
-            defensa_CaC=objetivoActor.system.Defensa.Base;
-            if (objetivoActor.system.Defensa.Escudo_CAC){
-                defensa_CaC_escudo=objetivoActor.system.Defensa.Escudo_CAC;
+            defensa_CaC=objetivoActor.system.derivadas.defensa.base;
+            if (objetivoActor.system.derivadas.defensa.escudoCac){
+                defensa_CaC_escudo=objetivoActor.system.derivadas.defensa.escudoCac;
             }
-            if (objetivoActor.system.Defensa.Escudo_Dist){
-                defensa_Dist_escudo=objetivoActor.system.Defensa.Escudo_Dist;
+            if (objetivoActor.system.derivadas.defensa.escudoDist){
+                defensa_Dist_escudo=objetivoActor.system.derivadas.defensa.escudoDist;
             }
-            if(objetivoActor.system.Absorcion_Total){
-                absorcion_armadura=objetivoActor.system.Absorcion_Total;
+            if(objetivoActor.system.derivadas.absorcion){
+                absorcion_armadura=objetivoActor.system.derivadas.absorcion;
             }
         }
 
-        if (dataset.habilidad=="CaC"){
-            val_atributo=this.actor.system.Físico;
+        if (dataset.habilidad=="Cuerpo a cuerpo"){
+            val_atributo=this.actor.system.atributos.fisico;
             nom_atributo="Físico";
             archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
-            HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.nombre === "Armas Cuerpo a Cuerpo");
+            HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas Cuerpo a Cuerpo");
             if (HabilidadArma){
                 val_habilidad=HabilidadArma.system.nivel;
             }
 
         }
         if (dataset.habilidad=="Distancia"){
-            val_atributo=this.actor.system.Destreza;
+            val_atributo=this.actor.system.atributos.destreza;
             nom_atributo="Destreza";
             archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
-            HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.nombre === "Armas a Distancia");
+            HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas a Distancia");
             if (HabilidadArma){
                 val_habilidad=HabilidadArma.system.nivel;
             }
         }
-        if (Number(this.actor.system.Puntos_de_Vida.value) <= Number(this.actor.system.Físico) || Number(val_habilidad)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(val_habilidad)==0){
             tipo_dado = "menor"
         }
 
@@ -380,6 +380,8 @@ export default class RyFActorSheet extends ActorSheet{
             defensa_Dist_escudo: defensa_Dist_escudo,
             absorcion_armadura: absorcion_armadura
         };
+        console.log(archivo_template)
+        console.log(datos_template)
         const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
         let dialogo = new Dialog({
             title: `Nueva tirada de ${dataset.arma}`,
@@ -409,13 +411,13 @@ export default class RyFActorSheet extends ActorSheet{
     async _onRestauraVida(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        this.actor.update ({ 'data.Puntos_de_Vida.value': this.actor.system.Puntos_de_Vida.max });
+        this.actor.update ({ 'data.derivadas.puntosVida.value': this.actor.system.derivadas.puntosVida.max });
     }
 
     async _onRestauraMana(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        this.actor.update ({ 'data.Puntos_de_Mana.value': this.actor.system.Puntos_de_Mana.max });
+        this.actor.update ({ 'data.derivadas.puntosMana.value': this.actor.system.derivadas.puntosMana.max });
     }
 
     async _onD6Roll(event) {

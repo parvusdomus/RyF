@@ -58,9 +58,9 @@ export default class RyFExtras {
     let VidaActual=0;
     let Mensaje=""
     if (objetivo){
-      VidaActual=Number(objetivo.document._actor.system.Puntos_de_Vida.value)-Number(dataset.dano)
+      VidaActual=Number(objetivo.document._actor.system.derivadas.puntosVida.value)-Number(dataset.dano)
       if (VidaActual < 0){VidaActual=0}
-      objetivo.document._actor.update ({ 'data.Puntos_de_Vida.value': VidaActual });
+      objetivo.document._actor.update ({ 'data.derivadas.puntosVida.value': VidaActual });
       Mensaje = dataset.dano + " puntos de dano aplicado/s a "+objetivo.document._actor.data.name;
       ui.notifications.notify(Mensaje);
     }
