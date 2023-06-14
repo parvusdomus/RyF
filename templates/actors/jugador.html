@@ -6,6 +6,13 @@
         <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
         <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Nombre"/></h1>
       </div>
+      <div>
+        <h3>Tirada de dados</h3>
+        <div class="flexrow">
+          <label>D10</label>
+          <label>D6</label>
+        </div>
+      </div>
       <div class="atributos">
         <h3>{{localize 'attributes'}}</h3>
         <div class="flexrow">
@@ -74,7 +81,7 @@
     <a class="item" data-tab="habilidades">Habilidades</a>
     <a class="item" data-tab="inventario">Inventario</a>
     {{#if (eq settings.magicEnabled true)}}
-    <a class="item" data-tab="talentos">Talentos/Magia</a>
+    <a class="item" data-tab="hechizos">Hechizos</a>
     {{/if}}
     <a class="item" data-tab="biografia">Biografía</a>
   </nav>
@@ -247,7 +254,7 @@
 
     {{#if (eq settings.magicEnabled true)}}
     {{!-- Hechizos Tab --}}
-    <div class="tab" data-group="primary" data-tab="talentos">
+    <div class="tab" data-group="primary" data-tab="hechizos">
       <div>
         <table>
           <tr>
