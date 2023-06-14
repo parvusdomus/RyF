@@ -22,12 +22,14 @@ export default class RyFActorSheet extends ActorSheet{
     getData() {
         const superData = super.getData();
         const data = superData.data;
+        const settings = this.loadSettings();
         data.dtypes = ["String", "Number", "Boolean"];
         if (this.actor.type == 'jugador') {
             this._prepareCharacterItems(data);
             this._calculaValores(data);
         }
         data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
+        data.settings = settings;
         return data;
     }
     _prepareCharacterItems(sheetData) {
@@ -478,6 +480,14 @@ export default class RyFActorSheet extends ActorSheet{
         });
         dialogo.render(true);
 
+    }
+
+    //Load settings that are used in the actor sheet
+    loadSettings(){
+        let settings = {};
+        settings.magicEnabled = game.settings.get("ryf","advanced.magicEnabled");
+
+        return settings;
     }
 
 
