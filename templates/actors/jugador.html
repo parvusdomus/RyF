@@ -302,7 +302,9 @@
 
     {{!-- Bio Tab --}}
     <div class="tab" data-group="primary" data-tab="biografia">
-      {{> "/systems/ryf/templates/actors/jugador-tabs/Jugador_biografia.html"}}
+      <div class="Jugador_contenedor_biografia">
+        {{editor system.descripcion target="system.descripcion" button=true editable=true}}
+      </div>
     </div>
   </section>
 </form>
