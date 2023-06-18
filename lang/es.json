@@ -5,7 +5,8 @@
       "strength": "Físico",
       "dexterity": "Destreza",
       "intelligence": "Inteligencia",
-      "perception": "Percepción"
+      "perception": "Percepción",
+      "charisma": "Carisma"
     },
     "skills" : {
     }

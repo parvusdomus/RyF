@@ -206,6 +206,7 @@ export default class RyFActorSheet extends ActorSheet{
     async _onTiradaAtributo(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
+        console.log(dataset)
         var tipo_dado = "objetivo";
         if (Number(dataset.vida) <= Number(dataset.fisico)){
             tipo_dado = "menor"
