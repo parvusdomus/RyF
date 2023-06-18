@@ -261,23 +261,6 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:40%; align:center"><label>TALENTO</label></th>
-            <th class="align_right width:10%"><a class="item-control item-create" data-type="talento"><i class="fas fa-plus"></i></a></th>
-          </tr>
-          {{#each system.talentos as |item id|}}
-          <tr class="item" data-item-id="{{item._id}}">
-            <td><img src="{{item.img}}" width="24" height="24"/></td>
-            <td><div style="width:20em"><label>{{item.name}}</label></div></td>
-            <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
-            </td>
-          </tr>
-          {{/each}}
-        </table>
-        <table>
-          <tr>
-            <th style="width:10%"></th>
             <th style="width:40%; align:center"><label>HECHIZO</label></th>
             <th style="width:20%; align:center"><label>ALCANCE</label></th>
             <th style="width:10%; align:center"><label>DIF</label></th>
