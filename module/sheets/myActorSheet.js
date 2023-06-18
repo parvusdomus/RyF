@@ -277,10 +277,10 @@ export default class RyFActorSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.Físico) || Number(dataset.nivel)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(dataset.nivel)==0){
             tipo_dado = "menor"
         }
-        let val_atributo=this.actor.system.Inteligencia;
+        let val_atributo=this.actor.system.atributos.inteligencia;
         const archivo_template = '/systems/ryf/templates/dialogs/tirada_hechizo.html';
         const datos_template = {
             val_atributo: val_atributo,

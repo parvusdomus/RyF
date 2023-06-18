@@ -7,11 +7,11 @@
       <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
     </div>
     <div class="Hechizo-Dificultad">
-      <input type="text" name="system.Dificultad" value="{{system.Dificultad}}" data-dtype="Number" maxlength="2"/>
+      <input type="text" name="system.dificultad" value="{{system.dificultad}}" data-dtype="Number" maxlength="2"/>
     </div>
     <div class="Hechizo-Alcance">
-    <select name="system.Alcance" data-dtype="String">
-      {{#select system.Alcance}}
+    <select name="system.alcance" data-dtype="String">
+      {{#select system.alcance}}
       <option value="Toque">Toque</option>
       <option value="Personal">Pers</option>
       <option value="Distancia">Dist</option>
@@ -19,13 +19,13 @@
     </select>
     </div>
     <div class="Hechizo-Mana">
-      <input type="text" name="system.Mana" value="{{system.Mana}}" data-dtype="Number" maxlength="2"/>
+      <input type="text" name="system.mana" value="{{system.mana}}" data-dtype="Number" maxlength="2"/>
     </div>
     <div class="Hechizo-Nivel">
-      <input type="text" name="system.Nivel" value="{{system.Nivel}}" data-dtype="Number" maxlength="2"/>
+      <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="2"/>
     </div>
     <div class="Hechizo-descripcion-container">
-      {{{editor system.Descripcion target="system.Descripcion" button=true owner=owner editable=true}}}
+      {{{editor system.descripcion target="system.descripcion" button=true owner=owner editable=true}}}
     </div>
   </div>
 </form>

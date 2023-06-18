@@ -4,3 +4,7 @@
   height: 20em;
   overflow-y: scroll;
 }
+
+.editor.tinymce {
+    background: white;
+}

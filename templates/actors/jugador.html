@@ -270,10 +270,10 @@
           {{#each system.hechizos as |item id|}}
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
-            <td class="tiradaHechizo" data-hechizo="{{item.nombre}}" data-nivel="{{item.system.Nivel}}" data-dificultad="{{item.system.dificultad}}" data-mana="{{item.system.mana}}" data-alcance="{{item.system.alcance}}"><div style="width:7em"><label>({{item.system.nivel}}) {{item.nombre}}</label></div></td>
-            <td style="text-align:center"><label>{{item.system.Alcance}}</label></td>
-            <td style="text-align:center"><label>{{item.system.Dificultad}}</label></td>
-            <td style="text-align:center"><label>{{item.system.Mana}}</label></td>
+            <td class="tiradaHechizo" data-hechizo="{{item.name}}" data-nivel="{{item.system.nivel}}" data-dificultad="{{item.system.dificultad}}" data-mana="{{item.system.mana}}" data-alcance="{{item.system.alcance}}"><div style="width:7em"><label>({{item.system.nivel}}) {{item.name}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.alcance}}</label></td>
+            <td style="text-align:center"><label>{{item.system.dificultad}}</label></td>
+            <td style="text-align:center"><label>{{item.system.mana}}</label></td>
             <td>
               <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
               <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
