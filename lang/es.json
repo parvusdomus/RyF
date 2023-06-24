@@ -1,5 +1,13 @@
 {
   "attributes" : "Atributos",
+  "skills": "Habilidades",
+  "iniciative": "Iniciativa",
+  "defense": "Defensa",
+  "mana": "Maná",
+  "hitPoints": "Puntos de vida",
+  "absorption": "Absorción",
+  "nuisance": "Estorbo",
+  "inventory": "Inventario",
   "RYF": {
     "attributes": {
       "strength": "Físico",

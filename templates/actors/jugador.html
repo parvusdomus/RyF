@@ -9,8 +9,8 @@
       <div>
         <h3>Tirada de dados</h3>
         <div class="flexrow">
-          <label class="D10Roll">D10</label>
-          <label class="D6Roll">D6</label>
+          <div class="D10Roll"><i class="fas fa-dice"><span class="tooltiptext"></span></i><label">D10</label></div>
+          <div class="D6Roll"><i class="fas fa-dice"></i><label>D6</label></div>
         </div>
       </div>
       <div class="atributos">
@@ -19,7 +19,7 @@
         <div class="flexcol">
           <div class="flexrow flex-group-center">
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.strength'}}" data-valor="{{system.atributos.fisico}}">{{localize 'RYF.attributes.strength'}}</label>
-            <input type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number"/>
+            <input class="" type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number"/>
           </div>
           <div class="flexrow flex-group-center">
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-valor="{{system.atributos.destreza}}">{{localize 'RYF.attributes.dexterity'}}</label>
@@ -47,31 +47,31 @@
         <div class="flexrow">
           <div class="flexcol">
             <div class="flexrow flex-group-center">
-              <label class="resource-label">Iniciative</label>
+              <label class="resource-label">{{localize 'iniciative'}}</label>
               <label class="resource-label">{{system.derivadas.iniciativa}}</label>
             </div>
             <div class="flexrow flex-group-center">
-              <label class="resource-label">Absorción</label>
+              <label class="resource-label">{{localize 'absorption'}}</label>
               <label class="resource-label">{{system.derivadas.absorcion}}</label>
             </div>
             <div class="flexrow flex-group-center">
-              <label class="resource-label">Estorbo</label>
+              <label class="resource-label">{{localize 'nuisance'}}</label>
               <label class="resource-label">{{system.derivadas.estorbo}}</label>
             </div>
           </div>
           <div class="flexcol">
             <div class="flexrow flex-group-center">
-              <label class="resource-label restauraVida">Puntos de Vida</label>
+              <label class="resource-label restauraVida">{{localize 'hitPoints'}}</label>
               <input type="text" name="system.derivadas.puntosVida.value" value="{{system.derivadas.puntosVida.value}}"  data-dtype="Number"/>/
               <label class="resource-label">{{system.derivadas.puntosVida.max}}</label>
             </div>
             <div class="flexrow flex-group-center">
-              <label class="resource-label restauraMana">Maná</label>
+              <label class="resource-label restauraMana">{{localize 'mana'}}</label>
               <input type="text" name="system.derivadas.puntosMana.value" value="{{system.derivadas.puntosMana.value}}"  data-dtype="Number"/>/
               <label class="resource-label">{{system.derivadas.puntosMana.max}}</label>
             </div>
             <div class="flexrow flex-group-center">
-              <label class="resource-label">Defensa</label>
+              <label class="resource-label">{{localize 'defense'}}</label>
               <label class="resource-label">{{system.derivadas.defensa.base}}</label>
             </div>
           </div>
@@ -80,8 +80,8 @@
     </div>
   </header>
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="habilidades">Habilidades</a>
-    <a class="item" data-tab="inventario">Inventario</a>
+    <a class="item" data-tab="habilidades">{{localize 'skills'}}</a>
+    <a class="item" data-tab="inventario">{{localize 'inventory'}}</a>
     {{#if (eq settings.magicEnabled true)}}
     <a class="item" data-tab="hechizos">Hechizos</a>
     {{/if}}
@@ -155,7 +155,7 @@
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:32em">
-              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label class="tiradaArma"
@@ -190,7 +190,7 @@
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:8em">
-              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label> {{item.name}}</label></div></td>
@@ -215,7 +215,7 @@
           <tr class="item" data-item-id="{{item._id}}">
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:8em">
-              {{#if (eq item.system.equipado false)}}<span  style="color:LightGrey">{{/if}}
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
             <a class="item-control item-equip"><i class="fas fa-shield"><span class="tooltiptext"></span></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
 

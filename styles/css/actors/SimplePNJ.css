@@ -30,64 +30,6 @@
   z-index: -1;
 }
 
-.PNJ-nombre {
-  position: absolute;
-  top: -0.2em;
-  text-align: center;
-  z-index: 6;
-  left: 6em;
-  width: 25.5em;
-  font-family: "Airstrip";
-}
-
-.PNJ-nombre input[type='text'] {
-  background-color: transparent;
-  font-family: inherit;
-  width: 20.6em;
-  font-size: 1.2em;
-  text-align: center;
-  color: Black !important;
-  border: none;
-}
-
-.PNJ_Ataque {
-  background-color: transparent;
-  position: absolute;
-  top: 1.7em;
-  left: 11.3em;
-  text-align: center;
-  z-index: 6;
-  width: 2em;
-  font-family: "Airstrip";
-  color: Black !important;
-  font-size: 1.3em;
-}
-.PNJ_Ataque input{
-  text-align: center;
-  color: Black !important;
-  background-color: transparent;
-  border: none;
-}
-
-.PNJ_Defensa {
-  background-color: transparent;
-  position: absolute;
-  top: 1.7em;
-  left: 21em;
-  text-align: center;
-  z-index: 6;
-  width: 2em;
-  font-family: "Airstrip";
-  color: Black !important;
-  font-size: 1.3em;
-}
-.PNJ_Defensa input{
-  text-align: center;
-  color: Black !important;
-  background-color: transparent;
-  border: none;
-}
-
 .PNJ_Iniciativa {
   background-color: transparent;
   position: absolute;

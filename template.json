@@ -10,6 +10,10 @@
         "carisma": 0
       },
       "derivadas": {
+        "experiencia": {
+          "valor": 0,
+          "historico": []
+        },
         "iniciativa": 0,
         "absorcion": 0,
         "estorbo": 0,

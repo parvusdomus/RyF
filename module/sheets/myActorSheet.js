@@ -325,7 +325,8 @@ export default class RyFActorSheet extends ActorSheet{
         let defensa_CaC_escudo =0;
         let defensa_Dist_escudo=0;
         let objetivo_id;
-
+        
+        console.log(dataset);
         if (objetivo){
             objetivo_id=objetivo.document.actorId;
             let objetivoActor = Actor.get(objetivo_id);

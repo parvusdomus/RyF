@@ -62,3 +62,24 @@
   overflow: hidden;
   background: transparent;
 }
+
+.D10Roll{
+  cursor: pointer
+}
+
+.D6Roll{
+  cursor: pointer
+}
+
+.tiradaAtributo{
+  cursor: pointer
+}
+
+.tiradaHabilidad{
+  cursor: pointer
+}
+
+.valorAtributo{
+  min-width: 20px !important;
+  max-width: 50px !important;
+}
