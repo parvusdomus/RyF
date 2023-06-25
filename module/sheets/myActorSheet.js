@@ -98,17 +98,17 @@ export default class RyFActorSheet extends ActorSheet{
         var estorbo=0;
         var puntosMana =0;
         var absorcion =0;
-
         //CALCULO PUNTOS DE VIDA
         puntosVida=Number(atributos.fisico)*Number(4);
         //CALCULO INICIATIVA
-        let reflejos = habilidades.find((k) => k.nombre === "Reflejos");
+        let reflejos = habilidades.find((k) => k.name === "Reflejos");
         if (reflejos){
             val_reflejos=reflejos.data.nivel;
         }
         Iniciativa=Number(val_reflejos)+Number(atributos.percepcion);
         //CALCULO Defensa_Base
-        let esquivar = habilidades.find((k) => k.nombre === "Esquivar");
+        let esquivar = habilidades.find((k) => k.name === "Esquivar");
+        console.log(esquivar)
         if (esquivar){
             val_esquivar=esquivar.system.nivel;
         }
