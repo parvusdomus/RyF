@@ -345,7 +345,7 @@ export default class RyFActorSheet extends ActorSheet{
         if (dataset.habilidad=="Cuerpo a cuerpo"){
             val_atributo=this.actor.system.atributos.fisico;
             nom_atributo="Físico";
-            archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_cac.html';
+            archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
             HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas Cuerpo a Cuerpo");
             if (HabilidadArma){
                 val_habilidad=HabilidadArma.system.nivel;
@@ -355,7 +355,7 @@ export default class RyFActorSheet extends ActorSheet{
         if (dataset.habilidad=="Distancia"){
             val_atributo=this.actor.system.atributos.destreza;
             nom_atributo="Destreza";
-            archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_distancia.html';
+            archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
             HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas a Distancia");
             if (HabilidadArma){
                 val_habilidad=HabilidadArma.system.nivel;
@@ -374,9 +374,8 @@ export default class RyFActorSheet extends ActorSheet{
             alcance_corto: dataset.alcance_corto,
             alcance_medio: dataset.alcance_medio,
             alcance_largo: dataset.alcance_largo,
-            dano_corto: dataset.dano_corto,
-            dano_medio: dataset.dano_medio,
-            dano_largo: dataset.dano_largo,
+            danoDados: dataset.danonumerodados,
+            danoBonificador: dataset.danobonificador,
             tipo_dado: tipo_dado,
             defensa_CaC: defensa_CaC,
             defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
@@ -400,9 +399,9 @@ export default class RyFActorSheet extends ActorSheet{
                 },
                 Dano: {
                     icon: '<i class="fas fa-skull-crossbones"></i>',
-                    label: "Dano",
+                    label: "Daño",
                     callback: () => {
-                        tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano_corto, dataset.dano_medio, dataset.dano_largo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+                        tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.danonumerodados, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
                     }
                 }
             },

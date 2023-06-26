@@ -1,27 +1,27 @@
 <form class="{{cssClass}}" autocomplete="off">
   <div class="flexrow">
-  <div class="flexcol">
-      <label>{{nom_habilidad}}</label>
-      <label>{{val_habilidad}}</label>
-      <label>{{nom_atributo}}</label>
-      <label>{{val_atributo}}</label>
-      <div class="flexrow"><label>Bonificadores</label><input id="bonos" value="0" size=2  data-dtype="Number"></div>
-      <div class="flexrow"><label>Dificultad</label><input id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
-  </div>
-  <div class="flexcol">
-    <label>Dado</label>
-    <select  class="" name="forzar" id="forzar" data-dtype="Text">
-      <option value="" selected></option>
-      <option value="mayor">Mayor</option>
-      <option value="menor">Menor</option>
-      <option value="objetivo">Objetivo</option>
-    </select>
-  </div>
+    <div class="flexcol">
+        <label>{{nom_habilidad}}</label>
+        <label>{{val_habilidad}}</label>
+        <label>{{nom_atributo}}</label>
+        <label>{{val_atributo}}</label>
+        <div class="flexrow"><label>Bonificadores</label><input id="bonos" value="0" size=2  data-dtype="Number"></div>
+        <div class="flexrow"><label>Dificultad</label><input id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
+    </div>
+    <div class="flexcol">
+        <label>Dado</label>
+        <select  class="" name="forzar" id="forzar" data-dtype="Text">
+          <option value="" selected></option>
+          <option value="mayor">Mayor</option>
+          <option value="menor">Menor</option>
+          <option value="objetivo">Objetivo</option>
+        </select>
+    </div>
 
-<div class="flexcol">
-  <div class="flexrow"><label>Dados daño:</label><input id="dano_arma" value="{{dano_corto}}"  data-dtype="Text"></div>
-  <div class="flexrow"><label>Bonificadores:</label><label id="bonos_dano" value="{{boni}}"  data-dtype="Text"></div>
-  <div class=""><label>{{absorcion_armadura}}</label></div>
-</div>
-</div>
+    <div class="flexcol">
+        <div class="flexrow"><label>Dados daño:</label><label id="dano_arma" data-dtype="Text">{{danoDados}}</label></div>
+        <div class="flexrow"><label>Bonificadores:</label><label id="bonos_dano" data-dtype="Text">{{danoBonificador}}</label></div>
+        <div class="flexrow"><label>Absorcion del enemigo:</label><label>{{absorcion_armadura}}</label></div>
+    </div>
+  </div>
 </form>

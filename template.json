@@ -64,7 +64,7 @@
     "max": 0
   },
   "dano":{
-    "numero-dados": 0,
+    "numeroDados": 0,
     "bonificador": ""
   },
   "descripcion": ""
@@ -77,7 +77,7 @@
   "arma":{
     "descripcion": "",
     "dano":{
-      "numero-dados": 0,
+      "numeroDados": 0,
       "bonificador": 0
     },
     "alcance": {
@@ -125,12 +125,12 @@
     "alcance": "",
     "produce-dano": false,
     "dano":{
-      "numero-dados": 0,
+      "numeroDados": 0,
       "bonificador": ""
     },
     "produce-curacion": false,
     "curacion":{
-      "numero-dados": 0,
+      "numeroDados": 0,
       "bonificador": ""
     }
   },

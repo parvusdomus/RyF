@@ -160,7 +160,8 @@
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label class="tiradaArma"
                      data-arma="{{item.name}}" data-habilidad="{{item.system.tipo}}"
-                     data-dano="{{item.system.dano}}"
+                     data-danoNumeroDados="{{item.system.dano.numeroDados}}"
+                     data-danoBonificador="{{item.system.dano.bonificador}}"
                      data-alcance_corto="{{item.system.alcance.corto}}" data-alcance_medio="{{item.system.alcance.medio}}" data-alcance_largo="{{item.system.alcance.largo}}"
               >{{item.name}}</label></div></td>
             <td style="text-align:center">
@@ -169,7 +170,7 @@
               {{#if (ne item.system.alcance.largo 0)}}<label>/{{item.system.alcance.largo}}</label>{{/if}}
             </td>
             <td style="text-align:center">
-              <label>{{item.system.dano.numero-dados}}D6+{{item.system.dano.bonificador}}</label>
+              <label>{{item.system.dano.numeroDados}}D6+{{item.system.dano.bonificador}}</label>
             </td>
             <td>
               <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
