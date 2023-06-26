@@ -104,27 +104,27 @@
             <td><img src="{{item.img}}" width="24" height="24"/></td>
 
             {{#if (eq item.system.atributo "F")}}
-              <td class="tiradaHabilidad" data-atributo="fisico" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.strength'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                 <div style="width:32em"><label>{{item.name}}</label><label>(F)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "D")}}
-              <td class="tiradaHabilidad" data-atributo="destreza" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                 <div style="width:32em"><label>{{item.name}}</label><label>(D)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "I")}}
-              <td class="tiradaHabilidad" data-atributo="inteligencia" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.intelligence'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                 <div style="width:32em"><label>{{item.name}}</label><label>(I)</label>
                 </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "P")}}
-                  <td class="tiradaHabilidad" data-atributo="percepcion" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                  <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.perception'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                     <div style="width:32em"><label>{{item.name}}</label><label>(P)</label>
                     </div></td>
             {{/if}}
             {{#if (eq item.system.atributo "C")}}
-                  <td class="tiradaHabilidad" data-atributo="carisma" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                  <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.charisma'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                     <div style="width:32em"><label>{{item.name}}</label><label>(C)</label>
                     </div></td>
             {{/if}}

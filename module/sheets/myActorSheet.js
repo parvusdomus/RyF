@@ -108,7 +108,6 @@ export default class RyFActorSheet extends ActorSheet{
         Iniciativa=Number(val_reflejos)+Number(atributos.percepcion);
         //CALCULO Defensa_Base
         let esquivar = habilidades.find((k) => k.name === "Esquivar");
-        console.log(esquivar)
         if (esquivar){
             val_esquivar=esquivar.system.nivel;
         }
@@ -239,15 +238,16 @@ export default class RyFActorSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.Físico) || Number(dataset.valor_habilidad)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(dataset.valor_habilidad)==0){
             tipo_dado = "menor"
         }
         let val_atributo=0;
-        if (dataset.atributo=="Físico"){val_atributo=this.actor.system.Físico};
-        if (dataset.atributo=="Destreza"){val_atributo=this.actor.system.Destreza};
-        if (dataset.atributo=="Inteligencia"){val_atributo=this.actor.system.Inteligencia};
-        if (dataset.atributo=="Percepción"){val_atributo=this.actor.system.Percepción};
-        const archivo_template = '/systems/ryf/templates/dialogs/tirada_habilidad.html';
+        if (dataset.atributo==game.i18n.localize("RYF.attributes.strength")){val_atributo=this.actor.system.atributos.fisico};
+        if (dataset.atributo==game.i18n.localize("RYF.attributes.dexterity")){val_atributo=this.actor.system.atributos.destreza};
+        if (dataset.atributo==game.i18n.localize("RYF.attributes.intelligence")){val_atributo=this.actor.system.atributos.inteligencia};
+        if (dataset.atributo==game.i18n.localize("RYF.attributes.perception")){val_atributo=this.actor.system.atributos.percepcion};
+        if (dataset.atributo==game.i18n.localize("RYF.attributes.charisma")){val_atributo=this.actor.system.atributos.carisma};
+        const archivo_template = '/systems/ryf/templates/dialogs/tiradaHabilidad.html';
         const datos_template = { nom_atributo: dataset.atributo,
             val_atributo: val_atributo,
             nom_habilidad: dataset.habilidad,
@@ -281,7 +281,7 @@ export default class RyFActorSheet extends ActorSheet{
             tipo_dado = "menor"
         }
         let val_atributo=this.actor.system.atributos.inteligencia;
-        const archivo_template = '/systems/ryf/templates/dialogs/tirada_hechizo.html';
+        const archivo_template = '/systems/ryf/templates/dialogs/tiradaHechizo.html';
         const datos_template = {
             val_atributo: val_atributo,
             val_alcance: dataset.alcance,

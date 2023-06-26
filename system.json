@@ -32,18 +32,7 @@
       "styles/css/items/Habilidad.css",
       "styles/css/items/Hechizo.css",
       "styles/css/items/Talento.css",
-      "styles/css/items/Objeto.css",
-      "styles/css/dialog/dialogo_tirada_atributo.css",
-      "styles/css/dialog/dialogo_tirada_habilidad.css",
-      "styles/css/dialog/dialogo_tirada_hechizo.css",
-      "styles/css/dialog/dialogo_tirada_arma_Dist.css",
-      "styles/css/dialog/dialogo_tirada_arma_CaC.css",
-      "styles/css/dialog/dialogo_tirada_D6.css",
-      "styles/css/dialog/dialogo_tirada_D10.css",
-      "styles/css/chat/tirada_atributo_chat.css",
-      "styles/css/chat/tirada_atributo_chat_3d10.css",
-      "styles/css/chat/tirada_dano_chat.css"
-
+      "styles/css/items/Objeto.css"
     ],
     "packs": [],
     "relationships": [],

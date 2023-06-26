@@ -38,7 +38,7 @@ export async function tiradaAtributo (actor, dataset, bonos, dificultad, tipo_da
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_atributo_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaAtributoChat.html';
   const datos_template_chat = { nom_atributo: dataset.atributo,
                           val_atributo: dataset.valor,
                           estorbo: actor.system.derivadas.estorbo,
