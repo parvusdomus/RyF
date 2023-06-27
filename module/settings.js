@@ -8,4 +8,14 @@ export default function registerSystemSettings() {
         default: false,
         config: true
     });
+
+    //Enable charisma attribute
+    game.settings.register("ryf", "charismaEnabled", {
+        name: "Activar Carisma",
+        hint: "Habilita el atributo Carisma",
+        scope: "world",
+        type: Boolean,
+        default: false,
+        config: true
+    });
 }

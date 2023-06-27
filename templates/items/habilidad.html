@@ -14,7 +14,9 @@
           <option value="D">Destreza</option>
           <option value="I">Inteligencia</option>
           <option value="P">Percepcion</option>
+          {{#if (eq settings.charismaEnabled true)}}
           <option value="C">Carisma</option>
+          {{/if}}
           {{/select}}
         </select>
         </div>

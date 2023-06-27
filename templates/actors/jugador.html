@@ -25,10 +25,12 @@
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-valor="{{system.atributos.destreza}}">{{localize 'RYF.attributes.dexterity'}}</label>
             <input type="text" name="system.atributos.destreza" value="{{system.atributos.destreza}}"  data-dtype="Number"/>
           </div>
+          {{#if (eq settings.charismaEnabled true)}}
           <div class="flexrow flex-group-center">
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.charisma'}}" data-valor="{{system.atributos.carisma}}">{{localize 'RYF.attributes.charisma'}}</label>
             <input type="text" name="system.atributos.carisma" value="{{system.atributos.carisma}}"  data-dtype="Number"/>
           </div>
+          {{/if}}
         </div>
         <div class="flexcol">
           <div class="flexrow flex-group-center">
@@ -65,11 +67,13 @@
               <input type="text" name="system.derivadas.puntosVida.value" value="{{system.derivadas.puntosVida.value}}"  data-dtype="Number"/>/
               <label class="resource-label">{{system.derivadas.puntosVida.max}}</label>
             </div>
+            {{#if (eq settings.magicEnabled true)}}
             <div class="flexrow flex-group-center">
               <label class="resource-label restauraMana">{{localize 'mana'}}</label>
               <input type="text" name="system.derivadas.puntosMana.value" value="{{system.derivadas.puntosMana.value}}"  data-dtype="Number"/>/
               <label class="resource-label">{{system.derivadas.puntosMana.max}}</label>
             </div>
+            {{/if}}
             <div class="flexrow flex-group-center">
               <label class="resource-label">{{localize 'defense'}}</label>
               <label class="resource-label">{{system.derivadas.defensa.base}}</label>

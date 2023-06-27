@@ -487,6 +487,7 @@ export default class RyFActorSheet extends ActorSheet{
     loadSettings(){
         let settings = {};
         settings.magicEnabled = game.settings.get("ryf","advanced.magicEnabled");
+        settings.charismaEnabled = game.settings.get("ryf","charismaEnabled");
 
         return settings;
     }
