@@ -27,7 +27,7 @@ export default class RyFExtras {
        objetivo_id=objetivo;
      }
      let causa_dano=total > 0 && objetivo;
-     const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_dano_chat.html';
+     const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaDanoChat.html';
      const datos_template_chat = {
                              tirada: tirada,
                              nom_habilidad: dataset.arma,

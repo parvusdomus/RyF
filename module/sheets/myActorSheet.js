@@ -327,7 +327,6 @@ export default class RyFActorSheet extends ActorSheet{
         let defensa_Dist_escudo=0;
         let objetivo_id;
         
-        console.log(dataset);
         if (objetivo){
             objetivo_id=objetivo.document.actorId;
             let objetivoActor = Actor.get(objetivo_id);
@@ -384,8 +383,6 @@ export default class RyFActorSheet extends ActorSheet{
             defensa_Dist_escudo: defensa_Dist_escudo,
             absorcion_armadura: absorcion_armadura
         };
-        console.log(archivo_template)
-        console.log(datos_template)
         const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
         let dialogo = new Dialog({
             title: `Nueva tirada de ${dataset.arma}`,
@@ -395,14 +392,14 @@ export default class RyFActorSheet extends ActorSheet{
                     icon: '<i class="fas fa-dice"></i>',
                     label: "Ataque",
                     callback: () => {
-                        tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano_corto, dataset.dano_medio, dataset.dano_largo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+                        tiradaAtaque (dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_Dist_escudo, dataset.dano_corto,absorcion_armadura);
                     }
                 },
                 Dano: {
                     icon: '<i class="fas fa-skull-crossbones"></i>',
                     label: "Daño",
                     callback: () => {
-                        tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.danonumerodados, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+                        tiradaDano (dataset.arma, objetivo, absorcion_armadura, dataset.danobonificador, dataset.danonumerodados);
                     }
                 }
             },

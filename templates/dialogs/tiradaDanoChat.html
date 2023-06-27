@@ -1,0 +1,9 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div><label>Daño {{nombreArma}}</label></div>
+  <div><label>Tirada: {{tirada}}</label></div>
+  <div><label>Resultado: {{resultadoTirada}}</label></div>
+  <div><label><strong>Total: {{total}}</strong></label></div>
+  {{#if (eq causa_dano true)}}
+    <div class="chat_tirada_aplicar_dano aplicaDanoDesdeChat" data-dano="{{total}}" data-objetivo="{{objetivo}}"><label>Aplicar Dano</label></div>
+  {{/if}}
+</form>

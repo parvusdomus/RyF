@@ -97,7 +97,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
              icon: '<i class="fas fa-skull-crossbones"></i>',
              label: "Dano",
              callback: () => {
-                tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano, dataset.dano, dataset.dano, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+                tiradaDano (dataset, objetivo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
              }
            }
          },
