@@ -1,6 +1,7 @@
 {
   "attributes" : "Attributes",
   "skills": "Skills",
+  "skill": "Skill",
   "iniciative": "Iniciative",
   "defense": "Defense",
   "mana": "Mana",
@@ -9,6 +10,9 @@
   "nuisance": "Nuisance",
   "inventory": "Inventory",
   "spells": "Spells",
+  "biography": "Biography",
+  "level": "Level",
+  "total": "Total",
   "RYF": {
     "attributes": {
       "strength": "Physical",

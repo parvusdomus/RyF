@@ -85,7 +85,7 @@
     {{#if (eq settings.magicEnabled true)}}
     <a class="item" data-tab="hechizos">{{localize 'spells'}}</a>
     {{/if}}
-    <a class="item" data-tab="biografia">Biografía</a>
+    <a class="item" data-tab="biografia">{{localize 'biography'}}</a>
   </nav>
   <section class="sheet-body">
     {{!-- Habilidades Tab --}}
@@ -94,9 +94,9 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:40%"><label>HABILIDAD</label></th>
-            <th style="width:20%"><label>NIVEL</label></th>
-            <th style="width:20%"><label>TOTAL</label></th>
+            <th style="width:40%"><label>{{localize 'skill'}}</label></th>
+            <th style="width:20%"><label>{{localize 'level'}}</label></th>
+            <th style="width:20%"><label>{{localize 'total'}}</label></th>
             <th style="width:10%"><a class="item-control item-create" data-type="habilidad"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.habilidades as |item id|}}

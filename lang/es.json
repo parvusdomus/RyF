@@ -1,6 +1,7 @@
 {
   "attributes" : "Atributos",
   "skills": "Habilidades",
+  "skill": "Habilidad",
   "iniciative": "Iniciativa",
   "defense": "Defensa",
   "mana": "Maná",
@@ -9,6 +10,9 @@
   "nuisance": "Estorbo",
   "inventory": "Inventario",
   "spells": "Hechizos",
+  "biography": "Biografía",
+  "level": "Nivel",
+  "total": "Total",
   "RYF": {
     "attributes": {
       "strength": "Físico",
