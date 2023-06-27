@@ -10,6 +10,7 @@
   "encumbrance": "Encumbrance",
   "inventory": "Inventory",
   "spells": "Spells",
+  "spell": "Spell",
   "biography": "Biography",
   "level": "Level",
   "total": "Total",
@@ -20,6 +21,7 @@
   "shield": "Shield",
   "item": "Item",
   "amount": "Amount",
+  "difficulty": "Difficulty",
   "RYF": {
     "attributes": {
       "strength": "Physical",

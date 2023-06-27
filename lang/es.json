@@ -10,6 +10,7 @@
   "encumbrance": "Estorbo",
   "inventory": "Inventario",
   "spells": "Hechizos",
+  "spell": "Hechizo",
   "biography": "Biografía",
   "level": "Nivel",
   "total": "Total",
@@ -20,6 +21,7 @@
   "shield": "Escudo",
   "item": "Objeto",
   "amount": "Cantidad",
+  "difficulty": "Dificultad",
   "RYF": {
     "attributes": {
       "strength": "Físico",
