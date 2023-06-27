@@ -1,0 +1,11 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div><label>{{nom_habilidad}}</label></div>
+  <div><label> 1o3d10 + {{val_habilidad}} + {{val_atributo}} + {{bonos}}</label>
+    {{#if (eq nom_atributo "Destreza")}}
+      <label> - {{estorbo}}</label>
+    {{/if}}
+  </div>
+  <div><label>Dados: {{#if (eq tipo_dado "menor")}}<strong>{{/if}}  {{dado_menor}} {{#if (eq tipo_dado "menor")}} </strong>{{/if}} | {{#if (eq tipo_dado "objetivo")}}<strong>{{/if}} {{dado_medio}} {{#if (eq tipo_dado "objetivo")}} </strong>{{/if}}| {{#if (eq tipo_dado "mayor")}} <strong>{{/if}} {{dado_mayor}} {{#if (eq tipo_dado "mayor")}} </strong>{{/if}} </label></div>
+  <div><label>{{total}} VS {{dificultad}}</label></div>
+  <div><label>{{resultado}}</label></div>
+</form>
