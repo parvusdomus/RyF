@@ -1,5 +1,14 @@
 {
   "attributes" : "Attributes",
+  "skills": "Skills",
+  "iniciative": "Iniciative",
+  "defense": "Defense",
+  "mana": "Mana",
+  "hitPoints": "Hit Points",
+  "absorption": "Absorption",
+  "nuisance": "Nuisance",
+  "inventory": "Inventory",
+  "spells": "Spells",
   "RYF": {
     "attributes": {
       "strength": "Physical",

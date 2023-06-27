@@ -40,7 +40,7 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_habilidad_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaHabilidadChat.html';
   const datos_template_chat = {
                           nom_atributo: dataset.atributo,
                           val_atributo: val_atributo,
