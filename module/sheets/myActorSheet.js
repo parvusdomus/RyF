@@ -147,6 +147,7 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
+            console.log(item)
             item.sheet.render(true);
         });
         // Borrar objetos
