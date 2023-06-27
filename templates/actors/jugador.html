@@ -19,7 +19,7 @@
         <div class="flexcol">
           <div class="flexrow flex-group-center">
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.strength'}}" data-valor="{{system.atributos.fisico}}">{{localize 'RYF.attributes.strength'}}</label>
-            <input class="" type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number"/>
+            <input type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number"/>
           </div>
           <div class="flexrow flex-group-center">
             <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-valor="{{system.atributos.destreza}}">{{localize 'RYF.attributes.dexterity'}}</label>
@@ -55,7 +55,7 @@
               <label class="resource-label">{{system.derivadas.absorcion}}</label>
             </div>
             <div class="flexrow flex-group-center">
-              <label class="resource-label">{{localize 'nuisance'}}</label>
+              <label class="resource-label">{{localize 'encumbrance'}}</label>
               <label class="resource-label">{{system.derivadas.estorbo}}</label>
             </div>
           </div>
@@ -146,9 +146,9 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:40%; align:center"><label>ARMA</label></th>
-            <th style="width:20%; align:center"><label>ALCANCE</label></th>
-            <th style="width:20%; align:center"><label>DAnO</label></th>
+            <th style="width:40%; align:center"><label>{{localize 'weapon'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'range'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'damage'}}</label></th>
             <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="arma"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.items.armas as |item id|}}
@@ -182,9 +182,9 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:40%; align:center"><label>ARMADURA</label></th>
-            <th style="width:20%; align:center"><label>ABS</label></th>
-            <th style="width:20%; align:center"><label>EST</label></th>
+            <th style="width:40%; align:center"><label>{{localize 'armor'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'absorption'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'encumbrance'}}</label></th>
             <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="armadura"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.items.armaduras as |item id|}}
@@ -207,9 +207,9 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:40%; align:center"><label>ESCUDO</label></th>
-            <th style="width:20%; align:center"><label>DEFENSA</label></th>
-            <th style="width:20%; align:center"><label>ESTORBO</label></th>
+            <th style="width:40%; align:center"><label>{{localize 'shield'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'defense'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'encumbrance'}}</label></th>
             <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="escudo"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.items.escudos as |item id|}}
@@ -236,8 +236,8 @@
         <table>
           <tr>
             <th style="width:10%"></th>
-            <th style="width:60%; align:center"><label>OBJETO</label></th>
-            <th style="width:20%; align:center"><label>CANTIDAD</label></th>
+            <th style="width:60%; align:center"><label>{{localize 'item'}}</label></th>
+            <th style="width:20%; align:center"><label>{{localize 'amount'}}</label></th>
             <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="objeto"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.items.objetos as |item id|}}
