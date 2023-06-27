@@ -1,0 +1,11 @@
+<form class="{{cssClass}} dialogo_tirada_atributo" autocomplete="off">
+  <div><label>Atributo: {{nom_atributo}}</label></div>
+  <div><label>Tirada: 1o3d10 + {{val_atributo}} + {{bonos}}</label>
+    {{#if (eq nom_atributo "Destreza")}}
+      <label> - {{estorbo}}</label>
+    {{/if}}
+  </div>
+  <div><label>Dados: {{dado_menor}} | {{dado_medio}} | {{dado_mayor}}</label></div>
+  <div><label>{{total}} VS {{dificultad}}</label></div>
+  <div><label>{{resultado}}</label></div>
+</form>

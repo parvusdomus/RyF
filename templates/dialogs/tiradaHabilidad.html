@@ -1,0 +1,27 @@
+<form class="{{cssClass}} dialogo_tirada_habilidad" autocomplete="off">
+  <div>
+      <div class="flexrow"><label>{{nom_habilidad}}:</label><label>{{val_habilidad}}</label></div>
+      <div class="flexrow"><label>{{nom_atributo}}:</label><label>{{val_atributo}}</label></div>
+      <div class="flexrow"><label>Bonificadores:</label><input type="text" id="bonos" value="0" size=2  data-dtype="Number"></div>
+      <div class="flexrow">
+        <label>Dificultad:</label>
+        <select name="dificultad" id="dificultad" data-dtype="Number">
+         <option value="10">(10) Fácil</option>
+         <option value="15" selected>(15) Normal</option>
+         <option value="18">(18) Moderada</option>
+         <option value="20">(20) Difícil</option>
+         <option value="25">(25) Muy Difícil</option>
+         <option value="30">(30) Casi Imposible</option>
+        </select>
+      </div>
+  </div>
+  <div class="flexrow">
+    <label>Dado</label>
+    <select name="forzar" id="forzar" data-dtype="Text">
+      <option value="" selected></option>
+      <option value="mayor">Mayor</option>
+      <option value="menor">Menor</option>
+      <option value="objetivo">Objetivo</option>
+    </select>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div>
+      <div class="flexrow"><label>Hechizo:</label><label>{{nom_hechizo}}</label></div>
+      <div class="flexrow"><label>Nivel:</label><label>{{nivel_hechizo}}</label></div>
+      <div class="flexrow"><label>Atributo:</label><label>{{val_atributo}}</label></div>
+      <div class="flexrow"><label>Dificultad:</label><label>{{val_dificultad}}</label></div>
+      <div class="flexrow"><label>Bonificadores:</label><input type="text" id="bonos" value="0" size=2  data-dtype="Number"></div>
+</div>
+<div class="flexrow">
+  <label>Dado:</label>
+  <select name="forzar" id="forzar" data-dtype="Text">
+    <option value="" selected></option>
+    <option value="mayor">Mayor</option>
+    <option value="menor">Menor</option>
+    <option value="objetivo">Objetivo</option>
+  </select>
+</div>
+</form>
