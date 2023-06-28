@@ -52,4 +52,32 @@ Hooks.on('renderTokenHUD', async (hud, html, token) => {
               console.log("Clic en el boton custom")
           }
       })
-})
+});
+
+Hooks.on("getSceneControlButtons", (controls) => {
+    if (canvas == null) {
+        return;
+    }
+    console.log("TEST")
+    controls.push(
+        {
+            name: "dices",
+            title: "Dices",
+            icon: "fas fa-dice",
+            layer: "dices",
+            visible: true,
+            tools: [
+                {
+                    name: "D6",
+                    title: "Tira D6",
+                    icon: "fas fa-hat-wizard",
+                    onClick: () => {
+                        console.log("Enhorabuena xD")
+                    },
+                    button: true,
+                }
+            ],
+            activeTool: "dices",
+        }
+    );
+});
