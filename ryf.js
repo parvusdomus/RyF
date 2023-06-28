@@ -6,8 +6,6 @@ import registerSystemSettings from "./module/settings.js";
 import { preloadHandlebarsTemplates } from "./module/preloadTemplates.js";
 
 Hooks.once("init", function(){
-    console.log("test | Initializing BOL CHARSHEETS");
-    console.log("Language on init Hook (game.i18n.lang): "+game.i18n.lang)
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("ryf", RyFActorSheet, {
       makeDefault: true,
@@ -29,8 +27,13 @@ Hooks.once("init", function(){
     decimals: 0};
 
     registerSystemSettings();
+    registerLayers();
 
 });
+
+function registerLayers() {
+    CONFIG.Canvas.layers.dices = { layerClass: ControlsLayer, group: "interface" };
+  }
 
 Hooks.on('renderChatLog', (app, html, data) => RyFExtras.chatListeners(html))
 
@@ -54,30 +57,4 @@ Hooks.on('renderTokenHUD', async (hud, html, token) => {
       })
 });
 
-Hooks.on("getSceneControlButtons", (controls) => {
-    if (canvas == null) {
-        return;
-    }
-    console.log("TEST")
-    controls.push(
-        {
-            name: "dices",
-            title: "Dices",
-            icon: "fas fa-dice",
-            layer: "dices",
-            visible: true,
-            tools: [
-                {
-                    name: "D6",
-                    title: "Tira D6",
-                    icon: "fas fa-hat-wizard",
-                    onClick: () => {
-                        console.log("Enhorabuena xD")
-                    },
-                    button: true,
-                }
-            ],
-            activeTool: "dices",
-        }
-    );
-});
+Hooks.on("getSceneControlButtons", (controls) => RyFExtras.leftSideBar(controls));

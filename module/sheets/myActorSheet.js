@@ -314,17 +314,19 @@ export default class RyFActorSheet extends ActorSheet{
     async _onTiradaArma(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        var tipo_dado = "objetivo";
-        var val_atributo = 0;
-        var nom_atributo="";
-        var val_habilidad=0;
-        var HabilidadArma;
-        var archivo_template="";
+        
+        let tipoDado = "objetivo";
+        let valAtributo = 0;
+        let nomAtributo="";
+        let valHabilidad=0;
+        let HabilidadArma;
+        let bonoAtaque = 0;
+        let archivo_template="";
         let objetivo = game.user.targets.first();
-        let absorcion_armadura=0;
-        let defensa_CaC = 0;
-        let defensa_CaC_escudo =0;
-        let defensa_Dist_escudo=0;
+        let absorcionArmadura=0;
+        let defensaBase = 0;
+        let defensaCacEscudo =0;
+        let defensaDistanciaEscudo=0;
         let objetivo_id;
         
         if (objetivo){
@@ -332,74 +334,72 @@ export default class RyFActorSheet extends ActorSheet{
             let objetivoActor = Actor.get(objetivo_id);
             defensa_CaC=objetivoActor.system.derivadas.defensa.base;
             if (objetivoActor.system.derivadas.defensa.escudoCac){
-                defensa_CaC_escudo=objetivoActor.system.derivadas.defensa.escudoCac;
+                defensaCacEscudo=objetivoActor.system.derivadas.defensa.escudoCac;
             }
             if (objetivoActor.system.derivadas.defensa.escudoDist){
-                defensa_Dist_escudo=objetivoActor.system.derivadas.defensa.escudoDist;
+                defensaDistanciaEscudo=objetivoActor.system.derivadas.defensa.escudoDist;
             }
             if(objetivoActor.system.derivadas.absorcion){
-                absorcion_armadura=objetivoActor.system.derivadas.absorcion;
+                absorcionArmadura=objetivoActor.system.derivadas.absorcion;
             }
         }
 
         if (dataset.habilidad=="Cuerpo a cuerpo"){
-            val_atributo=this.actor.system.atributos.fisico;
-            nom_atributo="Físico";
+            valAtributo=this.actor.system.atributos.fisico;
+            nomAtributo="Físico";
             archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
             HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas Cuerpo a Cuerpo");
             if (HabilidadArma){
-                val_habilidad=HabilidadArma.system.nivel;
+                valHabilidad=HabilidadArma.system.nivel;
             }
 
         }
         if (dataset.habilidad=="Distancia"){
-            val_atributo=this.actor.system.atributos.destreza;
-            nom_atributo="Destreza";
+            valAtributo=this.actor.system.atributos.destreza;
+            nomAtributo="Destreza";
             archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
             HabilidadArma = this.actor.items.find((k) => k.type === "habilidad" && k.name === "Armas a Distancia");
             if (HabilidadArma){
-                val_habilidad=HabilidadArma.system.nivel;
+                valHabilidad=HabilidadArma.system.nivel;
             }
         }
         if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(val_habilidad)==0){
-            tipo_dado = "menor"
+            tipoDado = "menor"
         }
 
         const datos_template = {
             nom_arma: dataset.arma,
-            nom_atributo: nom_atributo,
-            val_atributo: val_atributo,
+            nom_atributo: nomAtributo,
+            val_atributo: valAtributo,
             nom_habilidad: dataset.habilidad,
-            val_habilidad: val_habilidad,
-            alcance_corto: dataset.alcance_corto,
-            alcance_medio: dataset.alcance_medio,
-            alcance_largo: dataset.alcance_largo,
+            val_habilidad: valHabilidad,
             danoDados: dataset.danonumerodados,
             danoBonificador: dataset.danobonificador,
-            tipo_dado: tipo_dado,
-            defensa_CaC: defensa_CaC,
-            defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
-            defensa_CaC_escudo: defensa_CaC_escudo,
-            defensa_Dist_escudo: defensa_Dist_escudo,
-            absorcion_armadura: absorcion_armadura
+            tipo_dado: tipoDado,
+            defensa_CaC: defensaBase,
+            defensa_total_CaC: defensaBase+defensaCacEscudo,
+            defensa_CaC_escudo: defensaCacEscudo,
+            defensa_Dist_escudo: defensaDistanciaEscudo,
+            absorcion_armadura: absorcionArmadura
         };
         const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
+
         let dialogo = new Dialog({
-            title: `Nueva tirada de ${dataset.arma}`,
+            title: `Tirada de ${dataset.arma}`,
             content: contenido_Dialogo,
             buttons: {
                 Ataque: {
                     icon: '<i class="fas fa-dice"></i>',
                     label: "Ataque",
                     callback: () => {
-                        tiradaAtaque (dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_Dist_escudo, dataset.dano_corto,absorcion_armadura);
+                        tiradaAtaque (tipoDado, valAtributo, valHabilidad, bonoAtaque, dificultad, datosDano);
                     }
                 },
                 Dano: {
                     icon: '<i class="fas fa-skull-crossbones"></i>',
                     label: "Daño",
                     callback: () => {
-                        tiradaDano (dataset.arma, objetivo, absorcion_armadura, dataset.danobonificador, dataset.danonumerodados);
+                        tiradaDano (dataset.arma, objetivo, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
                     }
                 }
             },
