@@ -363,7 +363,7 @@ export default class RyFActorSheet extends ActorSheet{
                 valHabilidad=HabilidadArma.system.nivel;
             }
         }
-        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(val_habilidad)==0){
+        if (Number(this.actor.system.derivadas.puntosVida.value) <= Number(this.actor.system.atributos.fisico) || Number(valHabilidad)==0){
             tipoDado = "menor"
         }
 
