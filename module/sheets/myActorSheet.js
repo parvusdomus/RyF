@@ -373,6 +373,7 @@ export default class RyFActorSheet extends ActorSheet{
             val_atributo: valAtributo,
             nom_habilidad: dataset.habilidad,
             val_habilidad: valHabilidad,
+            bonificadorAtaque: 0,
             danoDados: dataset.danonumerodados,
             danoBonificador: dataset.danobonificador,
             tipo_dado: tipoDado,
@@ -392,7 +393,10 @@ export default class RyFActorSheet extends ActorSheet{
                     icon: '<i class="fas fa-dice"></i>',
                     label: "Ataque",
                     callback: () => {
-                        tiradaAtaque (tipoDado, valAtributo, valHabilidad, bonoAtaque, dificultad, datosDano);
+                        let dificultad = document.getElementById("dificultad").value;
+                        bonoAtaque = document.getElementById("bonificadorAtaque").value;
+                        tipoDado = document.getElementById("tipo_dado").value;
+                        tiradaAtaque (tipoDado, valAtributo, valHabilidad, bonoAtaque, dificultad, dataset.arma, objetivo, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
                     }
                 },
                 Dano: {

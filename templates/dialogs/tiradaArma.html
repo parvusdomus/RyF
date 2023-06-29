@@ -9,11 +9,11 @@
       <label>{{val_atributo}}</label>
     </div>
     <div class="flexcol">
-        <div class="flexrow"><label>Bonificadores</label><input type="text" id="bonos" value="0" size=2  data-dtype="Number"></div>
+        <div class="flexrow"><label>Bonificadores</label><input type="text" id="bonificadorAtaque" value="0" size=2  data-dtype="Number"></div>
         <div class="flexrow"><label>Dificultad</label><input type="text" id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
         <div class="flexrow">
           <label>Dado</label>
-          <select name="forzar" id="forzar" data-dtype="Text">
+          <select name="tipo_dado" id="tipo_dado" data-dtype="Text">
             {{#if (eq tipo_dado 'mayor')}}
             <option value="mayor" selected>Mayor</option>
             <option value="menor">Menor</option>
@@ -34,7 +34,7 @@
     </div>
     <div class="flexcol">
         <div class="flexrow"><label>Dados daño:</label><label id="dano_arma" data-dtype="Text">{{danoDados}}</label></div>
-        <div class="flexrow"><label>Bonificadores:</label><label id="bonos_dano" data-dtype="Text">{{danoBonificador}}</label></div>
+        <div class="flexrow"><label>Bonificador daño:</label><label id="bonos_dano" data-dtype="Text">{{danoBonificador}}</label></div>
         <div class="flexrow"><label>Absorcion del enemigo:</label><label>{{absorcion_armadura}}</label></div>
     </div>
   </div>
