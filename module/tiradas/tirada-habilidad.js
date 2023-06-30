@@ -13,17 +13,17 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
   }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=0;
   }
   if (dado==="objetivo"){
     total=Number(d10s[1])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=1;
   }
   if (dado==="mayor"){
     total=Number(d10s[2])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.system.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=2;
   }
   if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
@@ -55,7 +55,7 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          estorbo: actor.system.Estorbo_Total,
+                          estorbo: actor.system.derivadas.estorbo
                         };
   const contenido_Dialogo_chat = await renderTemplate(archivo_template_chat, datos_template_chat);
   const chatData = {

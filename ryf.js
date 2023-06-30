@@ -23,7 +23,7 @@ Hooks.once("init", function(){
     console.log ("test | DONE LOADING TEMPLATES");
 
     CONFIG.Combat.initiative = {
-    formula: "{1d10x, 1d10x, 1d10x}dh1kh1 + @iniciativa - @estorbo",
+    formula: "{1d10x, 1d10x, 1d10x}dh1kh1 + @derivadas.iniciativa - @derivadas.estorbo",
     decimals: 0};
 
     registerSystemSettings();

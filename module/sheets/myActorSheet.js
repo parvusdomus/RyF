@@ -103,7 +103,7 @@ export default class RyFActorSheet extends ActorSheet{
         //CALCULO INICIATIVA
         let reflejos = habilidades.find((k) => k.name === "Reflejos");
         if (reflejos){
-            val_reflejos=reflejos.data.nivel;
+            val_reflejos=reflejos.system.nivel;
         }
         Iniciativa=Number(val_reflejos)+Number(atributos.percepcion);
         //CALCULO Defensa_Base
@@ -147,7 +147,6 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
-            console.log(item)
             item.sheet.render(true);
         });
         // Borrar objetos
@@ -301,7 +300,7 @@ export default class RyFActorSheet extends ActorSheet{
                     icon: '<i class="fas fa-dice"></i>',
                     label: "Lanzar",
                     callback: () => {
-                        tiradaHechizo (this.actor, dataset, val_atributo, document.getElementById("bonos").value, dataset.dificultad, tipo_dado, document.getElementById("forzar").value, dataset.mana);
+                        tiradaHechizo (this.actor, dataset, val_atributo, document.getElementById("bonos").value, dataset.dificultad, tipo_dado, document.getElementById("tipo_dado").value, dataset.mana);
                     }
                 }
             },

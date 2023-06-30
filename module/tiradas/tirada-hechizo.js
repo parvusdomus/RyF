@@ -18,15 +18,15 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
     dado=forzar;
   }
   if (dado==="menor"){
-    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
+    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=0;
   }
   if (dado==="objetivo"){
-    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
+    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=1;
   }
   if (dado==="mayor"){
-    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.Estorbo_Total;
+    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=2;
   }
   if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
@@ -43,7 +43,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_hechizo_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaHechizoChat.html';
   const datos_template_chat = {
                           val_atributo: val_atributo,
                           nom_habilidad: dataset.hechizo,
@@ -57,7 +57,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          estorbo: actor.system.Estorbo_Total
+                          estorbo: actor.system.derivadas.estorbo
                         };
   const contenido_Dialogo_chat = await renderTemplate(archivo_template_chat, datos_template_chat);
   const chatData = {

@@ -1,29 +1,38 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/hechizo-Bg.webp" alt="?"/>
-  <div class="hechizo-container">
-    <div class="Hechizo-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre'
+  <div class="flexcol">
+    <div class="flexrow">
+      <input name="name" type="text" value="{{name}}" placeholder='Nombre'
                                        onClick="this.select();"/></div>
-    <div class="Hechizo-foto">
-      <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+                                       
+    <div class="flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del hechizo'/>
+      </div>
+      <div class="flexcol">
+      <div class="flexrow">
+        <label>Dificultad:</label>
+        <input type="text" name="system.dificultad" value="{{system.dificultad}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="flexrow">
+        <label>Alcance:</label>
+      <select name="system.alcance" data-dtype="String">
+        {{#select system.alcance}}
+        <option value="Toque">Toque</option>
+        <option value="Personal">Pers</option>
+        <option value="Distancia">Dist</option>
+        {{/select}}
+      </select>
+      </div>
+      <div class="flexrow">
+        <label>Coste mana:</label>
+        <input type="text" name="system.mana" value="{{system.mana}}" data-dtype="Number" maxlength="2"/>
+      </div>
+      <div class="flexrow">
+        <label>Nivel:</label>
+        <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="2"/>
+      </div>
     </div>
-    <div class="Hechizo-Dificultad">
-      <input type="text" name="system.dificultad" value="{{system.dificultad}}" data-dtype="Number" maxlength="2"/>
-    </div>
-    <div class="Hechizo-Alcance">
-    <select name="system.alcance" data-dtype="String">
-      {{#select system.alcance}}
-      <option value="Toque">Toque</option>
-      <option value="Personal">Pers</option>
-      <option value="Distancia">Dist</option>
-      {{/select}}
-    </select>
-    </div>
-    <div class="Hechizo-Mana">
-      <input type="text" name="system.mana" value="{{system.mana}}" data-dtype="Number" maxlength="2"/>
-    </div>
-    <div class="Hechizo-Nivel">
-      <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="2"/>
-    </div>
+    
     <div class="Hechizo-descripcion-container">
       {{{editor system.descripcion target="system.descripcion" button=true owner=owner editable=true}}}
     </div>
