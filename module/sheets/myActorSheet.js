@@ -326,7 +326,7 @@ export default class RyFActorSheet extends ActorSheet{
         if (objetivo){
             objetivo_id=objetivo.document.actorId;
             let objetivoActor = Actor.get(objetivo_id);
-            defensa_CaC=objetivoActor.system.derivadas.defensa.base;
+            defensaBase=objetivoActor.system.derivadas.defensa.base;
             if (objetivoActor.system.derivadas.defensa.escudoCac){
                 defensaCacEscudo=objetivoActor.system.derivadas.defensa.escudoCac;
             }
@@ -390,14 +390,14 @@ export default class RyFActorSheet extends ActorSheet{
                         let dificultad = document.getElementById("dificultad").value;
                         bonoAtaque = document.getElementById("bonificadorAtaque").value;
                         tipoDado = document.getElementById("tipo_dado").value;
-                        tiradaAtaque (tipoDado, valAtributo, valHabilidad, bonoAtaque, dificultad, dataset.arma, objetivo, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
+                        tiradaAtaque (tipoDado, valAtributo, valHabilidad, bonoAtaque, dificultad, dataset.arma, objetivo_id, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
                     }
                 },
                 Dano: {
                     icon: '<i class="fas fa-skull-crossbones"></i>',
                     label: "Daño",
                     callback: () => {
-                        tiradaDano (dataset.arma, objetivo, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
+                        tiradaDano (dataset.arma, objetivo_id, absorcionArmadura, dataset.danobonificador, dataset.danonumerodados);
                     }
                 }
             },

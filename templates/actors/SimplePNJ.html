@@ -9,16 +9,16 @@
         <div class="flexrow">
         <div class="flexcol">
           <div class="flexrow">
-            <div class="tiradaAtaquePNJ" data-arma="{{name}}" data-habilidad="{{system.ataque}}" data-danoDados="{{system.dano.numeroDados}}" data-danoBonificador="{{system.dano.bonificador}}"><label>Ataque</label></div>
-            <input type="text" name="system.ataque" value="{{system.ataque}}" data-dtype="Number" maxlength="2"/>
+            <div class="tiradaAtaquePNJ" data-arma="{{name}}" data-habilidad="{{system.derivadas.ataque}}" data-danoDados="{{system.dano.numeroDados}}" data-danoBonificador="{{system.dano.bonificador}}"><label>Ataque</label></div>
+            <input type="text" name="system.derivadas.ataque" value="{{system.derivadas.ataque}}" data-dtype="Number" maxlength="2"/>
           </div>
           <div class="flexrow">
             <label>Defensa</label>
-            <input type="text" name="system.defensa" value="{{system.defensa}}" data-dtype="Number" maxlength="2"/>
+            <input type="text" name="system.derivadas.defensa.base" value="{{system.derivadas.defensa.base}}" data-dtype="Number" maxlength="2"/>
           </div>
           <div class="flexrow">
             <label>Absorción</label>
-            <input type="text" name="system.absorcion" value="{{system.absorcion}}" data-dtype="Number" maxlength="2"/>
+            <input type="text" name="system.derivadas.absorcion" value="{{system.derivadas.absorcion}}" data-dtype="Number" maxlength="2"/>
           </div>
         </div>
         <div class="flexcol">
@@ -28,11 +28,11 @@
           </div>
           <div class="flexrow">
             <label>Iniciativa</label>
-            <input type="text" name="system.iniciativa" value="{{system.iniciativa}}" data-dtype="Number" maxlength="2"/>
+            <input type="text" name="system.derivadas.iniciativa" value="{{system.derivadas.iniciativa}}" data-dtype="Number" maxlength="2"/>
           </div>
           <div class="flexrow">
             <label class="restauraVidaPNJ">Puntos de Vida</label>
-            <input type="text" name="system.puntosVida.value" value="{{system.puntosVida.value}}" data-dtype="Number" maxlength="2"/> / <input type="text" name="system.puntosVida.max" value="{{system.puntosVida.max}}" data-dtype="Number" maxlength="2"/>
+            <input type="text" name="system.derivadas.puntosVida.value" value="{{system.derivadas.puntosVida.value}}" data-dtype="Number" maxlength="2"/> / <input type="text" name="system.derivadas.puntosVida.max" value="{{system.derivadas.puntosVida.max}}" data-dtype="Number" maxlength="2"/>
           </div>
         </div>
       </div>

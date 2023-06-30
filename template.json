@@ -49,20 +49,24 @@
     },
 
   "pnj":{
-  "iniciativa": 0,
-  "ataque": 0,
-  "defensa": 0,
-  "absorcion": 0,
-  "puntosVida":{
-    "value":0,
-    "min":0,
-    "max": 0
-  },
-  "puntosMana":{
-    "value":0,
-    "min":0,
-    "max": 0
-  },
+    "derivadas": {
+      "iniciativa": 0,
+      "ataque": 0,
+      "defensa": {
+        "base": 0
+      },
+      "absorcion": 0,
+      "puntosVida":{
+        "value":0,
+        "min":0,
+        "max": 0
+      },
+      "puntosMana":{
+        "value":0,
+        "min":0,
+        "max": 0
+      }
+    },
   "dano":{
     "numeroDados": 0,
     "bonificador": ""

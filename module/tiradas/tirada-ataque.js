@@ -12,7 +12,7 @@ export async function tiradaAtaque (tipo_dado, val_atributo, val_habilidad, bono
   let dificultad_total=Number(dificultad);
   let exito=false;
   if (objetivo){
-    objetivo_id=objetivo.document.actorId;
+    objetivo_id=objetivo;
   }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(val_habilidad)+Number(val_atributo)+Number(bonoAtaque);

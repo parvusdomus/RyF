@@ -47,20 +47,19 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
         let objetivo_id;
         if (objetivo){
           let objetivoSystem = Actor.get(objetivo.document.actorId).system;
-          defensa_CaC=objetivoSystem.Defensa.Base;
-          if (objetivoSystem.defensa.escudoCac){
+          defensa_CaC=objetivoSystem.derivadas.defensa.base;
+          if (objetivoSystem.derivadas.defensa.escudoCac){
             defensa_CaC_escudo=objetivoSystem.derivadas.defensa.escudoCac;
           }
-          if (objetivoSystem.defensa.escudoDist){
+          if (objetivoSystem.derivadas.defensa.escudoDist){
             defensa_Dist_escudo=objetivoSystem.derivadas.defensa.escudoDist;
           }
-          if(objetivoSystem.Absorcion_Total){
+          if(objetivoSystem.derivadas.absorcion){
             absorcion_armadura=objetivoSystem.derivadas.absorcion;
           }
           objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
-        console.log(dataset);
         archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
         const datos_template = {
                                 nom_arma: dataset.arma,
@@ -84,14 +83,14 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
             icon: '<i class="fas fa-dice"></i>',
             label: "Ataque",
             callback: () => {
-               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.dano, dataset.dano, dataset.dano, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+               tiradaAtaque (document.getElementById("forzar").value, 0, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, dataset.arma, objetivo_id, absorcion_armadura, dataset.danobonificador, dataset.danodados);
              }
            },
            Dano: {
              icon: '<i class="fas fa-skull-crossbones"></i>',
              label: "Dano",
              callback: () => {
-                tiradaDano (dataset, objetivo, absorcion_armadura, document.getElementById("bonos_dano").value, document.getElementById("dano_arma").value);
+                tiradaDano (dataset.arma, objetivo_id, absorcion_armadura, dataset.danobonificador, dataset.danodados);
              }
            }
          },
@@ -102,7 +101,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
       }
 
       async _onRestauraVidaPNJ(event) {
-        this.actor.update ({ "system.puntosVida.value": this.actor.system.puntosVida.max });
+        this.actor.update ({ "system.derivadas.puntosVida.value": this.actor.system.derivadas.puntosVida.max });
       }
 
 }

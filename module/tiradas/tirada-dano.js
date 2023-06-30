@@ -21,7 +21,7 @@ export async function tiradaDano (nombreArma, objetivo, absorcion, bonificador, 
     resultadoTirada = resultadoTirada + "-" + absorcion;
   }
   total=d6Roll.total;
-  if (objetivo){objetivo_id=objetivo.document.actorId}
+  if (objetivo){objetivo_id=objetivo}
   if (total > 0 && objetivo){
     causa_dano=true;
   }
