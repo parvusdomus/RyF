@@ -1,21 +1,20 @@
-<form class="{{cssClass}} dialogo_tirada_D10" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/dialogs/dialogo_tirada_D10.webp" alt="?"/>
-  <div class="contenido_dialogo_tirada_D10">
-    <div class="dialogo_tirada_D10_num"><input id="numD10" value="1" size=2  data-dtype="Number"></div>
-    <div class="dialogo_tirada_D10_mod"><input id="mod" value="0" size=2  data-dtype="Number"></div>
-    <div>
-      <select  class="dialogo_tirada_D10_explota" name="explota" id="explota" data-dtype="Text">
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="flexcol">
+    <div class="flexrow"><label>Numero dados:</label><input type="text" id="numD10" value="1" size=2  data-dtype="Number"></div>
+    <div class="flexrow"><label>Bonificador:</label><input type="text" id="mod" value="0" size=2  data-dtype="Number"></div>
+    <div class="flexrow">
+      <label>Explosion de dados:</label>
+      <select name="explota" id="explota" data-dtype="Text">
         <option value="Si" selected>Si</option>
         <option value="No">No</option>
       </select>
     </div>
-    <div class="dialogo_tirada_D10_mod2"><input id="mod2" value="0" size=2  data-dtype="Number"></div>
-    <div>
-      <select  class="dialogo_tirada_D10_forzar" name="forzar" id="forzar" data-dtype="Text">
-        <option value="" selected></option>
+    <div class="flexrow">
+      <label>Forzar dado (1o3D10):</label>
+      <select name="forzar" id="forzar" data-dtype="Text">
         <option value="mayor">Mayor</option>
         <option value="menor">Menor</option>
-        <option value="objetivo">Objetivo</option>
+        <option value="objetivo" selected>Objetivo</option>
       </select>
     </div>
   </div>

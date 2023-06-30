@@ -53,7 +53,7 @@ static async _onD10Roll() {
                 icon: '<i class="fas fa-bullseye"></i>',
                 label: "Lanzar 1o3D10",
                 callback: () => {
-                    tirada1o3D10 (this.actor, document.getElementById("mod2").value, document.getElementById("forzar").value);
+                    tirada1o3D10 (this.actor, document.getElementById("mod").value, document.getElementById("forzar").value, document.getElementById("explota").value);
                 }
             }
 

@@ -1,4 +1,4 @@
-export async function tirada1o3D10 (actor, bono, forzar)
+export async function tirada1o3D10 (actor, bono, forzar, explota)
 {
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
@@ -16,10 +16,6 @@ export async function tirada1o3D10 (actor, bono, forzar)
   if (forzar==="mayor"){
     total=Number(d10s[2])+Number(bono);
     dado_elegido="mayor";
-  }
-  if (forzar===""){
-    total=Number(d10s[1])+Number(bono);
-    dado_elegido="objetivo";
   }
   const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_1o3D10_chat.html';
   const datos_template_chat = {
