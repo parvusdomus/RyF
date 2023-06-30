@@ -11,12 +11,12 @@ Hooks.once("init", function(){
       makeDefault: true,
       types: ['jugador']
     });
-/*    
+
     Actors.registerSheet("ryf", RyFSimpleNPJSheet, {
       makeDefault: true,
       types: ['pnj']
     });
-*/
+    
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("ryf", RyFItemSheet);
     console.log ("test | CHARSEETS DONE");

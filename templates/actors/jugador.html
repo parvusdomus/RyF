@@ -69,7 +69,7 @@
             {{/if}}
             <div class="flexrow flex-group-center">
               <label class="resource-label">{{localize 'defense'}}</label>
-              <label class="resource-label">{{system.derivadas.defensa.base}}</label>
+              <label class="resource-label">{{system.derivadas.defensa.base}} / {{system.derivadas.defensa.escudoCac}} / {{system.derivadas.defensa.escudoDist}}</label>
             </div>
           </div>
         </div>
@@ -128,8 +128,8 @@
                 <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
                 <td style="text-align:center"><label>{{item.system.total}}</label></td>
                 <td>
-                  <a style="align:right" class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-                  <a style="align:right" class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+                  <a data-tooltip="Editar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+                  <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-delete"><i class="fas fa-trash"></i></a>
                 </td>
           </tr>
           {{/each}}
@@ -153,7 +153,7 @@
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:32em">
               {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
-            <a class="item-control item-equip"><i class="fas fa-sword"><span class="tooltiptext"></span></i></a>
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-sword"></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label class="tiradaArma"
                      data-arma="{{item.name}}" data-habilidad="{{item.system.tipo}}"
@@ -170,8 +170,8 @@
               <label>{{item.system.dano.numeroDados}}D6+{{item.system.dano.bonificador}}</label>
             </td>
             <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
           {{/each}}
@@ -189,14 +189,14 @@
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:8em">
               {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
-            <a class="item-control item-equip"><i class="fas fa-tshirt"><span class="tooltiptext"></span></i></a>
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-tshirt"></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
               <label> {{item.name}}</label></div></td>
             <td style="text-align:center"><label>{{item.system.absorcion}}</label></td>
             <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
             <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
           {{/each}}
@@ -214,7 +214,7 @@
             <td><img src="{{item.img}}" width="24" height="24"/></td>
             <td><div style="width:8em">
               {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
-            <a class="item-control item-equip"><i class="fas fa-shield"><span class="tooltiptext"></span></i></a>
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-shield"></i></a>
             {{#if (eq item.system.equipado false)}}</span>{{/if}}
 
               <label> {{item.name}}</label></div></td>
@@ -224,8 +224,8 @@
             </td>
             <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
             <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
           {{/each}}
@@ -243,8 +243,8 @@
             <td><div style="width:8em"><label>{{item.name}}</label></div></td>
             <td style="text-align:center"><label>{{item.system.cantidad}}</label></td>
             <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
           {{/each}}
@@ -273,8 +273,8 @@
             <td style="text-align:center"><label>{{item.system.dificultad}}</label></td>
             <td style="text-align:center"><label>{{item.system.mana}}</label></td>
             <td>
-              <a class="item-control item-edit"><i class="fas fa-edit"><span class="tooltiptext"></span></i></a>
-              <a class="item-control item-delete"><i class="fas fa-trash"><span class="tooltiptext"></span></i></a>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
           </tr>
           {{/each}}

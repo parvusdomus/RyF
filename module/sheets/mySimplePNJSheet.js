@@ -6,8 +6,8 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
     return mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "actor", "SimplePNJ"],
       template: "systems/ryf/templates/actors/SimplePNJ.html",
-      width: 490,
-      height: 320,
+      width: 800,
+      height: 700,
       resizable: false
     });
   }
@@ -37,8 +37,6 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         var tipo_dado = "objetivo";
-        var val_atributo = 0;
-        var nom_atributo="";
         var val_habilidad=0;
         var archivo_template="";
         let objetivo = game.user.targets.first()
@@ -50,30 +48,26 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
         if (objetivo){
           let objetivoSystem = Actor.get(objetivo.document.actorId).system;
           defensa_CaC=objetivoSystem.Defensa.Base;
-          if (objetivoSystem.Defensa.Escudo_CAC){
-            defensa_CaC_escudo=objetivoSystem.Defensa.Escudo_CAC;
+          if (objetivoSystem.defensa.escudoCac){
+            defensa_CaC_escudo=objetivoSystem.derivadas.defensa.escudoCac;
           }
-          if (objetivoSystem.Defensa.Escudo_Dist){
-            defensa_Dist_escudo=objetivoSystem.Defensa.Escudo_Dist;
+          if (objetivoSystem.defensa.escudoDist){
+            defensa_Dist_escudo=objetivoSystem.derivadas.defensa.escudoDist;
           }
           if(objetivoSystem.Absorcion_Total){
-            absorcion_armadura=objetivoSystem.Absorcion_Total;
+            absorcion_armadura=objetivoSystem.derivadas.absorcion;
           }
           objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
+        console.log(dataset);
         archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
         const datos_template = {
                                 nom_arma: dataset.arma,
-                                val_atributo: val_atributo,
                                 nom_habilidad: "Ataque",
                                 val_habilidad: val_habilidad,
-                                alcance_corto: 0,
-                                alcance_medio: 0,
-                                alcance_largo: 0,
-                                dano_corto: dataset.dano,
-                                dano_medio: dataset.dano,
-                                dano_largo: dataset.dano,
+                                danoDados: dataset.danodados,
+                                danoBonificador: dataset.danobonificador,
                                 tipo_dado: tipo_dado,
                                 defensa_CaC: defensa_CaC,
                                 defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
@@ -108,7 +102,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
       }
 
       async _onRestauraVidaPNJ(event) {
-        this.actor.update ({ "system.derivadas.puntosVida.value": this.actor.system.derivadas.puntosVida.max });
+        this.actor.update ({ "system.puntosVida.value": this.actor.system.puntosVida.max });
       }
 
 }

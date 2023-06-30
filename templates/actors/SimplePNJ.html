@@ -1,38 +1,47 @@
-<form class="{{cssClass}}" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/ficha/simplePNJ-Bg.webp" alt="?"/>
-  <div class="PNJ-content-container">
-    <div class="PNJ-character-info">
-      <div class="PNJ-nombre"><input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/></div>
-      <div class="PNJ-foto">
-        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header>
+    <div class="sheet-header">
+      <div class="header-fields">
+        <div class="flexrow">
+            <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
+            <h1><input name="name" type="text" value="{{name}}" placeholder="Nombre"/></h1>
+        </div>
+        <div class="flexrow">
+        <div class="flexcol">
+          <div class="flexrow">
+            <div class="tiradaAtaquePNJ" data-arma="{{name}}" data-habilidad="{{system.ataque}}" data-danoDados="{{system.dano.numeroDados}}" data-danoBonificador="{{system.dano.bonificador}}"><label>Ataque</label></div>
+            <input type="text" name="system.ataque" value="{{system.ataque}}" data-dtype="Number" maxlength="2"/>
+          </div>
+          <div class="flexrow">
+            <label>Defensa</label>
+            <input type="text" name="system.defensa" value="{{system.defensa}}" data-dtype="Number" maxlength="2"/>
+          </div>
+          <div class="flexrow">
+            <label>Absorción</label>
+            <input type="text" name="system.absorcion" value="{{system.absorcion}}" data-dtype="Number" maxlength="2"/>
+          </div>
+        </div>
+        <div class="flexcol">
+          <div class="flexrow">
+            <label class="tiradaDanoPNJ">Daño</label>
+            <input type="text" name="system.dano.numeroDados" value="{{system.dano.numeroDados}}" data-dtype="Number"/>D6+<input type="text" name="system.dano.bonificador" value="{{system.dano.bonificador}}" data-dtype="Number"/>
+          </div>
+          <div class="flexrow">
+            <label>Iniciativa</label>
+            <input type="text" name="system.iniciativa" value="{{system.iniciativa}}" data-dtype="Number" maxlength="2"/>
+          </div>
+          <div class="flexrow">
+            <label class="restauraVidaPNJ">Puntos de Vida</label>
+            <input type="text" name="system.puntosVida.value" value="{{system.puntosVida.value}}" data-dtype="Number" maxlength="2"/> / <input type="text" name="system.puntosVida.max" value="{{system.puntosVida.max}}" data-dtype="Number" maxlength="2"/>
+          </div>
+        </div>
       </div>
-      <div class="label_PNJ_Ataque tiradaAtaquePNJ" data-arma="{{name}}" data-habilidad="{{system.Ataque}}" data-dano="{{system.Dano}}"><label>Ataque</label></div>
-      <div class="PNJ_Ataque">
-        <input type="text" name="system.Ataque" value="{{system.Ataque}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="PNJ_Defensa">
-        <input type="text" name="system.Defensa.Base" value="{{system.Defensa.Base}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="PNJ_Iniciativa">
-        <input type="text" name="system.Iniciativa" value="{{system.Iniciativa}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="PNJ_Absorcion_Total">
-        <input type="text" name="system.Absorcion_Total" value="{{system.Absorcion_Total}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="label_PNJ_Dano tiradaDanoPNJ"><label>Dano</label></div>
-      <div class="PNJ_Dano">
-        <input type="text" name="system.Dano" value="{{system.Dano}}" data-dtype="Text"/>
-      </div>
-      <div class="label_PNJ_PV restauraVidaPNJ"><label>Puntos de Vida</label></div>
-      <div class="PNJ_PV_Actuales">
-        <input type="text" name="system.derivadas.puntosVida.value" value="{{system.derivadas.puntosVida.value}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="PNJ_PV_Totales">
-        <input type="text" name="system.derivadas.puntosVida.max" value="{{system.derivadas.puntosVida.max}}" data-dtype="Number" maxlength="2"/>
-      </div>
-      <div class="PNJ_contenedor_biografia">
-        {{editor system.Descripcion target="system.Descripcion" button=true editable=true}}
       </div>
     </div>
-  </div>
+  </header>
+  <section class="sheet-body">
+    <div class="PNJ_contenedor_biografia">
+      {{editor system.descripcion target="system.descripcion" button=true editable=true}}
+    </div>
+  </section>
 </form>

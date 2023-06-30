@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["jugador"],
+    "types": ["jugador", "pnj"],
     "jugador":{
       "atributos": {
         "fisico": 0,
