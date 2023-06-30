@@ -3,9 +3,6 @@ import {tiradaHabilidad} from "../tiradas/tirada-habilidad.js";
 import {tiradaHechizo} from "../tiradas/tirada-hechizo.js";
 import {tiradaAtaque} from "../tiradas/tirada-ataque.js";
 import {tiradaDano} from "../tiradas/tirada-dano.js";
-import {tiradaD6} from "../tiradas/tirada_d6.js";
-import {tiradaD10} from "../tiradas/tirada_d10.js";
-import {tirada1o3D10} from "../tiradas/tirada_1o3d10.js";
 export default class RyFActorSheet extends ActorSheet{
 
     static get defaultOptions() {
@@ -177,7 +174,6 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.restauraVida').click(this._onRestauraVida.bind(this));
         html.find('.restauraMana').click(this._onRestauraMana.bind(this));
         html.find('.D10Roll').click(this._onD10Roll.bind(this));
-        html.find('.D6Roll').click(this._onD6Roll.bind(this));
     }
 
     _onItemCreate(event) {
@@ -422,66 +418,6 @@ export default class RyFActorSheet extends ActorSheet{
         const element = event.currentTarget;
         const dataset = element.dataset;
         this.actor.update ({ 'data.derivadas.puntosMana.value': this.actor.system.derivadas.puntosMana.max });
-    }
-
-    async _onD6Roll(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        const archivo_template = '/systems/ryf/templates/dialogs/tirada_D6.html';
-        const datos_template = {
-        };
-        const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
-        let dialogo = new Dialog({
-            title: `Nueva tirada de ${dataset.atributo}`,
-            content: contenido_Dialogo,
-            buttons: {
-                Lanzar: {
-                    icon: '<i class="fas fa-dice"></i>',
-                    label: "Lanzar",
-                    callback: () => {
-                        tiradaD6 (this.actor, document.getElementById("numD6").value, document.getElementById("mod").value, document.getElementById("explota").value);
-                    }
-                }
-            },
-            render: html => console.log("Register interactivity in the rendered dialog"),
-            close: html => console.log("This always is logged no matter which option is chosen")
-        });
-        dialogo.render(true);
-
-    }
-
-    async _onD10Roll(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        const archivo_template = '/systems/ryf/templates/dialogs/tirada_D10.html';
-        const datos_template = {
-        };
-        const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
-        let dialogo = new Dialog({
-            title: `Nueva tirada de ${dataset.atributo}`,
-            content: contenido_Dialogo,
-            buttons: {
-                Lanzar_d10: {
-                    icon: '<i class="fas fa-dice"></i>',
-                    label: "Lanzar D10",
-                    callback: () => {
-                        tiradaD10 (this.actor, document.getElementById("numD10").value, document.getElementById("mod").value, document.getElementById("explota").value);
-                    }
-                },
-                Lanzar_1o3d10: {
-                    icon: '<i class="fas fa-dice"></i>',
-                    label: "Lanzar 1o3D10",
-                    callback: () => {
-                        tirada1o3D10 (this.actor, document.getElementById("mod2").value, document.getElementById("forzar").value);
-                    }
-                }
-
-            },
-            render: html => console.log("Register interactivity in the rendered dialog"),
-            close: html => console.log("This always is logged no matter which option is chosen")
-        });
-        dialogo.render(true);
-
     }
 
     //Load settings that are used in the actor sheet
