@@ -60,7 +60,7 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
           objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
-        archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
+        archivo_template = '/systems/ryf/templates/dialogs/tiradaArmaPNJ.html';
         const datos_template = {
                                 nom_arma: dataset.arma,
                                 nom_habilidad: "Ataque",

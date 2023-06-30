@@ -20,9 +20,21 @@
 <div class="flexrow">
   <label>Tipo Dado</label>
   <select name="forzar" id="forzar" data-dtype="Text">
-    <option value="mayor">Mayor</option>
-    <option value="menor">Menor</option>
-    <option value="objetivo" selected>Objetivo</option>
+    {{#if (eq tipo_dado 'mayor')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'menor')}}
+            <option value="mayor">Mayor</option>
+            <option value="menor" selected>Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'objetivo')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo" selected>Objetivo</option>
+      {{/if}}
   </select>
 </div>
 </form>
