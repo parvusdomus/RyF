@@ -173,7 +173,6 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
         html.find('.restauraVida').click(this._onRestauraVida.bind(this));
         html.find('.restauraMana').click(this._onRestauraMana.bind(this));
-        html.find('.D10Roll').click(this._onD10Roll.bind(this));
     }
 
     _onItemCreate(event) {

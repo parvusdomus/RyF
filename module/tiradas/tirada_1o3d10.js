@@ -17,7 +17,7 @@ export async function tirada1o3D10 (actor, bono, forzar, explota)
     total=Number(d10s[2])+Number(bono);
     dado_elegido="mayor";
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_1o3D10_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada1o3D10Chat.html';
   const datos_template_chat = {
                           total: total,
                           dado_menor: d10s[0],

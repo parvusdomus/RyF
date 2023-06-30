@@ -22,7 +22,7 @@ export default class RyFExtras {
                 icon: '<i class="fas fa-dice-d6"></i>',
                 label: "Lanzar",
                 callback: () => {
-                    tiradaD6 (this.actor, document.getElementById("numD6").value, document.getElementById("mod").value, document.getElementById("explota").value);
+                    tiradaD6 (document.getElementById("numD6").value, document.getElementById("mod").value, document.getElementById("explota").value);
                 }
             }
         },

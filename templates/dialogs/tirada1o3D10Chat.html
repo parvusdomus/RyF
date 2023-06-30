@@ -1,0 +1,6 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="fexrow"><label>Tirada: 1o3d10 + {{bonos}}</label>
+  </div>
+  <div class="fexrow"><label>Dados: {{#if (eq tipo_dado "menor")}}<strong>{{/if}}  {{dado_menor}} {{#if (eq tipo_dado "menor")}} </strong>{{/if}} | {{#if (eq tipo_dado "objetivo")}}<strong>{{/if}} {{dado_medio}} {{#if (eq tipo_dado "objetivo")}} </strong>{{/if}}| {{#if (eq tipo_dado "mayor")}} <strong>{{/if}} {{dado_mayor}} {{#if (eq tipo_dado "mayor")}} </strong>{{/if}} </label></div>
+  <div class="flexrow"><label>TOTAL: {{total}}</label></div>
+</form>

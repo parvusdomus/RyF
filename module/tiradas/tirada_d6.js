@@ -1,4 +1,4 @@
-export async function tiradaD6 (actor,nD6, bono, explota)
+export async function tiradaD6 (nD6, bono, explota)
 {
 
 
@@ -14,7 +14,7 @@ export async function tiradaD6 (actor,nD6, bono, explota)
   let d6Roll = new Roll(tirada).roll({async: false});
   let total= 0;
   total=eval(d6Roll.result);
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_D6_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaDadoChat.html';
   const datos_template_chat = {
                           tirada: tirada,
                           total: total
