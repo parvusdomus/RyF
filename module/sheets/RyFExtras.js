@@ -10,7 +10,7 @@ export default class RyFExtras {
   }
 
   static async _onD6Roll() {
-    const archivo_template = '/systems/ryf/templates/dialogs/tirada_D6.html';
+    const archivo_template = '/systems/ryf/templates/dialogs/tiradaD6.html';
     const datos_template = {
     };
     const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
@@ -34,7 +34,7 @@ export default class RyFExtras {
 }
 
 static async _onD10Roll() {
-    const archivo_template = '/systems/ryf/templates/dialogs/tirada_D10.html';
+    const archivo_template = '/systems/ryf/templates/dialogs/tiradaD10.html';
     const datos_template = {
     };
     const contenido_Dialogo = await renderTemplate(archivo_template, datos_template);
