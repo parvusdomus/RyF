@@ -8,9 +8,6 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
   let dado_elegido=0;
   let resultado="";
   let efecto =0;
-  if ( forzar != ""){
-    dado=forzar;
-  }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
     if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}

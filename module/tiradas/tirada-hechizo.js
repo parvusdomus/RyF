@@ -14,9 +14,6 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
   let dado_elegido=0;
   let resultado="";
   let efecto =0;
-  if ( forzar != ""){
-    dado=forzar;
-  }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=0;
