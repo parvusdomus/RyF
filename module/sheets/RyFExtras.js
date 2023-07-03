@@ -125,7 +125,7 @@ static async _onD10Roll() {
     const objetivoLinkeadoActor = game.user.targets.first().document.actorLink || game.user.targets.first().document.actors.size === 0;
     let objetivo;
     if(!objetivoLinkeadoActor){
-      objetivo=game.user.targets.first().document.actors.get(dataset.objetivo);
+      objetivo=game.user.targets.first().document.actor;
     } else {
       objetivo=Actor.get(dataset.objetivo)
     }
