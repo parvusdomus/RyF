@@ -32,7 +32,7 @@ export default class RyFActorSheet extends ActorSheet{
     _prepareCharacterItems(sheetData) {
         const actorData = sheetData;
         // Inicializo arrays para meter los objetos por tipo.
-        //"arma", "armadura", "aspecto", "don", "habilidad", "limitacion", "maniobra", "objeto", "talento"
+        //"arma", "armadura", "aspecto", "don", "habilidad", "limitacion", "maniobra", "objeto", "ventaja"
         const armas = [];
         const armaduras = [];
         const escudos = [];

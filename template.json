@@ -77,7 +77,7 @@
 
 
 "Item":{
-  "types": ["arma", "armadura", "escudo", "objeto", "habilidad", "hechizo", "talento"],
+  "types": ["arma", "armadura", "escudo", "objeto", "habilidad", "hechizo", "ventaja"],
   "arma":{
     "descripcion": "",
     "dano":{
