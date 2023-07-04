@@ -39,7 +39,7 @@ export default class RyFActorSheet extends ActorSheet{
         const habilidades = [];
         const hechizos = [];
         const objetos = [];
-        const talentos = [];
+        const ventajas = [];
         // Ordena los objetos por tipo y los mete en el array correspondiente
         for (let i of sheetData.items) {
             let itemSystem = i.system;
@@ -67,8 +67,8 @@ export default class RyFActorSheet extends ActorSheet{
             else if (i.type === "objeto") {
                 objetos.push(i);
             }
-            else if (i.type === "talento") {
-                talentos.push(i);
+            else if (i.type === "ventajas") {
+                ventajas.push(i);
             }
         }
         //Asigno cada array al actordata
@@ -78,7 +78,7 @@ export default class RyFActorSheet extends ActorSheet{
         actorData.system.habilidades = habilidades;
         actorData.system.hechizos = hechizos;
         actorData.system.items.objetos = objetos;
-        actorData.system.talentos = talentos;
+        actorData.system.ventajas = ventajas;
     }
     _calculaValores(actorData) {
         const data = actorData;

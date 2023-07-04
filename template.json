@@ -35,7 +35,7 @@
       },
       "habilidades": [],
       "hechizos": [],
-      "talentos": [],
+      "ventajas": [],
       "items": {
         "armas": [],
         "armaduras": [],
@@ -113,7 +113,8 @@
   "objeto":{
     "descripcion": "",
     "cantidad": 0,
-    "precio": 0
+    "precio": 0,
+    "flags":{}
   },
   "habilidad":{
     "descripcion": "",
@@ -127,20 +128,13 @@
     "nivel": 0,
     "mana": 0,
     "alcance": "",
-    "produce-dano": false,
-    "dano":{
-      "numeroDados": 0,
-      "bonificador": ""
-    },
-    "produce-curacion": false,
-    "curacion":{
-      "numeroDados": 0,
-      "bonificador": ""
-    }
+    "flags":{}
+
   },
-  "talento":{
+  "ventaja":{
     "descripcion": "",
-    "requisito": ""
+    "requisitos": {},
+    "flags":{}
   }
 }
 }
