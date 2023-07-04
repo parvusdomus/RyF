@@ -98,6 +98,8 @@ export default class RyFActorSheet extends ActorSheet{
         var absorcion =0;
         //CALCULO PUNTOS DE VIDA
         puntosVida=Number(atributos.fisico)*Number(this.getHitPointsMultiplier(data));
+        //CALCULO MANA
+        puntosMana=Number(atributos.inteligencia)*Number(this.getManaMultiplier(data));
         //CALCULO INICIATIVA
         let reflejos = habilidades.find((k) => k.name === "Reflejos");
         if (reflejos){
@@ -117,14 +119,16 @@ export default class RyFActorSheet extends ActorSheet{
             Defensa_Escudo_Dist=escudo.system.defensa.distancia;
             estorbo+=escudo.system.estorbo;
         }
+        //TODO flags defense
+
         //CALCULO absorcion_armadura
         let armadura = items.armaduras.find((k) => k.type === "armadura" && k.system.equipado);
         if (armadura){
             absorcion=armadura.system.absorcion;
             estorbo+=armadura.system.estorbo;
         }
-        //CALCULO MANA
-        puntosMana=Number(atributos.inteligencia)*Number(3);
+        //TODO flags absortion, encumbrance
+
         //ACTUALIZO TODOS LOS VALORES
         this.actor.update ({ 'data.derivadas.puntosVida.max': puntosVida });
         this.actor.update ({ 'data.derivadas.iniciativa': Iniciativa });
@@ -139,6 +143,26 @@ export default class RyFActorSheet extends ActorSheet{
         super.activateListeners(html);
         // Si la hoja no es editable me salgo
         if (!this.options.editable) return;
+        //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
+        html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
+        html.find('.tiradaHabilidad').click(this._onTiradaHabilidad.bind(this));
+        html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
+        html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
+        html.find('.restauraVida').click(this._onRestauraVida.bind(this));
+        html.find('.restauraMana').click(this._onRestauraMana.bind(this));
+
+        //Equipar objeto
+        html.find('.item-equip').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
+            if (!objeto_a_equipar.system.equipado){
+                objeto_a_equipar.update ({ 'system.equipado': true });
+            } else {
+                objeto_a_equipar.update ({ 'system.equipado': false });
+            }
+            this.render(false);
+        });
+
         // Anadir Objeto
         html.find('.item-create').click(this._onItemCreate.bind(this));
         // Editar objetos
@@ -155,25 +179,6 @@ export default class RyFActorSheet extends ActorSheet{
             this.render(false);
             li.slideUp(200, () => this.render(false));
         });
-        //Equipar objeto, solo armadura y escudo
-        html.find('.item-equip').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
-            if (!objeto_a_equipar.system.equipado){
-                objeto_a_equipar.update ({ 'system.equipado': true });
-            } else {
-                objeto_a_equipar.update ({ 'system.equipado': false });
-            }
-            this.render(false);
-        });
-
-        //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
-        html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
-        html.find('.tiradaHabilidad').click(this._onTiradaHabilidad.bind(this));
-        html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
-        html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
-        html.find('.restauraVida').click(this._onRestauraVida.bind(this));
-        html.find('.restauraMana').click(this._onRestauraMana.bind(this));
     }
 
     _onItemCreate(event) {
@@ -430,13 +435,20 @@ export default class RyFActorSheet extends ActorSheet{
         settings.magicEnabled = game.settings.get("ryf","magicEnabled");
         settings.charismaEnabled = game.settings.get("ryf","charismaEnabled");
         settings.hitPointsMultiplier = game.settings.get("ryf","hitPointsMultiplier");
+        settings.manaMultiplier = game.settings.get("ryf","manaMultiplier");
         return settings;
     }
 
     getHitPointsMultiplier(actorData){
         let multiplier = actorData.settings.hitPointsMultiplier;
-        console.log(actorData.items);
+        //TODO flags
         //actorData.items.filter(item => item.flags["hitPointsMultiplier"]);
+        return multiplier;
+    }
+
+    getManaMultiplier(actorData){
+        let multiplier = actorData.settings.manaMultiplier;
+        //TODO flags
         return multiplier;
     }
 }

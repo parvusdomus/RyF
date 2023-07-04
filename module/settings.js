@@ -28,4 +28,13 @@ export default function registerSystemSettings() {
         default: 4,
         config: true
     });
+
+    game.settings.register("ryf", "manaMultiplier", {
+        name: "Multiplicador para mana maximo",
+        hint: "El mana maximo se calcula con Inteligencia * Multiplicador",
+        scope: "world",
+        type: Number,
+        default: 3,
+        config: true
+    });
 }
