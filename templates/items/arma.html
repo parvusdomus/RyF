@@ -17,12 +17,12 @@
         <label>Tipo arma</label>
         <select name="system.tipo" data-dtype="String">
           {{#select system.tipo}}
-          <option value="Cuerpo a cuerpo">Cuerpo a cuerpo</option>
-          <option value="Distancia">Distancia</option>
+          <option value="melee">Cuerpo a cuerpo</option>
+          <option value="ranged">Distancia</option>
           {{/select}}
         </select>
       </div>
-      {{#if (eq system.tipo "Distancia")}}
+      {{#if (eq system.tipo "ranged")}}
         <div>
           <label>Alcance</label>
           <div class="flexrow">

@@ -338,7 +338,7 @@ export default class RyFActorSheet extends ActorSheet{
             }
         }
 
-        if (dataset.habilidad=="Cuerpo a cuerpo"){
+        if (dataset.tipo=="melee"){
             valAtributo=this.actor.system.atributos.fisico;
             nomAtributo="Físico";
             archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
@@ -348,7 +348,7 @@ export default class RyFActorSheet extends ActorSheet{
             }
 
         }
-        if (dataset.habilidad=="Distancia"){
+        if (dataset.tipo=="ranged"){
             valAtributo=this.actor.system.atributos.destreza;
             nomAtributo="Destreza";
             archivo_template = '/systems/ryf/templates/dialogs/tiradaArma.html';
@@ -365,7 +365,8 @@ export default class RyFActorSheet extends ActorSheet{
             nom_arma: dataset.arma,
             nom_atributo: nomAtributo,
             val_atributo: valAtributo,
-            nom_habilidad: dataset.habilidad,
+            nom_habilidad: HabilidadArma.name,
+            tipo: dataset.tipo,
             val_habilidad: valHabilidad,
             bonificadorAtaque: 0,
             danoDados: dataset.danonumerodados,

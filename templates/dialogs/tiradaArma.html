@@ -10,7 +10,20 @@
     </div>
     <div class="flexcol">
         <div class="flexrow"><label>Bonificadores</label><input type="text" id="bonificadorAtaque" value="0" size=2  data-dtype="Number"></div>
-        <div class="flexrow"><label>Dificultad</label><input type="text" id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
+        {{#if (eq tipo "ranged")}}
+        <div class="flexrow">
+          <label>Dificultad</label>
+          <select name="dificultad" id="dificultad" data-dtype="Text">
+            <option value="{{sum 10 defensa_Dist_escudo}}">({{sum 10 defensa_Dist_escudo}}) Bocajarro</option>
+            <option value="{{sum 15 defensa_Dist_escudo}}">({{sum 15 defensa_Dist_escudo}}) Corta</option>
+            <option value="{{sum 20 defensa_Dist_escudo}}">({{sum 20 defensa_Dist_escudo}}) Media</option>
+            <option value="{{sum 25 defensa_Dist_escudo}}">({{sum 25 defensa_Dist_escudo}}) Larga</option>
+            <option value="{{sum 30 defensa_Dist_escudo}}" selected>({{sum 30 defensa_Dist_escudo}}) Muy Larga</option>
+          </select>
+        </div>
+        {{else}}
+          <div class="flexrow"><label>Dificultad</label><input type="text" id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
+        {{/if}}
         <div class="flexrow">
           <label>Dado</label>
           <select name="tipo_dado" id="tipo_dado" data-dtype="Text">

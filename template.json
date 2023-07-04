@@ -89,7 +89,7 @@
       "medio": 0,
       "largo": 0
     },
-    "tipo": ["Cuerpo a cuerpo", "Distancia"],
+    "tipo": ["melee", "ranged"],
     "precio": 0,
     "equipado": false
   },

@@ -4,6 +4,7 @@ import RyFExtras from "./module/sheets/RyFExtras.js";
 import RyFSimpleNPJSheet from "./module/sheets/mySimplePNJSheet.js"
 import registerSystemSettings from "./module/settings.js";
 import { preloadHandlebarsTemplates } from "./module/preloadTemplates.js";
+import {registerHandleBarsHelpers} from "./src/handlebars.js";
 
 Hooks.once("init", function(){
     Actors.unregisterSheet("core", ActorSheet);
@@ -30,7 +31,7 @@ Hooks.once("init", function(){
 
     registerSystemSettings();
     registerLayers();
-
+    registerHandleBarsHelpers();
 });
 
 function registerLayers() {
