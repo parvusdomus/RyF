@@ -122,9 +122,13 @@ static async _onD10Roll() {
   static _onaplicaDanoDesdeChat (event){
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const objetivoLinkeadoActor = game.user.targets.first().document.actorLink || game.user.targets.first().document.actors.size === 0;
+    const objetivoLinkeadoActor = game.user.targets.first().document.actorLink;
     let objetivo;
     if(!objetivoLinkeadoActor){
+      let actorDelta = game.user.targets.first().document.delta;
+      if(actorDelta.name === null){
+        game.user.targets.first().document.delta.apply();
+      }
       objetivo=game.user.targets.first().document.actor;
     } else {
       objetivo=Actor.get(dataset.objetivo)
