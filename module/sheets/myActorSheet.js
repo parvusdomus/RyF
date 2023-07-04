@@ -295,7 +295,7 @@ export default class RyFActorSheet extends ActorSheet{
                     icon: '<i class="fas fa-dice"></i>',
                     label: "Lanzar",
                     callback: () => {
-                        tiradaHechizo (this.actor, dataset, val_atributo, document.getElementById("bonos").value, dataset.dificultad, tipo_dado, document.getElementById("tipo_dado").value, dataset.mana);
+                        tiradaHechizo (this.actor, dataset, val_atributo, document.getElementById("bonos").value, dataset.dificultad, document.getElementById("tipo_dado").value, dataset.mana);
                     }
                 }
             },

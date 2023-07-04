@@ -96,7 +96,7 @@
             <th style="width:10%"><a class="item-control item-create" data-type="habilidad"><i class="fas fa-plus"></i></a></th>
           </tr>
           {{#each system.habilidades as |item id|}}
-          <tr style="text-align:center" class="item" data-item-id="{{item._id}}">
+          <tr class="item" data-item-id="{{item._id}}">
             {{#if (eq item.system.atributo "F")}}
               <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.strength'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
                 <div style="width:32em"><label>{{item.name}}</label><label>(F)</label>

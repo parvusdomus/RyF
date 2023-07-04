@@ -1,4 +1,4 @@
-export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, forzar, mana)
+export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, mana)
 {
   if (actor.system.derivadas.puntosMana.value - mana < 0){
     ui.notifications.warn("No tienes suficiente MANA para lanzar ese hechizo");
