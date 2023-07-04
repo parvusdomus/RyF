@@ -20,13 +20,14 @@ export default class RyFActorSheet extends ActorSheet{
         const superData = super.getData();
         const data = superData.data;
         const settings = this.loadSettings();
+        data.settings = settings;
         data.dtypes = ["String", "Number", "Boolean"];
         if (this.actor.type == 'jugador') {
             this._prepareCharacterItems(data);
             this._calculaValores(data);
         }
         data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
-        data.settings = settings;
+        
         return data;
     }
     _prepareCharacterItems(sheetData) {
@@ -67,7 +68,7 @@ export default class RyFActorSheet extends ActorSheet{
             else if (i.type === "objeto") {
                 objetos.push(i);
             }
-            else if (i.type === "ventajas") {
+            else if (i.type === "ventaja") {
                 ventajas.push(i);
             }
         }
@@ -96,7 +97,7 @@ export default class RyFActorSheet extends ActorSheet{
         var puntosMana =0;
         var absorcion =0;
         //CALCULO PUNTOS DE VIDA
-        puntosVida=Number(atributos.fisico)*Number(4);
+        puntosVida=Number(atributos.fisico)*Number(this.getHitPointsMultiplier(data));
         //CALCULO INICIATIVA
         let reflejos = habilidades.find((k) => k.name === "Reflejos");
         if (reflejos){
@@ -184,6 +185,9 @@ export default class RyFActorSheet extends ActorSheet{
         const data = duplicate(header.dataset);
         // Initialize a default name.
         const name = `${type.capitalize()}`;
+        console.log(type);
+        console.log(data);
+        console.log(name);
         // Prepare the item object.
         const itemData = {
             name: name,
@@ -423,12 +427,16 @@ export default class RyFActorSheet extends ActorSheet{
     //Load settings that are used in the actor sheet
     loadSettings(){
         let settings = {};
-        settings.magicEnabled = game.settings.get("ryf","advanced.magicEnabled");
+        settings.magicEnabled = game.settings.get("ryf","magicEnabled");
         settings.charismaEnabled = game.settings.get("ryf","charismaEnabled");
-
+        settings.hitPointsMultiplier = game.settings.get("ryf","hitPointsMultiplier");
         return settings;
     }
 
-
-
+    getHitPointsMultiplier(actorData){
+        let multiplier = actorData.settings.hitPointsMultiplier;
+        console.log(actorData.items);
+        //actorData.items.filter(item => item.flags["hitPointsMultiplier"]);
+        return multiplier;
+    }
 }

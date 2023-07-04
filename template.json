@@ -133,7 +133,10 @@
   },
   "ventaja":{
     "descripcion": "",
-    "requisitos": {},
+    "requisitos": {
+      "atributo": "",
+      "valorMinimo": 0
+    },
     "flags":{}
   }
 }

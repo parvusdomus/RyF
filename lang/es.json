@@ -22,6 +22,8 @@
   "item": "Objeto",
   "amount": "Cantidad",
   "difficulty": "Dificultad",
+  "advantage": "Ventaja",
+
   "RYF": {
     "attributes": {
       "strength": "Físico",

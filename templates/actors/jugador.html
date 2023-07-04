@@ -274,8 +274,28 @@
 
     {{!-- Bio Tab --}}
     <div class="tab" data-group="primary" data-tab="biografia">
-      <div class="Jugador_contenedor_biografia">
-        {{editor system.descripcion target="system.descripcion" button=true editable=true}}
+      <div class="flexcol">
+        <table>
+          <tr>
+            <th style="width:90%; text-align:center"><label>{{localize 'advantage'}}</label></th>
+            <th class="align_right width:10%"><a class="item-control item-create" data-type="ventaja"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.ventajas as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td style="text-align:center"><label>{{item.name}}</label></td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <div>
+          <label>Info</label>
+          <div class="Jugador_contenedor_biografia">
+            {{editor system.descripcion target="system.descripcion" button=true editable=true}}
+          </div>
+      </div>
       </div>
     </div>
   </section>

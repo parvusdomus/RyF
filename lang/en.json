@@ -22,6 +22,9 @@
   "item": "Item",
   "amount": "Amount",
   "difficulty": "Difficulty",
+  "advantage": "Advantage",
+  "description": "Description",
+
   "RYF": {
     "attributes": {
       "strength": "Physical",
