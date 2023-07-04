@@ -24,7 +24,7 @@ export async function tiradaAtributo (actor, dataset, bonos, dificultad, tipo_da
     dado_elegido=2;
   }
   if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
-  if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
+  if (Number(d10s[dado_elegido]) == 1 && (d10s[dado_elegido+1] && Number(d10s[dado_elegido+1]) <= 5)){
     resultado="PIFIA"
   } else if (total < Number(dificultad) || Number(d10s[dado_elegido]) == 1){
     resultado="FALLO";

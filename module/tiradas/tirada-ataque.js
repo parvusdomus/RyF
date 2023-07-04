@@ -26,7 +26,8 @@ export async function tiradaAtaque (tipo_dado, val_atributo, val_habilidad, bono
     total=Number(d10s[2])+Number(val_habilidad)+Number(val_atributo)+Number(bonoAtaque);
     dado_elegido=2;
   }
-  if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
+  
+  if (Number(d10s[dado_elegido]) == 1 && (d10s[dado_elegido+1] && Number(d10s[dado_elegido+1]) <= 5)){
     resultado="PIFIA"
   } else if (total < Number(dificultad_total) || Number(d10s[dado_elegido]) == 1){
     resultado="FALLO";

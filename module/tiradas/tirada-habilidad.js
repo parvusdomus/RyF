@@ -23,7 +23,7 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
     if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=2;
   }
-  if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
+  if (Number(d10s[dado_elegido]) == 1 && (d10s[dado_elegido+1] && Number(d10s[dado_elegido+1]) <= 5)){
     resultado="PIFIA"
   } else if (total < Number(dificultad) || Number(d10s[dado_elegido]) == 1){
     resultado="FALLO";
