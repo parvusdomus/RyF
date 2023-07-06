@@ -43,9 +43,9 @@
         "objetos": []
       },
       "dinero": 0,
-      "experiencia": 0,
       "raza": "",
-      "descripcion": ""
+      "descripcion": "",
+      "locked": false
     },
 
   "pnj":{

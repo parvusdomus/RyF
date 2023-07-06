@@ -148,37 +148,53 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.tiradaHabilidad').click(this._onTiradaHabilidad.bind(this));
         html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
         html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
-        html.find('.restauraVida').click(this._onRestauraVida.bind(this));
-        html.find('.restauraMana').click(this._onRestauraMana.bind(this));
+        html.find('.switchLock').click(this._onSwitchLock.bind(this));
 
         //Equipar objeto
         html.find('.item-equip').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const objeto_a_equipar = this.actor.items.get(li.data("itemId"));
+            let msg = "";
+            let equipados = [];
             if (!objeto_a_equipar.system.equipado){
+                if(objeto_a_equipar.type === "arma"){
+                    equipados = this.actor.items.filter(item => {return item.system.equipado && item.type==="arma"});
+                    console.log("TODO: Mejora. ISS-9");
+                }
                 objeto_a_equipar.update ({ 'system.equipado': true });
+                msg = this.actor.name + " equipa "+objeto_a_equipar.name;
             } else {
+                if(objeto_a_equipar.type === "arma"){
+                    console.log("TODO: Mejora. ISS-9");
+                }
                 objeto_a_equipar.update ({ 'system.equipado': false });
+                msg = this.actor.name + " desequipa "+objeto_a_equipar.name;
             }
+            ui.notifications.notify(msg);
             this.render(false);
         });
 
-        // Anadir Objeto
-        html.find('.item-create').click(this._onItemCreate.bind(this));
-        // Editar objetos
-        html.find('.item-edit').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.items.get(li.data("itemId"));
-            item.sheet.render(true);
-        });
-        // Borrar objetos
-        html.find('.item-delete').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const objeto_a_borrar = this.actor.items.get(li.data("itemId"));
-            objeto_a_borrar.delete();
-            this.render(false);
-            li.slideUp(200, () => this.render(false));
-        });
+        //Si el actor no esta bloqueado, permite editar datos.
+        if(!this.actor.system.locked){
+            html.find('.restauraVida').click(this._onRestauraVida.bind(this));
+            html.find('.restauraMana').click(this._onRestauraMana.bind(this));
+            // Anadir Objeto
+            html.find('.item-create').click(this._onItemCreate.bind(this));
+            // Editar objetos
+            html.find('.item-edit').click(ev => {
+                const li = $(ev.currentTarget).parents(".item");
+                const item = this.actor.items.get(li.data("itemId"));
+                item.sheet.render(true);
+            });
+            // Borrar objetos
+            html.find('.item-delete').click(ev => {
+                const li = $(ev.currentTarget).parents(".item");
+                const objeto_a_borrar = this.actor.items.get(li.data("itemId"));
+                objeto_a_borrar.delete();
+                this.render(false);
+                li.slideUp(200, () => this.render(false));
+            });
+        }
     }
 
     _onItemCreate(event) {
@@ -418,15 +434,15 @@ export default class RyFActorSheet extends ActorSheet{
     }
 
     async _onRestauraVida(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        this.actor.update ({ 'data.derivadas.puntosVida.value': this.actor.system.derivadas.puntosVida.max });
+        this.actor.update ({ 'system.derivadas.puntosVida.value': this.actor.system.derivadas.puntosVida.max });
     }
 
     async _onRestauraMana(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        this.actor.update ({ 'data.derivadas.puntosMana.value': this.actor.system.derivadas.puntosMana.max });
+        this.actor.update ({ 'system.derivadas.puntosMana.value': this.actor.system.derivadas.puntosMana.max });
+    }
+
+    async _onSwitchLock(event) {
+        this.actor.update ({ 'system.locked': !this.actor.system.locked });
     }
 
     //Load settings that are used in the actor sheet

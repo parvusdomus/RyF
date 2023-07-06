@@ -1,7 +1,14 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-
   <header class="sheet-header">
     <div class="header-fields">
+      <div class="flexrow switchLock" style="align-content: flex-end; flex-direction: column">
+        {{#if (eq system.locked true)}}
+          <a data-tooltip="bloqueada" data-tooltip-direction="RIGHT"><i class="fas fa-lock"></i></a>
+        {{else}}
+          <a data-tooltip="desbloqueada" data-tooltip-direction="RIGHT"><i class="fas fa-unlock"></i></a>
+        {{/if}}
+        </a>
+      </div>
       <div class="flexrow">
         <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
         <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Nombre" autocomplete="off"/></h1>

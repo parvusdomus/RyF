@@ -1,0 +1,65 @@
+.Talento-nombre {
+  position: absolute;
+  top: 3.2em;
+  text-align: center;
+  z-index: 6;
+  left: 2em;
+  width: 18em;
+  font-family: "Airstrip";
+}
+
+.Talento-nombre input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 15.5em;
+  font-size: 1.2em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Talento-foto {
+  top: 5.5em;
+  left: 1.9em;
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  text-align: center;
+  z-index: 0;
+}
+
+.Talento-foto img {
+  vertical-align: middle;
+  max-height: 100%;
+  z-index: -1;
+}
+
+.Talento-Requisito {
+  position: absolute;
+  top: 8.3em;
+  text-align: center;
+  z-index: 6;
+  left: 9.2em;
+  width: 11em;
+  font-family: "Airstrip";
+}
+
+.Talento-Requisito input[type='text'] {
+  background-color: transparent;
+  font-family: inherit;
+  width: 11em;
+  font-size: 1em;
+  text-align: center;
+  color: Black !important;
+  border: none;
+}
+
+.Talento-descripcion-container {
+  flex: auto;
+  left: 2em;
+  top: 14em;
+  height: 15em;
+  width: 18.5em;
+  margin-bottom: -3em;
+  overflow-x: hidden;
+}
