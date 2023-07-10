@@ -32,6 +32,8 @@ Hooks.once("init", function(){
     registerSystemSettings();
     registerLayers();
     registerHandleBarsHelpers();
+
+    document.getElementById("logo").src="systems/ryf/assets/ryf_logo.webp";
 });
 
 function registerLayers() {
