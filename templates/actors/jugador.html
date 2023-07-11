@@ -271,6 +271,7 @@
             <td style="text-align:center"><label>{{item.system.dificultad}}</label></td>
             <td style="text-align:center"><label>{{item.system.mana}}</label></td>
             <td>
+              {{#if (lt item.system.nivel 10)}}<a data-tooltip="Subir nivel" data-tooltip-direction="RIGHT" style="align:right" class="item-control level-up"><i class="fas fa-level-up"></i></a>{{/if}}
               <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
               <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
             </td>
@@ -284,6 +285,9 @@
     {{!-- Bio Tab --}}
     <div class="tab" data-group="primary" data-tab="biografia">
       <div class="flexcol">
+        <h3>{{localize 'experience'}}</h3>
+        <input type="text" name="system.derivadas.experiencia.valor" value="{{system.derivadas.experiencia.valor}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+
         <h3>{{localize 'advantages'}}</h3>
         <table>
           <tr>
