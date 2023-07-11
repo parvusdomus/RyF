@@ -149,6 +149,8 @@ export default class RyFActorSheet extends ActorSheet{
         html.find('.tiradaHechizo').click(this._onTiradaHechizo.bind(this));
         html.find('.tiradaArma').click(this._onTiradaArma.bind(this));
         html.find('.switchLock').click(this._onSwitchLock.bind(this));
+        html.find('.restauraVida').click(this._onRestauraVida.bind(this));
+        html.find('.restauraMana').click(this._onRestauraMana.bind(this));
 
         //Equipar objeto
         html.find('.item-equip').click(ev => {
@@ -174,25 +176,37 @@ export default class RyFActorSheet extends ActorSheet{
             this.render(false);
         });
 
-        //Si el actor no esta bloqueado, permite editar datos.
-        if(!this.actor.system.locked){
-            html.find('.restauraVida').click(this._onRestauraVida.bind(this));
-            html.find('.restauraMana').click(this._onRestauraMana.bind(this));
+        // Borrar objetos
+        html.find('.item-delete').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const objeto_a_borrar = this.actor.items.get(li.data("itemId"));
+            objeto_a_borrar.delete();
+            this.render(false);
+            li.slideUp(200, () => this.render(false));
+        });
+
+        //Si el actor no esta bloqueado, permite rear y editar items.
+        if(!this.actor.system.locked || game.user.isGM){
             // Anadir Objeto
             html.find('.item-create').click(this._onItemCreate.bind(this));
+
             // Editar objetos
             html.find('.item-edit').click(ev => {
                 const li = $(ev.currentTarget).parents(".item");
                 const item = this.actor.items.get(li.data("itemId"));
                 item.sheet.render(true);
             });
-            // Borrar objetos
-            html.find('.item-delete').click(ev => {
-                const li = $(ev.currentTarget).parents(".item");
-                const objeto_a_borrar = this.actor.items.get(li.data("itemId"));
-                objeto_a_borrar.delete();
-                this.render(false);
-                li.slideUp(200, () => this.render(false));
+        } else {
+            //Si esta bloqueada, notificamos en las acciones.
+            // Anadir Objeto
+            html.find('.item-create').click(ev => {
+                ui.notifications.warn("No puedes agregar un item a la ficha mientras está bloqueada. Puedes arrastrar uno existente.");
+            }
+            );
+
+            // Editar objetos
+            html.find('.item-edit').click(ev => {
+                ui.notifications.warn("No puedes editar un item de la ficha mientras está bloqueada. Puedes editar uno existente y luego arrastrarlo.");
             });
         }
     }
@@ -206,9 +220,6 @@ export default class RyFActorSheet extends ActorSheet{
         const data = duplicate(header.dataset);
         // Initialize a default name.
         const name = `${type.capitalize()}`;
-        console.log(type);
-        console.log(data);
-        console.log(name);
         // Prepare the item object.
         const itemData = {
             name: name,
@@ -218,7 +229,6 @@ export default class RyFActorSheet extends ActorSheet{
         // Remove the type from the dataset since it's in the itemData.type prop.
         delete itemData.system["type"];
         // Finally, create the item!
-        //     return this.actor.createOwnedItem(itemData);
         return Item.create(itemData, {parent: this.actor});
     }
 
@@ -434,14 +444,17 @@ export default class RyFActorSheet extends ActorSheet{
     }
 
     async _onRestauraVida(event) {
+        ui.notifications.notify(game.user.name + " restaura la vida de "+this.actor.name);
         this.actor.update ({ 'system.derivadas.puntosVida.value': this.actor.system.derivadas.puntosVida.max });
     }
 
     async _onRestauraMana(event) {
+        ui.notifications.notify(game.user.name + " restaura el mana de "+this.actor.name);
         this.actor.update ({ 'system.derivadas.puntosMana.value': this.actor.system.derivadas.puntosMana.max });
     }
 
     async _onSwitchLock(event) {
+        ui.notifications.notify(game.user.name + (this.actor.system.locked ? " desbloquea" : " bloquea") + " la ficha de " + this.actor.name);
         this.actor.update ({ 'system.locked': !this.actor.system.locked });
     }
 
