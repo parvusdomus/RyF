@@ -89,7 +89,7 @@
     {{#if (eq settings.magicEnabled true)}}
     <a class="item" data-tab="hechizos">{{localize 'spells'}}</a>
     {{/if}}
-    <a class="item" data-tab="biografia">{{localize 'biography'}}</a>
+    <a class="item" data-tab="biografia">{{localize 'additionalInformation'}}</a>
   </nav>
   <section class="sheet-body">
     {{!-- Habilidades Tab --}}
@@ -132,8 +132,10 @@
                 <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
                 <td style="text-align:center"><label>{{item.system.total}}</label></td>
                 <td>
+                  {{#if (lt item.system.nivel 10)}}<a data-tooltip="Subir nivel" data-tooltip-direction="RIGHT" style="align:right" class="item-control level-up"><i class="fas fa-level-up"></i></a>{{/if}}
                   <a data-tooltip="Editar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-edit"><i class="fas fa-edit"></i></a>
                   <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+
                 </td>
           </tr>
           {{/each}}
@@ -282,6 +284,7 @@
     {{!-- Bio Tab --}}
     <div class="tab" data-group="primary" data-tab="biografia">
       <div class="flexcol">
+        <h3>{{localize 'advantages'}}</h3>
         <table>
           <tr>
             <th style="width:90%; text-align:center"><label>{{localize 'advantage'}}</label></th>
@@ -298,7 +301,7 @@
           {{/each}}
         </table>
         <div>
-          <label>Info</label>
+          <h3>{{localize 'biography'}}</h3>
           <div class="Jugador_contenedor_biografia">
             {{editor system.descripcion target="system.descripcion" button=true editable=true}}
           </div>

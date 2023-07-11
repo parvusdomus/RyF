@@ -185,6 +185,17 @@ export default class RyFActorSheet extends ActorSheet{
             li.slideUp(200, () => this.render(false));
         });
 
+        //Subir de nivel una habilidad o hechizo
+        html.find('.level-up').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const habilidad = this.actor.items.get(li.data("itemId"));
+            console.log(habilidad);
+            let nivelActual = habilidad.system.nivel;
+            
+            console.log(this.actor.system);
+            this.render(false);
+        });
+
         //Si el actor no esta bloqueado, permite rear y editar items.
         if(!this.actor.system.locked || game.user.isGM){
             // Anadir Objeto
