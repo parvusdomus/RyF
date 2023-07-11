@@ -23,8 +23,9 @@
   "amount": "Amount",
   "difficulty": "Difficulty",
   "advantage": "Advantage",
+  "advantages": "Advantages",
   "description": "Description",
-
+  "additionalInformation": "Additional Information",
   "RYF": {
     "attributes": {
       "strength": "Physical",
