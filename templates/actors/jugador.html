@@ -286,7 +286,10 @@
     <div class="tab" data-group="primary" data-tab="biografia">
       <div class="flexcol">
         <h3>{{localize 'experience'}}</h3>
-        <input type="text" name="system.derivadas.experiencia.valor" value="{{system.derivadas.experiencia.valor}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+        <div class="flexrow">
+          <label>Actual:</label>
+          <input type="text" name="system.derivadas.experiencia.valor" value="{{system.derivadas.experiencia.valor}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+        </div>
 
         <h3>{{localize 'advantages'}}</h3>
         <table>

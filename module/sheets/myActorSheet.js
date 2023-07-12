@@ -191,8 +191,14 @@ export default class RyFActorSheet extends ActorSheet{
             const habilidad = this.actor.items.get(li.data("itemId"));
             console.log(habilidad);
             let nivelActual = habilidad.system.nivel;
-            
-            console.log(this.actor.system);
+            let siguienteNivel = Number(nivelActual) +1;
+            let experienciaFinal = Number(this.actor.system.derivadas.experiencia.valor) - Number(siguienteNivel);
+            if(experienciaFinal < 0){
+                ui.notifications.notify("No tienes experiencia suficiente para subir de nivel esa habilidad.");
+            } else {
+                this.actor.update ({ 'data.derivadas.experiencia.valor':  experienciaFinal});
+                habilidad.update({'data.nivel': siguienteNivel});
+            }
             this.render(false);
         });
 
