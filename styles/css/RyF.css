@@ -1,34 +1,11 @@
-@font-face {
-    font-family: "Ethnocentric";
-    src: url("/systems/ryf/fonts/ethnocentric.ttf");
-}
-
-@font-face {
-    font-family: "Airstrip";
-    src: url("/systems/ryf/fonts/airstrip.ttf");
-}
-
-@font-face {
-    font-family: "Bangers";
-    src: url("/systems/ryf/fonts/Bangers.ttf");
-}
-
 .chat-message{
   background-color: white;
-  background: url("/systems/ryf/assets/white.jpg") repeat;
-}
-
-.sheet {
-  background-color: Black;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  /*background: url("/systems/ryf/assets/white.jpg") repeat;*/
 }
 
 .window-app .window-content {
     background-color: white;
-    background: url("/systems/ryf/assets/white.jpg") repeat;
+    /*background: url("/systems/ryf/assets/white.jpg") repeat;*/
 }
 
 .sheet {
@@ -84,4 +61,25 @@
   flex-direction: column;
   overflow: hidden;
   background: transparent;
+}
+
+.D10Roll{
+  cursor: pointer
+}
+
+.D6Roll{
+  cursor: pointer
+}
+
+.tiradaAtributo{
+  cursor: pointer
+}
+
+.tiradaHabilidad{
+  cursor: pointer
+}
+
+.valorAtributo{
+  min-width: 20px !important;
+  max-width: 50px !important;
 }

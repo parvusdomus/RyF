@@ -1,0 +1,40 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div>
+      <div class="flexrow"><label>{{nom_atributo}}:</label><label>{{val_atributo}}</label></div>
+       <div class="flexrow">
+        <label>Bonificadores:</label>
+        <input type="text" id="bonos" name="bonos" value="0" size=2  data-dtype="Number">
+      </div>
+      <div>
+      <div class="flexrow">
+        <label>Dificultad tirada:</label>
+        <select name="dificultad" id="dificultad" data-dtype="Number">
+         <option value="9">(9) Fácil</option>
+         <option value="12" selected>(12) Normal</option>
+         <option value="15">(15) Difícil</option>
+         <option value="18">(18) Muy Difícil</option>
+         <option value="21">(21) Casi Imposible</option>
+      </select>
+    </div>
+  </div>
+<div class="flexrow">
+  <label>Tipo Dado</label>
+  <select name="forzar" id="forzar" data-dtype="Text">
+    {{#if (eq tipo_dado 'mayor')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'menor')}}
+            <option value="mayor">Mayor</option>
+            <option value="menor" selected>Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'objetivo')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo" selected>Objetivo</option>
+      {{/if}}
+  </select>
+</div>
+</form>

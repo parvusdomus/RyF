@@ -1,0 +1,29 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div>
+      <div class="flexrow"><label>Hechizo:</label><label>{{nom_hechizo}}</label></div>
+      <div class="flexrow"><label>Nivel:</label><label>{{nivel_hechizo}}</label></div>
+      <div class="flexrow"><label>Atributo:</label><label>{{val_atributo}}</label></div>
+      <div class="flexrow"><label>Dificultad:</label><label>{{val_dificultad}}</label></div>
+      <div class="flexrow"><label>Bonificadores:</label><input type="text" id="bonos" value="0" size=2  data-dtype="Number"></div>
+</div>
+<div class="flexrow">
+  <label>Dado:</label>
+  <select name="tipo_dado" id="tipo_dado" data-dtype="Text">
+    {{#if (eq tipo_dado 'mayor')}}
+    <option value="mayor" selected>Mayor</option>
+    <option value="menor">Menor</option>
+    <option value="objetivo">Objetivo</option>
+    {{/if}}
+    {{#if (eq tipo_dado 'menor')}}
+    <option value="mayor">Mayor</option>
+    <option value="menor" selected>Menor</option>
+    <option value="objetivo">Objetivo</option>
+    {{/if}}
+    {{#if (eq tipo_dado 'objetivo')}}
+    <option value="mayor" selected>Mayor</option>
+    <option value="menor">Menor</option>
+    <option value="objetivo" selected>Objetivo</option>
+    {{/if}}
+  </select>
+</div>
+</form>

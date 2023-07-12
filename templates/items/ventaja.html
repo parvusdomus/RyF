@@ -1,0 +1,40 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="flexcol">
+    <div class="flexrow">
+      <input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/>
+    </div>
+    <div class = "flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Objeto'/>
+      </div>
+      <div class="flexcol">
+          <div>
+            <label>Requisitos</label>
+            <div class="flexrow">
+              <select name="system.requisitos.atributo" data-dtype="String">
+                {{#select system.requisitos.atributo}}
+                  <option value="F">{{localize 'RYF.attributes.strength'}}</option>
+                  <option value="D">{{localize 'RYF.attributes.dexterity'}}</option>
+                  <option value="I">{{localize 'RYF.attributes.intelligence'}}</option>
+                  <option value="P">{{localize 'RYF.attributes.perception'}}</option>
+                  {{#if (eq settings.charismaEnabled true)}}
+                    <option value="C">{{localize 'RYF.attributes.charisma'}}</option>
+                  {{/if}}
+                {{/select}}
+              </select>
+              <input type="text" name="system.requisitos.valorMinimo" value="{{system.requisitos.valorMinimo}}"/>
+            </div>
+          </div>
+          <div>
+            <label>Mejoras</label>
+          </div>
+      </div>
+      <div class="flexcol">
+        <label>Descripcion</label>
+        <div class="Talento-descripcion-container">
+          {{{editor system.descripcion target="system.descripcion" button=true owner=owner editable=true}}}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

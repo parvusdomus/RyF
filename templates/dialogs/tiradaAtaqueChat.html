@@ -1,0 +1,9 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class=""><label>Ataque {{nom_habilidad}}</label></div>
+  <div class=""><label>Tirada: 1o3d10 + {{val_habilidad}} + {{val_atributo}} + {{bonos}}</label></div>
+  <div><label>Dados: {{#if (eq tipo_dado "menor")}}<strong>{{/if}}  {{dado_menor}} {{#if (eq tipo_dado "menor")}} </strong>{{/if}} | {{#if (eq tipo_dado "objetivo")}}<strong>{{/if}} {{dado_medio}} {{#if (eq tipo_dado "objetivo")}} </strong>{{/if}}| {{#if (eq tipo_dado "mayor")}} <strong>{{/if}} {{dado_mayor}} {{#if (eq tipo_dado "mayor")}} </strong>{{/if}} </label></div>
+  <div class=""><label>Resultado: {{total}} VS {{dificultad}}</label></div>
+  <div class="danoDesdeChat" data-exito="{{exito}}" data-objetivo="{{objetivo_id}}" data-danonumerodados="{{danoNumeroDados}}" data-danobonificador="{{danoBonificador}}" data-efecto="{{efecto}}" data-bonos="{{bonos}}" data-absorcion_armadura="{{absorcion_armadura}}" data-arma="{{nom_habilidad}}">
+    <div><label>{{resultado}} {{#if (eq exito true)}}, Tira dano{{/if}}</label></div>
+  </div>
+</form>

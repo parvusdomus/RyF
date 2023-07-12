@@ -1,11 +1,11 @@
-export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, forzar, mana)
+export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificultad, tipo_dado, mana)
 {
-  if (actor.data.data.Puntos_de_Mana.Actuales - mana < 0){
+  if (actor.system.derivadas.puntosMana.value - mana < 0){
     ui.notifications.warn("No tienes suficiente MANA para lanzar ese hechizo");
     return 1;
   }
-  let manaActual=actor.data.data.Puntos_de_Mana.Actuales - mana;
-  actor.update ({ 'data.Puntos_de_Mana.Actuales': manaActual });
+  let manaActual=actor.system.derivadas.puntosMana.value - mana;
+  actor.update ({ 'data.derivadas.puntosMana.value': manaActual });
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
   let d10s = d10Roll.result.split(" + ").sort((a, b) => a - b);
@@ -14,22 +14,19 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
   let dado_elegido=0;
   let resultado="";
   let efecto =0;
-  if ( forzar != ""){
-    dado=forzar;
-  }
   if (dado==="menor"){
-    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[0])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=0;
   }
   if (dado==="objetivo"){
-    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[1])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=1;
   }
   if (dado==="mayor"){
-    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.data.data.Estorbo_Total;
+    total=Number(d10s[2])+Number(dataset.nivel)+Number(val_atributo)+Number(bonos)-actor.system.derivadas.estorbo;
     dado_elegido=2;
   }
-  if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
+  if (Number(d10s[dado_elegido]) == 1 && (d10s[dado_elegido+1] && Number(d10s[dado_elegido+1]) <= 5)){
     resultado="PIFIA"
   } else if (total < Number(dificultad) || Number(d10s[dado_elegido]) == 1){
     resultado="FALLO";
@@ -43,7 +40,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_hechizo_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaHechizoChat.html';
   const datos_template_chat = {
                           val_atributo: val_atributo,
                           nom_habilidad: dataset.hechizo,
@@ -57,7 +54,7 @@ export async function tiradaHechizo (actor, dataset, val_atributo, bonos, dificu
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          estorbo: actor.data.data.Estorbo_Total
+                          estorbo: actor.system.derivadas.estorbo
                         };
   const contenido_Dialogo_chat = await renderTemplate(archivo_template_chat, datos_template_chat);
   const chatData = {

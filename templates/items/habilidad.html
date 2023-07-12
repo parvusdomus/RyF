@@ -1,0 +1,36 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="flexcol">
+    <div><input name="name" type="text" value="{{name}}" placeholder='Nombre' data-dtype="String"/></div>
+    <div class="flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div>
+        <div class="flexrow">
+        <label>Atributo</label>
+        <select name="system.atributo" data-dtype="String">
+          {{#select system.atributo}}
+          <option value="F">Fisico</option>
+          <option value="D">Destreza</option>
+          <option value="I">Inteligencia</option>
+          <option value="P">Percepcion</option>
+          {{#if (eq settings.charismaEnabled true)}}
+            <option value="C">Carisma</option>
+          {{/if}}
+          {{/select}}
+        </select>
+        </div>
+        <div class="flexrow">
+        <label>Nivel</label>
+        <input type="text" name="system.nivel" value="{{system.nivel}}" data-dtype="Number" maxlength="3"/>
+      </div></div>
+    </div>
+
+    <div>
+      <label>Descripción</label>
+      <div class="Habilidad-descripcion-container">
+      {{{editor system.descripcion target="system.descripcion" button=true editable=true}}}
+    </div>
+    </div>
+  </div>
+</form>

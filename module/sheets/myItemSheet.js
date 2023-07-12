@@ -1,8 +1,5 @@
 export default class RyFItemSheet extends ItemSheet{
   static get defaultOptions() {
-    if (game.settings.get ("ryf", "forceFontSize")){
-      game.settings.set("core","fontSize", "5");
-    }
     return mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "item"],
       width: 320,
@@ -10,7 +7,25 @@ export default class RyFItemSheet extends ItemSheet{
       resizable: false
     });
   }
+
+  getData() {
+    const superData = super.getData();
+    const data = superData.data;
+    const settings = this.loadSettings();
+    data.settings = settings;
+    data.system.descripcion = TextEditor.enrichHTML(data.system.descripcion, {async: false});
+    return data;
+  }
+
   get template(){
-          return `systems/ryf/templates/items/${this.item.data.type}.html`;
-      }
+    return `systems/ryf/templates/items/${this.item.type}.html`;
+  }
+
+
+  //Load settings that are used in the actor sheet
+  loadSettings(){
+    let settings = {};
+    settings.charismaEnabled = game.settings.get("ryf","charismaEnabled");
+    return settings;
+  }
 }

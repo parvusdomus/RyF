@@ -1,0 +1,319 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header">
+    <div class="header-fields">
+      <div class="flexrow switchLock" style="align-content: flex-end; flex-direction: column">
+        {{#if (eq system.locked true)}}
+          <a data-tooltip="bloqueada" data-tooltip-direction="RIGHT"><i class="fas fa-lock"></i></a>
+        {{else}}
+          <a data-tooltip="desbloqueada" data-tooltip-direction="RIGHT"><i class="fas fa-unlock"></i></a>
+        {{/if}}
+        </a>
+      </div>
+      <div class="flexrow">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
+        <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Nombre" autocomplete="off"/></h1>
+      </div>
+      <div class="atributos">
+        <h3>{{localize 'attributes'}}</h3>
+        <div class="flexrow">
+        <div class="flexcol">
+          <div class="flexrow flex-group-center">
+            <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.strength'}}" data-valor="{{system.atributos.fisico}}">{{localize 'RYF.attributes.strength'}}</label>
+            <input type="text" name="system.atributos.fisico" value="{{system.atributos.fisico}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+          </div>
+          <div class="flexrow flex-group-center">
+            <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-valor="{{system.atributos.destreza}}">{{localize 'RYF.attributes.dexterity'}}</label>
+            <input type="text" name="system.atributos.destreza" value="{{system.atributos.destreza}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+          </div>
+          {{#if (eq settings.charismaEnabled true)}}
+          <div class="flexrow flex-group-center">
+            <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.charisma'}}" data-valor="{{system.atributos.carisma}}">{{localize 'RYF.attributes.charisma'}}</label>
+            <input type="text" name="system.atributos.carisma" value="{{system.atributos.carisma}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+          </div>
+          {{/if}}
+        </div>
+        <div class="flexcol">
+          <div class="flexrow flex-group-center">
+            <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.intelligence'}}" data-valor="{{system.atributos.inteligencia}}">{{localize 'RYF.attributes.intelligence'}}</label>
+            <input type="text" name="system.atributos.inteligencia" value="{{system.atributos.inteligencia}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+          </div>
+          <div class="flexrow flex-group-center">
+            <label class="tiradaAtributo resource-label" data-atributo="{{localize 'RYF.attributes.perception'}}" data-valor="{{system.atributos.percepcion}}">{{localize 'RYF.attributes.perception'}}</label>
+            <input type="text" name="system.atributos.percepcion" value="{{system.atributos.percepcion}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="derivadas">
+        <h3>Derivadas</h3>
+        <div class="flexrow">
+          <div class="flexcol">
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">{{localize 'iniciative'}}</label>
+              <label class="resource-label">{{system.derivadas.iniciativa}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">{{localize 'absorption'}}</label>
+              <label class="resource-label">{{system.derivadas.absorcion}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">{{localize 'encumbrance'}}</label>
+              <label class="resource-label">{{system.derivadas.estorbo}}</label>
+            </div>
+          </div>
+          <div class="flexcol">
+            <div class="flexrow flex-group-center">
+              <label class="resource-label restauraVida">{{localize 'hitPoints'}}</label>
+              <input type="text" name="system.derivadas.puntosVida.value" value="{{system.derivadas.puntosVida.value}}"  data-dtype="Number"/>/
+              <label class="resource-label">{{system.derivadas.puntosVida.max}}</label>
+            </div>
+            {{#if (eq settings.magicEnabled true)}}
+            <div class="flexrow flex-group-center">
+              <label class="resource-label restauraMana">{{localize 'mana'}}</label>
+              <input type="text" name="system.derivadas.puntosMana.value" value="{{system.derivadas.puntosMana.value}}"  data-dtype="Number"/>/
+              <label class="resource-label">{{system.derivadas.puntosMana.max}}</label>
+            </div>
+            {{/if}}
+            <div class="flexrow flex-group-center">
+              <label class="resource-label">{{localize 'defense'}}</label>
+              <label class="resource-label">{{system.derivadas.defensa.base}} / {{system.derivadas.defensa.escudoCac}} / {{system.derivadas.defensa.escudoDist}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="habilidades">{{localize 'skills'}}</a>
+    <a class="item" data-tab="inventario">{{localize 'inventory'}}</a>
+    {{#if (eq settings.magicEnabled true)}}
+    <a class="item" data-tab="hechizos">{{localize 'spells'}}</a>
+    {{/if}}
+    <a class="item" data-tab="biografia">{{localize 'additionalInformation'}}</a>
+  </nav>
+  <section class="sheet-body">
+    {{!-- Habilidades Tab --}}
+    <div class="tab" data-group="primary" data-tab="habilidades">
+      <div>
+        <table>
+          <tr>
+            <th style="width:40%"><label>{{localize 'skill'}}</label></th>
+            <th style="width:20%"><label>{{localize 'level'}}</label></th>
+            <th style="width:20%"><label>{{localize 'total'}}</label></th>
+            <th style="width:10%"><a class="item-control item-create" data-type="habilidad"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.habilidades as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            {{#if (eq item.system.atributo "F")}}
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.strength'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(F)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "D")}}
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.dexterity'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(D)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "I")}}
+              <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.intelligence'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                <div style="width:32em"><label>{{item.name}}</label><label>(I)</label>
+                </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "P")}}
+                  <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.perception'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.name}}</label><label>(P)</label>
+                    </div></td>
+            {{/if}}
+            {{#if (eq item.system.atributo "C")}}
+                  <td class="tiradaHabilidad" data-atributo="{{localize 'RYF.attributes.charisma'}}" data-habilidad="{{item.name}}" data-valor_habilidad="{{item.system.nivel}}">
+                    <div style="width:32em"><label>{{item.name}}</label><label>(C)</label>
+                    </div></td>
+            {{/if}}
+                <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
+                <td style="text-align:center"><label>{{item.system.total}}</label></td>
+                <td>
+                  {{#if (lt item.system.nivel 10)}}<a data-tooltip="Subir nivel" data-tooltip-direction="RIGHT" style="align:right" class="item-control level-up"><i class="fas fa-level-up"></i></a>{{/if}}
+                  <a data-tooltip="Editar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+                  <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" style="align:right" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+
+                </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+
+    {{!-- Inventario Tab --}}
+    <div class="tab" data-group="primary" data-tab="inventario">
+      <div>
+        <table>
+          <tr>
+            <th style="width:40%; text-align:center"><label>{{localize 'weapon'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'range'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'damage'}}</label></th>
+            <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="arma"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.armas as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><div style="width:32em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-sword"></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+              <label class="tiradaArma"
+                     data-arma="{{item.name}}" data-tipo="{{item.system.tipo}}"
+                     data-danoNumeroDados="{{item.system.dano.numeroDados}}"
+                     data-danoBonificador="{{item.system.dano.bonificador}}"
+                     data-alcance_corto="{{item.system.alcance.corto}}" data-alcance_medio="{{item.system.alcance.medio}}" data-alcance_largo="{{item.system.alcance.largo}}"
+              >{{item.name}}</label></div></td>
+            <td style="text-align:center">
+              {{#if (ne item.system.alcance.corto 0)}}<label>{{item.system.alcance.corto}}</label>{{/if}}
+              {{#if (ne item.system.alcance.medio 0)}}<label>/{{item.system.alcance.medio}}</label>{{/if}}
+              {{#if (ne item.system.alcance.largo 0)}}<label>/{{item.system.alcance.largo}}</label>{{/if}}
+            </td>
+            <td style="text-align:center">
+              <label>{{item.system.dano.numeroDados}}D6+{{item.system.dano.bonificador}}</label>
+            </td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:40%; text-align:center"><label>{{localize 'armor'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'absorption'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'encumbrance'}}</label></th>
+            <th class="align_right" style="width:10%"><a class="item-control item-create" data-type="armadura"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.armaduras as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><div style="width:8em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-tshirt"></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+              <label> {{item.name}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.absorcion}}</label></td>
+            <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:40%; text-align:center"><label>{{localize 'shield'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'defense'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'encumbrance'}}</label></th>
+            <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="escudo"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.escudos as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><div style="width:8em">
+              {{#if (eq item.system.equipado false)}}<span  style="color:darkgrey">{{/if}}
+            <a data-tooltip="Equipar" data-tooltip-direction="RIGHT" class="item-control item-equip"><i class="fas fa-shield"></i></a>
+            {{#if (eq item.system.equipado false)}}</span>{{/if}}
+
+              <label> {{item.name}}</label></div></td>
+            <td style="text-align:center">
+              <label>{{item.system.defensa.cc}}</label>
+              {{#if (ne item.system.defensa.distancia 0)}}<label>/{{item.system.defensa.distancia}}</label>{{/if}}
+            </td>
+            <td style="text-align:center"><label>{{item.system.estorbo}}</label></td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <table>
+          <tr>
+            <th style="width:60%; text-align:center"><label>{{localize 'item'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'amount'}}</label></th>
+            <th style="width:10%" class="align_right"><a class="item-control item-create" data-type="objeto"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.items.objetos as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td><div style="width:8em"><label>{{item.name}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.cantidad}}</label></td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+
+    {{#if (eq settings.magicEnabled true)}}
+    {{!-- Hechizos Tab --}}
+    <div class="tab" data-group="primary" data-tab="hechizos">
+      <div>
+        <table>
+          <tr>
+            <th style="width:40%; text-align:center"><label>{{localize 'spell'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'level'}}</label></th>
+            <th style="width:20%; text-align:center"><label>{{localize 'range'}}</label></th>
+            <th style="width:10%; text-align:center"><label>{{localize 'difficulty'}}</label></th>
+            <th style="width:10%; text-align:center"><label>{{localize 'mana'}}</label></th>
+            <th class="align_right width:10%"><a class="item-control item-create" data-type="hechizo"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.hechizos as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td class="tiradaHechizo" data-hechizo="{{item.name}}" data-nivel="{{item.system.nivel}}" data-dificultad="{{item.system.dificultad}}" data-mana="{{item.system.mana}}" data-alcance="{{item.system.alcance}}"><div style="width:7em"><label>{{item.name}}</label></div></td>
+            <td style="text-align:center"><label>{{item.system.nivel}}</label></td>
+            <td style="text-align:center"><label>{{item.system.alcance}}</label></td>
+            <td style="text-align:center"><label>{{item.system.dificultad}}</label></td>
+            <td style="text-align:center"><label>{{item.system.mana}}</label></td>
+            <td>
+              {{#if (lt item.system.nivel 10)}}<a data-tooltip="Subir nivel" data-tooltip-direction="RIGHT" style="align:right" class="item-control level-up"><i class="fas fa-level-up"></i></a>{{/if}}
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Bio Tab --}}
+    <div class="tab" data-group="primary" data-tab="biografia">
+      <div class="flexcol">
+        <h3>{{localize 'experience'}}</h3>
+        <div class="flexrow">
+          <label>Actual:</label>
+          <input type="text" name="system.derivadas.experiencia.valor" value="{{system.derivadas.experiencia.valor}}"  data-dtype="Number" {{readOnlyIfIsLocked system}} />
+        </div>
+
+        <h3>{{localize 'advantages'}}</h3>
+        <table>
+          <tr>
+            <th style="width:90%; text-align:center"><label>{{localize 'advantage'}}</label></th>
+            <th class="align_right width:10%"><a class="item-control item-create" data-type="ventaja"><i class="fas fa-plus"></i></a></th>
+          </tr>
+          {{#each system.ventajas as |item id|}}
+          <tr class="item" data-item-id="{{item._id}}">
+            <td style="text-align:center"><label>{{item.name}}</label></td>
+            <td>
+              <a data-tooltip="Editar" data-tooltip-direction="RIGHT" class="item-control item-edit"><i class="fas fa-edit"></i></a>
+              <a data-tooltip="Borrar" data-tooltip-direction="RIGHT" class="item-control item-delete"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+        <div>
+          <h3>{{localize 'biography'}}</h3>
+          <div class="Jugador_contenedor_biografia">
+            {{editor system.descripcion target="system.descripcion" button=true editable=true}}
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</form>

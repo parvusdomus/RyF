@@ -1,0 +1,32 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="flexcol">
+      <div class="flexrow"><label>{{nom_habilidad}}</label><label>{{val_habilidad}}</label></div>
+      
+      <div class="flexrow"><label>Bonificador:</label><input type="text" id="bonos" value="0" size=2  data-dtype="Number"></div>
+      <div class="flexrow"><label>Dificultad:</label><input type="text" id="dificultad" value="{{defensa_total_CaC}}" size=2  data-dtype="Number"></div>
+  </div>
+  <div class="flexrow">
+    <label>Dado:</label>
+    <select  name="forzar" id="forzar" data-dtype="Text">
+      {{#if (eq tipo_dado 'mayor')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'menor')}}
+            <option value="mayor">Mayor</option>
+            <option value="menor" selected>Menor</option>
+            <option value="objetivo">Objetivo</option>
+      {{/if}}
+      {{#if (eq tipo_dado 'objetivo')}}
+            <option value="mayor" selected>Mayor</option>
+            <option value="menor">Menor</option>
+            <option value="objetivo" selected>Objetivo</option>
+      {{/if}}
+    </select>
+  </div>
+  <div>
+  <div class="flexrow"><label>Daño:</label><label>{{danoDados}}D6+{{danoBonificador}}</label></div>
+  <div class="flexrow"><label>Absorcion</label><label>{{absorcion_armadura}}</label></div>
+</div>
+</form>

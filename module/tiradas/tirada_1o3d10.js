@@ -1,9 +1,5 @@
-export async function tirada1o3D10 (actor, bono, forzar)
+export async function tirada1o3D10 (actor, bono, forzar, explota)
 {
-  console.log ("TIRADA 1o3D10, actor, bono, forzar")
-  console.log (actor)
-  console.log (bono)
-  console.log (forzar)
   let tirada="1d10x+1d10x+1d10x";
   let d10Roll = new Roll(tirada).roll({async: false});
   let d10s = d10Roll.result.split(" + ").sort((a, b) => a - b);
@@ -21,15 +17,7 @@ export async function tirada1o3D10 (actor, bono, forzar)
     total=Number(d10s[2])+Number(bono);
     dado_elegido="mayor";
   }
-  if (forzar===""){
-    total=Number(d10s[1])+Number(bono);
-    dado_elegido="objetivo";
-  }
-  console.log ("TOTAL")
-  console.log (total)
-  console.log ("DADO")
-  console.log (dado_elegido)
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_1o3D10_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada1o3D10Chat.html';
   const datos_template_chat = {
                           total: total,
                           dado_menor: d10s[0],

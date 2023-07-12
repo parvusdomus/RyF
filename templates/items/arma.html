@@ -1,0 +1,53 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="flexcol">
+    <div class="flexrow"><input name="name" type="text" value="{{name}}" placeholder='Nombre' onClick="this.select();"/>
+    </div>
+
+    <div class="flexrow">
+      <div class="flexcol">
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/>
+      </div>
+      <div class="flexcol">
+      <div>
+        <label>Precio</label>
+        <input type="text" name="system.Precio" value="{{system.Precio}}" data-dtype="Number" maxlength="4"/>
+
+      </div>
+      <div>
+        <label>Tipo arma</label>
+        <select name="system.tipo" data-dtype="String">
+          {{#select system.tipo}}
+          <option value="melee">Cuerpo a cuerpo</option>
+          <option value="ranged">Distancia</option>
+          {{/select}}
+        </select>
+      </div>
+      {{#if (eq system.tipo "ranged")}}
+        <div>
+          <label>Alcance</label>
+          <div class="flexrow">
+            <input type="text" name="system.alcance.corto" value="{{system.alcance.corto}}" data-dtype="Number" maxlength="3"/>
+            /
+            <input type="text" name="system.alcance.medio" value="{{system.alcance.medio}}" data-dtype="Number" maxlength="3"/>
+            /
+            <input type="text" name="system.alcance.largo" value="{{system.alcance.largo}}" data-dtype="Number" maxlength="3"/>
+          </div>
+        </div>
+      {{/if}}
+        <div>
+        <label>Daño</label>
+        <div class="flexrow">
+        <input type="text" name="system.dano.numeroDados" value="{{system.dano.numeroDados}}"/><label>D6+</label><input type="text" name="system.dano.bonificador" value="{{system.dano.bonificador}}"/>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label>Descripcion</label>
+    <div class="Arma-descripcion-container">
+      {{{editor system.descripcion target="system.descripcion" button=true owner=owner editable=true}}}
+    </div>
+    </div>
+  </div>
+</form>

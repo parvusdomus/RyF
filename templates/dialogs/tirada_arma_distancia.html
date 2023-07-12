@@ -1,5 +1,4 @@
 <form class="{{cssClass}} dialogo_tirada_arma_Dist" autocomplete="off">
-  <img class="content-background" src="/systems/ryf/assets/dialogs/dialogo_tirada_arma_distancia.svg" alt="?"/>
   <div class="contenido_dialogo_tirada_arma_Dist">
       <div class="dialogo_tirada_arma_Dist_nombre"><label>A. {{nom_habilidad}}</label></div>
       <div class="dialogo_tirada_arma_Dist_valor"><label>{{val_habilidad}}</label></div>
@@ -15,13 +14,13 @@
 </div>
 <div>
     {{#if (eq tipo_dado "mayor")}}
-      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_Mayor.svg" alt="?"/>
+      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_Mayor.webp" alt="?"/>
     {{/if}}
     {{#if (eq tipo_dado "objetivo")}}
-      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_objetivo.svg" alt="?"/>
+      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_objetivo.webp" alt="?"/>
       {{/if}}
     {{#if (eq tipo_dado "menor")}}
-      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_menor.svg" alt="?"/>
+      <img class="PJ_tirada_arma_Dist_D10 tipoDado" src="/systems/ryf/assets/dialogs/d10_menor.webp" alt="?"/>
     {{/if}}
 </div>
 <div>
@@ -33,12 +32,12 @@
   </select>
 </div>
 <div>
-  <select  class="dialogo_tirada_arma_Dist_daño" name="daño_arma" id="daño_arma" data-dtype="Text">
-    <option value="{{daño_corto}}" selected>{{daño_corto}}</option>
-    <option value="{{daño_medio}}">{{daño_medio}}</option>
-    <option value="{{daño_largo}}">{{daño_largo}}</option>
+  <select  class="dialogo_tirada_arma_Dist_dano" name="dano_arma" id="dano_arma" data-dtype="Text">
+    <option value="{{dano_corto}}" selected>{{dano_corto}}</option>
+    <option value="{{dano_medio}}">{{dano_medio}}</option>
+    <option value="{{dano_largo}}">{{dano_largo}}</option>
   </select>
-  <div class="dialogo_tirada_arma_Dist_mod_daño"><input id="bonos_daño" value="0"  data-dtype="Text"></div>
+  <div class="dialogo_tirada_arma_Dist_mod_dano"><input id="bonos_dano" value="0"  data-dtype="Text"></div>
   <div class="dialogo_tirada_arma_Dist_armadura"><label>{{absorcion_armadura}}</label></div>
 </div>
 </form>

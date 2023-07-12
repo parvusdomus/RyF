@@ -1,0 +1,41 @@
+{
+  "attributes" : "Atributos",
+  "skills": "Habilidades",
+  "skill": "Habilidad",
+  "iniciative": "Iniciativa",
+  "defense": "Defensa",
+  "mana": "Maná",
+  "hitPoints": "Puntos de vida",
+  "absorption": "Absorción",
+  "encumbrance": "Estorbo",
+  "inventory": "Inventario",
+  "spells": "Hechizos",
+  "spell": "Hechizo",
+  "biography": "Biografía",
+  "level": "Nivel",
+  "total": "Total",
+  "weapon": "Arma",
+  "range": "Alcance",
+  "damage": "Daño",
+  "armor": "Armadura",
+  "shield": "Escudo",
+  "item": "Objeto",
+  "amount": "Cantidad",
+  "difficulty": "Dificultad",
+  "advantage": "Ventaja",
+  "advantages": "Ventajas",
+  "description": "Descripción",
+  "additionalInformation": "Información Adicional",
+  "experience": "Experiencia",
+  "RYF": {
+    "attributes": {
+      "strength": "Físico",
+      "dexterity": "Destreza",
+      "intelligence": "Inteligencia",
+      "perception": "Percepción",
+      "charisma": "Carisma"
+    },
+    "skills" : {
+    }
+  }
+}

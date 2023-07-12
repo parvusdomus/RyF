@@ -3,24 +3,20 @@ import {tiradaDano} from "../tiradas/tirada-dano.js";
 export default class RyFSimpleNPJSheet extends ActorSheet{
 
   static get defaultOptions() {
-    if (game.settings.get ("ryf", "forceFontSize")){
-      game.settings.set("core","fontSize", "5");
-    }
     return mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "actor", "SimplePNJ"],
       template: "systems/ryf/templates/actors/SimplePNJ.html",
-      width: 490,
-      height: 320,
+      width: 800,
+      height: 700,
       resizable: false
     });
   }
 
   getData() {
-        const data = super.getData().data;
+    const superData = super.getData();
+        const data = superData.data;
+        data.system.Descripcion = TextEditor.enrichHTML(data.system.Descripcion, {async: false});
         data.dtypes = ["String", "Number", "Boolean"];
-        if (this.actor.data.type == 'Monstruo' ) {
-
-        }
         return data;
       }
 
@@ -33,52 +29,44 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
               //AQUI IRIAN LOS LISTENERS DE LAS TIRADAS
             //  html.find('.tiradaAtributo').click(this._onTiradaAtributo.bind(this));
             html.find('.tiradaAtaquePNJ').click(this._onTiradaAtaquePNJ.bind(this));
-            //html.find('.tiradaDañoPNJ').click(this._onTiradaDañoPNJ.bind(this));
+            //html.find('.tiradaDanoPNJ').click(this._onTiradaDanoPNJ.bind(this));
             html.find('.restauraVidaPNJ').click(this._onRestauraVidaPNJ.bind(this));
       }
 
       async _onTiradaAtaquePNJ(event) {
         const element = event.currentTarget;
         const dataset = element.dataset;
-        console.log ("ENTRO EN TIRADA ATAQUE PNJ")
-        console.log ("DATASET")
-        console.log (dataset)
         var tipo_dado = "objetivo";
-        var val_atributo = 0;
-        var nom_atributo="";
         var val_habilidad=0;
         var archivo_template="";
-        let listaObjetivos = game.user.targets;
-        let objetivo = Array.from(listaObjetivos)[0];
+        let objetivo = game.user.targets.first()
         let absorcion_armadura=0;
         let defensa_CaC = 0;
         let defensa_CaC_escudo =0;
         let defensa_Dist_escudo=0;
         let objetivo_id;
         if (objetivo){
-          defensa_CaC=objetivo.document._actor.data.data.Defensa.Base;
-          if (objetivo.document._actor.data.data.Defensa.Escudo_CAC){
-            defensa_CaC_escudo=objetivo.document._actor.data.data.Defensa.Escudo_CAC;
+          let objetivoSystem = Actor.get(objetivo.document.actorId).system;
+          defensa_CaC=objetivoSystem.derivadas.defensa.base;
+          if (objetivoSystem.derivadas.defensa.escudoCac){
+            defensa_CaC_escudo=objetivoSystem.derivadas.defensa.escudoCac;
           }
-          if (objetivo.document._actor.data.data.Defensa.Escudo_Dist){
-            defensa_Dist_escudo=objetivo.document._actor.data.data.Defensa.Escudo_Dist;
+          if (objetivoSystem.derivadas.defensa.escudoDist){
+            defensa_Dist_escudo=objetivoSystem.derivadas.defensa.escudoDist;
           }
-          absorcion_armadura=objetivo.document._actor.data.data.Absorción_Total;
-          objetivo_id=objetivo.data._id;
+          if(objetivoSystem.derivadas.absorcion){
+            absorcion_armadura=objetivoSystem.derivadas.absorcion;
+          }
+          objetivo_id=game.user.targets.first().document.actorId;
         }
         val_habilidad=dataset.habilidad;
-        archivo_template = '/systems/ryf/templates/dialogs/tirada_arma_PNJ.html';
+        archivo_template = '/systems/ryf/templates/dialogs/tiradaArmaPNJ.html';
         const datos_template = {
                                 nom_arma: dataset.arma,
-                                val_atributo: val_atributo,
                                 nom_habilidad: "Ataque",
                                 val_habilidad: val_habilidad,
-                                alcance_corto: 0,
-                                alcance_medio: 0,
-                                alcance_largo: 0,
-                                daño_corto: dataset.daño,
-                                daño_medio: dataset.daño,
-                                daño_largo: dataset.daño,
+                                danoDados: dataset.danodados,
+                                danoBonificador: dataset.danobonificador,
                                 tipo_dado: tipo_dado,
                                 defensa_CaC: defensa_CaC,
                                 defensa_total_CaC: defensa_CaC+defensa_CaC_escudo,
@@ -95,14 +83,14 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
             icon: '<i class="fas fa-dice"></i>',
             label: "Ataque",
             callback: () => {
-               tiradaAtaque (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño, dataset.daño, dataset.daño, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+               tiradaAtaque (document.getElementById("forzar").value, 0, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, dataset.arma, objetivo_id, absorcion_armadura, dataset.danobonificador, dataset.danodados);
              }
            },
-           Daño: {
+           Dano: {
              icon: '<i class="fas fa-skull-crossbones"></i>',
-             label: "Daño",
+             label: "Dano",
              callback: () => {
-                tiradaDano (this.actor, dataset, val_atributo, val_habilidad, document.getElementById("bonos").value, document.getElementById("dificultad").value, tipo_dado, document.getElementById("forzar").value, objetivo, defensa_CaC, defensa_CaC_escudo, defensa_Dist_escudo, dataset.alcance_corto, dataset.alcance_medio, dataset.alcance_largo, dataset.daño, dataset.daño, dataset.daño, absorcion_armadura, document.getElementById("bonos_daño").value, document.getElementById("daño_arma").value);
+                tiradaDano (dataset.arma, objetivo_id, absorcion_armadura, dataset.danobonificador, dataset.danodados);
              }
            }
          },
@@ -110,21 +98,10 @@ export default class RyFSimpleNPJSheet extends ActorSheet{
          close: html => console.log("This always is logged no matter which option is chosen")
        });
        dialogo.render(true);
-
       }
 
-    //  async _onTiradaDañoPNJ(event) {
-    //    const element = event.currentTarget;
-    //    const dataset = element.dataset;
-    //    console.log ("ENTRO EN TIRADA DAÑO PNJ")
-
-    //  }
-
       async _onRestauraVidaPNJ(event) {
-        const element = event.currentTarget;
-        const dataset = element.dataset;
-        console.log ("ENTRO EN RESTAURA VIDA PNJ")
-        this.actor.update ({ 'data.Puntos_de_Vida.value': this.actor.data.data.Puntos_de_Vida.max });
+        this.actor.update ({ "system.derivadas.puntosVida.value": this.actor.system.derivadas.puntosVida.max });
       }
 
 }

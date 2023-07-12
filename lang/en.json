@@ -1,0 +1,42 @@
+{
+  "attributes" : "Attributes",
+  "skills": "Skills",
+  "skill": "Skill",
+  "iniciative": "Iniciative",
+  "defense": "Defense",
+  "mana": "Mana",
+  "hitPoints": "Hit Points",
+  "absorption": "Absorption",
+  "encumbrance": "Encumbrance",
+  "inventory": "Inventory",
+  "spells": "Spells",
+  "spell": "Spell",
+  "biography": "Biography",
+  "level": "Level",
+  "total": "Total",
+  "weapon": "Weapon",
+  "range": "Range",
+  "damage": "Damage",
+  "armor": "Armor",
+  "shield": "Shield",
+  "item": "Item",
+  "amount": "Amount",
+  "difficulty": "Difficulty",
+  "advantage": "Advantage",
+  "advantages": "Advantages",
+  "description": "Description",
+  "additionalInformation": "Additional Information",
+  "experience": "Experience",
+  "RYF": {
+    "attributes": {
+      "strength": "Physical",
+      "dexterity": "Dexterity",
+      "intelligence": "Intelligence",
+      "perception": "Perception",
+      "charisma": "Charisma"
+    },
+    "skills" : {
+
+    }
+  }
+}

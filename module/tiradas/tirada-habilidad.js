@@ -8,25 +8,22 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
   let dado_elegido=0;
   let resultado="";
   let efecto =0;
-  if ( forzar != ""){
-    dado=forzar;
-  }
   if (dado==="menor"){
     total=Number(d10s[0])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=0;
   }
   if (dado==="objetivo"){
     total=Number(d10s[1])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=1;
   }
   if (dado==="mayor"){
     total=Number(d10s[2])+Number(val_atributo)+Number(dataset.valor_habilidad)+Number(bonos);
-    if (dataset.atributo=="Destreza"){total-=actor.data.data.Estorbo_Total}
+    if (dataset.atributo=="Destreza"){total-=actor.system.derivadas.estorbo}
     dado_elegido=2;
   }
-  if (Number(d10s[dado_elegido]) == 1 && Number(d10s[dado_elegido+1]) <= 5){
+  if (Number(d10s[dado_elegido]) == 1 && (d10s[dado_elegido+1] && Number(d10s[dado_elegido+1]) <= 5)){
     resultado="PIFIA"
   } else if (total < Number(dificultad) || Number(d10s[dado_elegido]) == 1){
     resultado="FALLO";
@@ -40,7 +37,7 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
         resultado +="d6"
       }
   }
-  const archivo_template_chat = '/systems/ryf/templates/dialogs/tirada_habilidad_chat.html';
+  const archivo_template_chat = '/systems/ryf/templates/dialogs/tiradaHabilidadChat.html';
   const datos_template_chat = {
                           nom_atributo: dataset.atributo,
                           val_atributo: val_atributo,
@@ -55,7 +52,7 @@ export async function tiradaHabilidad (actor, dataset, val_atributo, bonos, difi
                           total: total,
                           resultado: resultado,
                           efecto: efecto,
-                          estorbo: actor.data.data.Estorbo_Total,
+                          estorbo: actor.system.derivadas.estorbo
                         };
   const contenido_Dialogo_chat = await renderTemplate(archivo_template_chat, datos_template_chat);
   const chatData = {
