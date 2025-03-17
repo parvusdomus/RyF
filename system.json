@@ -2,7 +2,7 @@
   "id": "ryf",
   "title": "Rápido y Fácil (No Oficial)",
   "description": "RyF es un conjunto de reglas para jugar a rol de forma sencilla de aplicar y aprender. Estas reglas puedes aplicarlas a mundos que ya conozcas, como el de Conan el Barbaro, o de películas que te gusten, como La Noche de los Muertos Vivientes, o de juegos de rol que ya existan previamente y cuyas reglas te parezcan demasiado complicadas, o simplemente no te gusten. También puedes jugar en tu propio mundo e historia, a tu gusto.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "templateVersion": 1,
   "authors": [
     { "name": "ParvusDomus" },
@@ -11,7 +11,7 @@
   "compatibility": {
     "minimum": "10",
     "verified": "11",
-    "maximum": "11"
+    "maximum": "12"
   },
   "scripts": [],
   "esmodules": ["ryf.js"],
