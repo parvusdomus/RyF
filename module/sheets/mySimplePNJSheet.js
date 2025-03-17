@@ -3,7 +3,7 @@ import {tiradaDano} from "../tiradas/tirada-dano.js";
 export default class RyFSimpleNPJSheet extends ActorSheet{
 
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "actor", "SimplePNJ"],
       template: "systems/ryf/templates/actors/SimplePNJ.html",
       width: 800,

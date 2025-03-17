@@ -1,6 +1,6 @@
 export default class RyFItemSheet extends ItemSheet{
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "item"],
       width: 320,
       height: 450,

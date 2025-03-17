@@ -5,7 +5,7 @@ import { tiradaAtaque } from "../tiradas/tirada-ataque.js";
 import { tiradaDano } from "../tiradas/tirada-dano.js";
 export default class RyFActorSheet extends ActorSheet {
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["ryf", "sheet", "actor"],
       template: "systems/ryf/templates/actors/jugador.html",
       width: 800,
